@@ -34,7 +34,7 @@
 
 
 
-<link id="pagestyle" href="{% static 'assets/css/material-kit.css?v=3.0.4' %}" rel="stylesheet" />
+<link id="pagestyle" href="{% static 'assets/css/material-kit.css' %}" rel="stylesheet" />
 
 
 <!-- Nepcha Analytics (nepcha.com) -->
@@ -65,7 +65,7 @@
           <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
            Páginas
-            <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+            <img src="{% static 'assets/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow ms-auto ms-md-2">
           </a>
           <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
             <div class="d-none d-lg-block">
@@ -120,7 +120,7 @@
           <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="material-icons opacity-6 me-2 text-md">view_day</i>
             Seções
-            <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+            <img src="{% static 'assets/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow ms-auto ms-md-2">
           </a>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuBlocks">
             <div class="d-none d-lg-block">
@@ -131,7 +131,7 @@
           <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Seções de página</h6>
           <span class="text-sm">Veja todas as seções</span>
         </div>
-        <img src="./assets/img/down-arrow.svg" alt="down-arrow" class="arrow">
+        <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
       </div>
     </a>
     <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
@@ -151,7 +151,7 @@
           <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Navegação</h6>
           <span class="text-sm">Veja todas as navegações</span>
         </div>
-        <img src="./assets/img/down-arrow.svg" alt="down-arrow" class="arrow">
+        <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
       </div>
     </a>
     <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
@@ -174,7 +174,7 @@
           <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Áreas de entrada</h6>
           <span class="text-sm">Veja todas as áreas de entrada</span>
         </div>
-        <img src="./assets/img/down-arrow.svg" alt="down-arrow" class="arrow">
+        <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
       </div>
     </a>
     <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
@@ -194,7 +194,7 @@
           <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Atenção apanhadores</h6>
           <span class="text-sm">Veja todos os exemplos</span>
         </div>
-        <img src="./assets/img/down-arrow.svg" alt="down-arrow" class="arrow">
+        <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
       </div>
     </a>
     <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
@@ -218,7 +218,7 @@
           <span class="text-sm">Veja todos os elementos</span>
         </div>
 
-        <img src="./assets/img/down-arrow.svg" alt="down-arrow" class="arrow">
+        <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
       </div>
     </a>
     <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
@@ -373,7 +373,7 @@
           <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="material-icons opacity-6 me-2 text-md">article</i>
             Docs
-            <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+            <img src="{% static 'assets/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow ms-auto ms-md-2">
           </a>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg" aria-labelledby="dropdownMenuDocs">
             <div class="d-none d-lg-block">
@@ -462,7 +462,7 @@
 
 
 <header class="header-2">
-  <div class="page-header min-vh-75 relative" style="background-image: url('./assets/img/bg2.jpg')">
+  <div class="page-header min-vh-75 relative" style="background-image: url('{% static "assets/img/bg2.jpg" %}')">
     <span class="mask bg-gradient-primary opacity-4"></span>
     <div class="container">
       <div class="row">
@@ -828,27 +828,27 @@
     <div class="row">
       <div class="col-lg-2 col-md-4 col-6 ms-auto">
         <a href="https://www.drogasil.com.br/">
-        <img class="w-100 opacity-6" src="./assets/img/logos/gray-logos/logo-drogasilv2.svg" alt="Logo">
+        <img class="w-100 opacity-6" src="{% static 'assets/img/logos/gray-logos/logo-drogasilv2.svg' %}" alt="Logo">
         </a>
       </div>
       <div class="col-lg-2 col-md-4 col-6">
         <a href="https://laboc.med.br/">
-        <img class="w-100 opacity-6" src="./assets/img/logos/gray-logos/logo-laboc.svg" alt="Logo">
+        <img class="w-100 opacity-6" src="{% static 'assets/img/logos/gray-logos/logo-laboc.svg' %}" alt="Logo">
         </a>
       </div>
       <div class="col-lg-2 col-md-4 col-6">
         <a href="https://www.unimed.coop.br/site/web/caruaru">
-        <img class="w-100 opacity-6" src="./assets/img/logos/gray-logos/logo-unimed.svg" alt="Logo">
+        <img class="w-100 opacity-6" src="{% static 'assets/img/logos/gray-logos/logo-unimed.svg' %}" alt="Logo">
       </a>  
       </div>
       <div class="col-lg-2 col-md-4 col-6 ms-lg-0 ms-md-auto">
         <a href="https://www.oticasdiniz.com.br/">
-        <img class="w-100 opacity-6" src="./assets/img/logos/gray-logos/logo-oticasdiniz.svg" alt="Logo">
+        <img class="w-100 opacity-6" src="{% static 'assets/img/logos/gray-logos/logo-oticasdiniz.svg' %}" alt="Logo">
       </a>
       </div>
       <div class="col-lg-2 col-md-4 col-6 me-md-auto mx-md-0 mx-auto">
         <a href="https://www.paguemenos.com.br/">
-        <img class="w-100 opacity-6" src="./assets/img/logos/gray-logos/logo-paguemenosv2.svg" alt="Logo">
+        <img class="w-100 opacity-6" src="{% static 'assets/img/logos/gray-logos/logo-paguemenosv2.svg' %}" alt="Logo">
         </a>  
       </div>
     </div>
@@ -858,7 +858,7 @@
 
 <section class="py-sm-7" id="connect-with-us">
   <div class="bg-gradient-dark position-relative m-3 border-radius-xl overflow-hidden">
-    <img src="./assets/img/shapes/waves-white.svg" alt="pattern-lines" class="position-absolute start-0 top-md-0 w-100 opacity-2">
+    <img src="{% static 'assets/img/shapes/waves-white.svg' %}" alt="pattern-lines" class="position-absolute start-0 top-md-0 w-100 opacity-2">
     <div class="container py-7 position-relative z-index-2">
       <div class="row">
         <div class="col-md-7 mx-auto text-center">
@@ -999,7 +999,7 @@
       <div class="col-md-3 mb-4 ms-auto">
         <div>
           <a href="https://www.creative-tim.com/product/material-kit">
-            <img src="./assets/img/logo-ct-dark.png" class="mb-3 footer-logo" alt="main_logo">
+            <img src="{% static 'assets/img/logo-ct-dark.png' %}" class="mb-3 footer-logo" alt="main_logo">
           </a>
           <h6 class="font-weight-bolder mb-4">Material Kit 2</h6>
         </div>
@@ -1186,35 +1186,35 @@
 
 
 <!--   Core JS Files   -->
-<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
-<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-<script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="{% static 'assets/js/core/popper.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'assets/js/core/bootstrap.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'assets/js/plugins/perfect-scrollbar.min.js' %}"></script>
 
 
 
 
 <!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
-<script src="./assets/js/plugins/countup.min.js"></script>
+<script src="{% static 'assets/js/plugins/countup.min.js' %}"></script>
 
 
 
 
 
-<script src="./assets/js/plugins/choices.min.js"></script>
+<script src="{% static 'assets/js/plugins/choices.min.js' %}"></script>
 
 
 
-<script src="./assets/js/plugins/prism.min.js"></script>
-<script src="./assets/js/plugins/highlight.min.js"></script>
+<script src="{% static 'assets/js/plugins/prism.min.js' %}"></script>
+<script src="{% static 'assets/js/plugins/highlight.min.js'%}"></script>
 
 
 
 <!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
-<script src="./assets/js/plugins/rellax.min.js"></script>
+<script src="{% static 'assets/js/plugins/rellax.min.js' %}"></script>
 <!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
-<script src="./assets/js/plugins/tilt.min.js"></script>
+<script src="{% static 'assets/js/plugins/tilt.min.js' %}"></script>
 <!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
-<script src="./assets/js/plugins/choices.min.js"></script>
+<script src="{% static 'assets/js/plugins/choices.min.js' %}"></script>
 
 
 
@@ -1235,7 +1235,7 @@
 <!--  Google Maps Plugin    -->
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
-<script src="./assets/js/material-kit.min.js?v=3.0.4" type="text/javascript"></script>
+<script src="{% static 'assets/js/material-kit.min.js?v=3.0.4' %}" type="text/javascript"></script>
 
 
 <script type="text/javascript">
