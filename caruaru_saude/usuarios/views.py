@@ -10,7 +10,7 @@ def index(request):
 
 def cadastro(request):
     if request.method ==  "GET":
-        return render(request, 'usuarios/cadastro.html')
+        return render(request, 'cadastro.html')
     else:
         username = request.POST.get('username')
         email = request.POST.get('email')
@@ -28,7 +28,7 @@ def cadastro(request):
 
 def login(request):
     if request.method == 'GET':
-        return render(request, 'usuarios/login.html')
+        return render(request, 'login.html')
     else:
         username = request.POST.get('username')
         senha = request.POST.get('senha')
