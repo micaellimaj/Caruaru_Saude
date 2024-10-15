@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
   <title>
     Material Kit 2 by Creative Tim
   </title>
@@ -551,14 +553,14 @@
                 <div class="z-index-2 text-center d-flex h-100 w-100 d-flex m-auto justify-content-center">
                   <div class="mask bg-gradient-dark opacity-8"></div>
                   <div class="p-5 ps-sm-8 position-relative text-start my-auto z-index-2">
-                    <h3 class="text-white">Contact Information</h3>
-                    <p class="text-white opacity-8 mb-4">Fill up the form and our Team will get back to you within 24 hours.</p>
+                    <h3 class="text-white">Opções para o Usuário</h3>
+                    <p class="text-white opacity-8 mb-4">Clique para mais detalhes e configurações.</p>
                     <div class="d-flex p-2 text-white">
                       <div>
                         <i class="fas fa-phone text-sm"></i>
                       </div>
                       <div class="ps-3">
-                        <span class="text-sm opacity-8">(+40) 772 100 200</span>
+                        <button class="btn btn-link text-white" onclick="showSection('details')">Detalhes da conta</button>
                       </div>
                     </div>
                     <div class="d-flex p-2 text-white">
@@ -566,7 +568,7 @@
                         <i class="fas fa-envelope text-sm"></i>
                       </div>
                       <div class="ps-3">
-                        <span class="text-sm opacity-8">hello@creative-tim.com</span>
+                        <button class="btn btn-link text-white" onclick="showSection('appointments')">Marcar Agendamento</button>
                       </div>
                     </div>
                     <div class="d-flex p-2 text-white">
@@ -574,8 +576,9 @@
                         <i class="fas fa-map-marker-alt text-sm"></i>
                       </div>
                       <div class="ps-3">
-                        <span class="text-sm opacity-8">Dyonisie Wolf Bucharest, RO 010458</span>
+                        <button class="btn btn-link text-white" onclick="showSection('orders')">Pedidos de Agendamento</button>
                       </div>
+                      
                     </div>
                     <div class="mt-4">
                       <button type="button" class="btn btn-icon-only btn-link text-white btn-lg mb-0" data-toggle="tooltip" data-placement="bottom" data-original-title="Log in with Facebook">
@@ -595,45 +598,133 @@
                 </div>
               </div>
               <div class="col-lg-7">
-                <form class="p-3" id="contact-form" method="post">
-                  <div class="card-header px-4 py-sm-5 py-3">
-                    <h2>Say Hi!</h2>
-                    <p class="lead"> We'd like to talk with you.</p>
+                <!-- Dynamic content section -->
+                <div id="content-section">
+                  <!-- Account Details section -->
+                  <div id="details" class="section">
+                    <form class="p-3" id="contact-form" method="post">
+                      <div class="card-header px-4 py-sm-5 py-3">
+                        <h2>Detalhes da conta</h2>
+                        <p class="lead">Aqui estão os detalhes da sua conta Micael.</p>
+                      </div>
+                      <div class="card-body pt-1">
+                        <div class="row">
+                          <div class="col-md-12 pe-2 mb-3">
+                            <div class="input-group input-group-static mb-4">
+                              <label>Meu username é</label>
+                              <input type="text" class="form-control" placeholder="Nome completo">
+                            </div>
+                          </div>
+                          <div class="col-md-12 pe-2 mb-3">
+                            <div class="input-group input-group-static mb-4">
+                              <label>Meu email é</label>
+                              <input type="text" class="form-control" placeholder="Nome do Email">
+                            </div>
+                          </div>
+                          <div class="col-md-12 pe-2 mb-3">
+                            <div class="input-group input-group-static mb-4">
+                              <label>Minha senha é</label>
+                              <input type="password" class="form-control" placeholder="senha">
+                            </div>
+                          </div>
+                          <div class="col-md-12 pe-2 mb-3">
+                            <div class="input-group input-group-static mb-4">
+                              <label>Mudar senha</label>
+                              <input type="password" class="form-control" placeholder="nova senha">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6 text-end ms-auto">
+                          <button type="submit" class="btn bg-gradient-info mb-0">Confirmar</button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
-                  <div class="card-body pt-1">
-                    <div class="row">
-                      <div class="col-md-12 pe-2 mb-3">
-                        <div class="input-group input-group-static mb-4">
-                          <label>My name is</label>
-                          <input type="text" class="form-control" placeholder="Full Name">
-                        </div>
-                      </div>
-                      <div class="col-md-12 pe-2 mb-3">
-                        <div class="input-group input-group-static mb-4">
-                          <label>I'm looking for</label>
-                          <input type="text" class="form-control" placeholder="What you love">
-                        </div>
-                      </div>
-                      <div class="col-md-12 pe-2 mb-3">
-                        <div class="input-group input-group-static mb-4">
-                          <label>Your message</label>
-                          <textarea name="message" class="form-control" id="message" rows="6" placeholder="I want to say that..."></textarea>
-                        </div>
-                      </div>
+              
+                  <!-- Seção de compromissos -->
+                  <div id="appointments" class="section" style="display:none;">
+                    <div class="card-header px-4 py-sm-5 py-3">
+                      <h2>Agendamentos</h2>
+                      <p class="lead">Aqui estão as opções de agendamento</p>
                     </div>
-                    <div class="row">
-                      <div class="col-md-6 text-end ms-auto">
-                        <button type="submit" class="btn bg-gradient-info mb-0">Send Message</button>
+                    <form class="p-3" id="contact-form" method="post">
+                      <div class="card-body pt-1">
+                        <div class="row">
+                          <!-- Seleção de Serviço -->
+                          <div class="col-md-12 pe-2 mb-3">
+                            <div class="input-group input-group-static mb-4">
+                              <label>Selecione o serviço</label>
+                              <select class="form-control" id="serviceSelect" required>
+                                <option value="" disabled selected>Escolha o serviço</option>
+                                <option value="Consulta Médica">Consulta Médica</option>
+                                <option value="Exame Laboratorial">Exame Laboratorial</option>
+                                <option value="Vacinação">Vacinação</option>
+                              </select>
+                            </div>
+                          </div>
+                  
+                          <!-- Seleção de Profissional/Instituição -->
+                          <div class="col-md-12 pe-2 mb-3">
+                            <div class="input-group input-group-static mb-4">
+                              <label>Selecione o profissional/ instituição</label>
+                              <select class="form-control" id="professionalSelect" required>
+                                <option value="" disabled selected>Escolha o profissional/instituição</option>
+                                <option value="Hospital São Sebastião" data-service="Consulta Médica">Hospital São Sebastião</option>
+                                <option value="Instituto Pernambuco" data-service="Consulta Médica">Instituto Pernambuco</option>
+                                <option value="Cerpe Caruaru" data-service="Exame Laboratorial">Cerpe Caruaru</option>
+                                <option value="LABOC" data-service="Exame Laboratorial">LABOC</option>
+                                <option value="Previne Vacinas" data-service="Vacinação">Previne Vacinas</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <!-- Seleção de Data e Horário -->
+                          <div class="col-md-12 pe-2 mb-3">
+                            <div class="input-group input-group-static mb-4">
+                              <label>Selecione a data e horário</label>
+                              <input type="text" class="form-control datetimepicker" id="datetime" placeholder="Escolha a data e o horário" required>
+                            </div>
+                          </div>
+                   
+                          <!-- Seleção de Método de Pagamento -->
+                          <div class="col-md-12 pe-2 mb-3">
+                            <div class="input-group input-group-static mb-4">
+                              <label>Método de pagamento</label>
+                              <select class="form-control" id="paymentMethod" required>
+                                <option value="" disabled selected>Escolha o método de pagamento</option>
+                                <option value="Cartão de Crédito">Cartão de Crédito</option>
+                                <option value="Cartão de Débito">Cartão de Débito</option>
+                                <option value="Dinheiro">Dinheiro</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                     
+                  
+                      <div class="row">
+                        <div class="col-md-6 text-end ms-auto">
+                          <button type="submit" class="btn bg-gradient-info mb-0">Confirmar</button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+                      
+                  <!-- Pedidos de Agendamento e Histórico -->
+                  
+    <div id="orders" class="section" style="display:none;">
+      <div class="card-header px-4 py-sm-5 py-3">
+        <h2>Pedidos</h2>
+        <p class="lead">Aqui estão os seus pedidos mais recentes</p>
       </div>
+      <ul id="appointmentList" class="list-group">
+        <!-- Lista dinâmica de agendamentos será inserida aqui -->
+      </ul>
     </div>
+  </div>
+</div>
   </section>
   <!-- -------- START FOOTER 5 w/ DARK BACKGROUND ------- -->
   <footer class="footer py-5">
@@ -698,6 +789,85 @@
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
   <script src="../assets/js/material-kit.min.js?v=3.0.4" type="text/javascript"></script>
+
+  <!-- JavaScript -->
+<script>
+  function showSection(section) {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(function(el) {
+      el.style.display = 'none';
+    });
+  
+    // Show the selected section
+    document.getElementById(section).style.display = 'block';
+  }
+  </script>
+  <!-- Script para o Filtro -->
+<script>
+  document.getElementById('serviceSelect').addEventListener('change', function() {
+    var selectedService = this.value;
+    var professionalSelect = document.getElementById('professionalSelect');
+    var options = professionalSelect.options;
+
+    for (var i = 0; i < options.length; i++) {
+      var option = options[i];
+      var service = option.getAttribute('data-service');
+      
+      // Se o valor do serviço no option corresponder ao serviço selecionado, exibe
+      if (service === selectedService || option.value === "") {
+        option.style.display = '';
+      } else {
+        option.style.display = 'none';
+      }
+    }
+
+    // Redefinir a seleção para o valor padrão após o filtro
+    professionalSelect.selectedIndex = 0;
+  });
+
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+  flatpickr(".datetimepicker", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    time_24hr: true
+  });
+</script>
+
+//Função para capturar e exibir os agendamentos na lista
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Impede o envio do formulário
+
+  var service = document.getElementById('serviceSelect').value;
+  var professional = document.getElementById('professionalSelect').value;
+  var datetime = document.getElementById('datetime').value;
+  var paymentMethod = document.getElementById('paymentMethod').value;
+
+  if (service && professional && datetime && paymentMethod) {
+    // Adiciona o agendamento à lista
+    var appointmentList = document.getElementById('appointmentList');
+    var newAppointment = document.createElement('li');
+    newAppointment.className = "list-group-item";
+    newAppointment.textContent = `Serviço: ${service}, Profissional: ${professional}, Data/Horário: ${datetime}, Pagamento: ${paymentMethod}`;
+    appointmentList.appendChild(newAppointment);
+
+    // Exibe a seção de agendamentos confirmados
+    document.getElementById('orders').style.display = 'block';
+
+    // Limpa o formulário após o envio
+    document.getElementById('contact-form').reset();
+  }
+});
+</script>
+
+  
+
 </body>
 
 </html>
