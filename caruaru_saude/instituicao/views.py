@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django
 from django.contrib.auth.decorators import login_required
+from .forms import AppointmentForm
+from .models import Appointment
 
 def cadastro_instituicao(request):
     if request.method ==  "GET":
@@ -48,3 +50,15 @@ def login_i(request):
 @login_required(login_url="/auth/login_i/")     
 def instituicao(request): 
     return render(request, 'instituicao/instituicao.html')
+
+def appointment_view(request):
+    if request.method == 'POST':
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            form.save()  # Isso salva os dados no banco de dados
+            return HttpResponse("Agendamento cadastrado com sucesso!")
+    else:
+        form = AppointmentForm()
+
+    return render(request, 'instituicao/instituicao.html', {'form': form})
+

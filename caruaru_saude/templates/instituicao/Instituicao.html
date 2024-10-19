@@ -569,7 +569,7 @@
                         <i class="fas fa-envelope text-sm"></i>
                       </div>
                       <div class="ps-3">
-                        <button class="btn btn-link text-white" onclick="showSection('appointments')">Agendamentos Marcados</button>
+                        <button class="btn btn-link text-white" onclick="showSection('appointments')">Horários Disponíveis</button>
                       </div>
                     </div>
                     <div class="d-flex p-2 text-white">
@@ -604,6 +604,7 @@
                   <!-- Account Details section -->
                   <div id="details" class="section">
                     <form class="p-3" id="contact-form" method="post">
+                      {% csrf_token %}
                       <div class="card-header px-4 py-sm-5 py-3">
                         <h2>Detalhes da conta</h2>
                         <p class="lead">Aqui estão os detalhes da sua conta da Fundação</p>
@@ -614,19 +615,19 @@
                           <div class="col-lg-6 col-md-6 col-12">
                             <div class="input-group input-group-static mb-4">
                               <label>Meu username é</label>
-                              <input type="text" class="form-control" placeholder="Nome completo">
+                              {{ user_form.username }}
                             </div>
                             <div class="input-group input-group-static mb-4">
                               <label>Meu email é</label>
-                              <input type="text" class="form-control" placeholder="Nome do Email">
+                              {{ user_form.email }}
                             </div>
                             <div class="input-group input-group-static mb-4">
                               <label>Minha instituição é</label>
-                              <input type="text" class="form-control" placeholder="Nome da instituição">
+                              {{ profile_form.instituicao }}
                             </div>
                             <div class="input-group input-group-static mb-4">
                               <label>Meu endereço é</label>
-                              <input type="text" class="form-control" placeholder="Meu endereço">
+                              {{ profile_form.endereco }}
                             </div>
                           </div>
                           
@@ -634,19 +635,19 @@
                           <div class="col-lg-6 col-md-6 col-12">
                             <div class="input-group input-group-static mb-4">
                               <label>Meu Telefone é</label>
-                              <input type="number" class="form-control" placeholder="Meu Telefone">
+                              {{ profile_form.telefone }}
                             </div>
                             <div class="input-group input-group-static mb-4">
                               <label>Meu whatsapp é</label>
-                              <input type="number" class="form-control" placeholder="Meu whatsapp">
+                              {{ profile_form.whatsapp }}
                             </div>
                             <div class="input-group input-group-static mb-4">
                               <label>Minha senha é</label>
-                              <input type="password" class="form-control" placeholder="Minha senha">
+                              {{ profile_form.senha }}
                             </div>
                             <div class="input-group input-group-static mb-4">
                               <label>Meu instagram é</label>
-                              <input type="text" class="form-control" placeholder="Meu instagram">
+                              {{ profile_form.instagram }}
                             </div>
                           </div>
                         </div>
@@ -663,73 +664,56 @@
                   </div>
               
                   <!-- Seção de compromissos -->
-                  <div id="appointments" class="section" style="display:none;">
-                    <div class="card-header px-4 py-sm-5 py-3">
-                      <h2>Agendamentos</h2>
-                      <p class="lead">Aqui estão as opções de agendamento</p>
-                    </div>
-                    <form class="p-3" id="contact-form" method="post">
-                      <div class="card-body pt-1">
-                        <div class="row">
-                          <!-- Seleção de Serviço -->
-                          <div class="col-md-12 pe-2 mb-3">
-                            <div class="input-group input-group-static mb-4">
-                              <label>Selecione o serviço</label>
-                              <select class="form-control" id="serviceSelect" required>
-                                <option value="" disabled selected>Escolha o serviço</option>
-                                <option value="Consulta Médica">Consulta Médica</option>
-                                <option value="Exame Laboratorial">Exame Laboratorial</option>
-                                <option value="Vacinação">Vacinação</option>
-                              </select>
-                            </div>
-                          </div>
-                  
-                          <!-- Seleção de Profissional/Instituição -->
-                          <div class="col-md-12 pe-2 mb-3">
-                            <div class="input-group input-group-static mb-4">
-                              <label>Selecione o profissional/ instituição</label>
-                              <select class="form-control" id="professionalSelect" required>
-                                <option value="" disabled selected>Escolha o profissional/instituição</option>
-                                <option value="Hospital São Sebastião" data-service="Consulta Médica">Hospital São Sebastião</option>
-                                <option value="Instituto Pernambuco" data-service="Consulta Médica">Instituto Pernambuco</option>
-                                <option value="Cerpe Caruaru" data-service="Exame Laboratorial">Cerpe Caruaru</option>
-                                <option value="LABOC" data-service="Exame Laboratorial">LABOC</option>
-                                <option value="Previne Vacinas" data-service="Vacinação">Previne Vacinas</option>
-                              </select>
-                            </div>
-                          </div>
+<div id="appointments" class="section" style="display:none;">
+  <div class="card-header px-4 py-sm-5 py-3">
+    <h2>Agendamentos</h2>
+    <p class="lead">Aqui estão as opções de agendamento</p>
+  </div>
 
-                          <!-- Seleção de Data e Horário -->
-                          <div class="col-md-12 pe-2 mb-3">
-                            <div class="input-group input-group-static mb-4">
-                              <label>Selecione a data e horário</label>
-                              <input type="text" class="form-control datetimepicker" id="datetime" placeholder="Escolha a data e o horário" required>
-                            </div>
-                          </div>
-                   
-                          <!-- Seleção de Método de Pagamento -->
-                          <div class="col-md-12 pe-2 mb-3">
-                            <div class="input-group input-group-static mb-4">
-                              <label>Método de pagamento</label>
-                              <select class="form-control" id="paymentMethod" required>
-                                <option value="" disabled selected>Escolha o método de pagamento</option>
-                                <option value="Cartão de Crédito">Cartão de Crédito</option>
-                                <option value="Cartão de Débito">Cartão de Débito</option>
-                                <option value="Dinheiro">Dinheiro</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                     
-                  
-                      <div class="row">
-                        <div class="col-md-6 text-end ms-auto">
-                          <button type="submit" class="btn bg-gradient-info mb-0">Confirmar</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+  <!-- Adicionar o CSRF token -->
+  <form role="form" action="{% url 'appointment_view' %}" method="POST" class="text-start">
+    {% csrf_token %} 
+    <div class="card-body pt-1">
+      <div class="row">
+        <!-- Seleção de Serviço -->
+        <div class="col-md-12 pe-2 mb-3">
+          <div class="input-group input-group-static mb-4">
+            <label for="id_service">Selecione o serviço</label>
+            <select class="form-control" id="id_service" name="service" required>
+              <option value="" disabled selected>Escolha o serviço</option>
+              <option value="Consulta Médica">Consulta Médica</option>
+              <option value="Exame Laboratorial">Exame Laboratorial</option>
+              <option value="Vacinação">Vacinação</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Seleção de Profissional -->
+        <div class="col-md-12 pe-2 mb-3">
+          <div class="input-group input-group-static mb-4">
+            <label for="id_professional">Adicionar profissional</label>
+            <input type="text" class="form-control" id="id_professional" name="professional" placeholder="Escolha o profissional" required>
+          </div>
+        </div>
+
+        <!-- Seleção de Data e Horário -->
+        <div class="col-md-12 pe-2 mb-3">
+          <div class="input-group input-group-static mb-4">
+            <label for="id_datetime">Selecione a data e horário</label>
+            <input type="text" class="form-control datetimepicker" id="id_datetime" name="datetime" placeholder="Escolha a data e o horário" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 text-end ms-auto">
+          <button type="submit" class="btn bg-gradient-info mb-0">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
                       
                   <!-- Pedidos de Agendamento e Histórico -->
                   
