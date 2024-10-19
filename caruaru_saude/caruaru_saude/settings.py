@@ -25,7 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'usuarios'
+    'usuarios',
+    'instituicao'
 ]
 
 MIDDLEWARE = [
@@ -43,7 +44,11 @@ ROOT_URLCONF = 'caruaru_saude.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['caruaru_saude/usuarios/templates'],  # Caminho absoluto para a pasta "pages"
+        'DIRS': [
+            BASE_DIR / 'templates',  # Para todos
+            BASE_DIR / 'templates/usuarios',  # Para usuários
+            BASE_DIR / 'templates/instituicao',  # Para instituições
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,7 +116,7 @@ STATIC_URL = '/static/'
 
 # Usando Path para definir o caminho da pasta estática
 STATICFILES_DIRS = [
-    BASE_DIR / 'usuarios/static',
+    BASE_DIR / 'static',
 ]
 
 # Default primary key field type
