@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Agendamentos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Lista de Agendamentos</h1>
+
+        <!-- Tabela para exibir os agendamentos -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Serviço</th>
+                    <th scope="col">Profissional</th>
+                    <th scope="col">Data e Horário</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.service }}</td>
+                    <td>{{ appointment.professional }}</td>
+                    <td>{{ appointment.datetime }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3">Nenhum agendamento encontrado</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

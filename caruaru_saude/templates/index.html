@@ -49,7 +49,7 @@
 <div class="container position-sticky z-index-sticky top-0"><div class="row"><div class="col-12">
 <nav class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
   <div class="container-fluid px-0">
-    <a class="navbar-brand font-weight-bolder ms-sm-3" href="https://demos.creative-tim.com/material-kit/index" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+    <a class="navbar-brand font-weight-bolder ms-sm-3" href="{% url 'index' %}" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
       Caruaru Saúde
     </a>
     <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,17 +76,12 @@
     <span>Sobre nós</span>
   </a>
   <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">
-    <span>Contate-nos</span>
+    <span>Catálogo</span>
   </a>
   <a href="./pages/author.html" class="dropdown-item border-radius-md">
     <span>Autora</span>
   </a>
-  <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1 mt-3">
-    Conta
-  </h6>
-  <a href="./pages/sign-in.html" class="dropdown-item border-radius-md">
-    <span>Entrar</span>
-  </a>
+  
 </div>
 
 <div class="d-lg-none">
@@ -104,12 +99,6 @@
     <span>Autora</span>
   </a>
 
-  <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1 mt-3">
-   Conta
-  </h6>
-  <a href="./pages/sign-in.html" class="dropdown-item border-radius-md">
-    <span>Entrar</span>
-  </a>
 
 </div>
 
@@ -119,7 +108,7 @@
         <li class="nav-item dropdown dropdown-hover mx-2">
           <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="material-icons opacity-6 me-2 text-md">view_day</i>
-            Seções
+            Conta
             <img src="{% static 'assets/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow ms-auto ms-md-2">
           </a>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuBlocks">
@@ -128,41 +117,24 @@
     <a class="dropdown-item py-2 ps-3 border-radius-md" href="./presentation.html">
       <div class="w-100 d-flex align-items-center justify-content-between">
         <div>
-          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Seções de página</h6>
-          <span class="text-sm">Veja todas as seções</span>
+          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Usuário</h6>
+          <span class="text-sm">Veja todas as opções</span>
         </div>
         <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
       </div>
     </a>
     <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/page-sections/hero-sections.html">
-        Cabeçalhos de página
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'cadastro' %}">
+        Cadastre-se
       </a>
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/page-sections/features.html">
-        Características
-      </a>
-    </div>
-  </li>
-
-  <li class="nav-item dropdown dropdown-hover dropdown-subitem">
-    <a class="dropdown-item py-2 ps-3 border-radius-md" href="./presentation.html">
-      <div class="w-100 d-flex align-items-center justify-content-between">
-        <div>
-          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Navegação</h6>
-          <span class="text-sm">Veja todas as navegações</span>
-        </div>
-        <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
-      </div>
-    </a>
-    <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/navigation/navbars.html">
-        Barbas navais
-      </a>
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/navigation/nav-tabs.html">
-        Guias NAV
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'login' %}">
+       Faça login
       </a>
       <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/navigation/pagination.html">
-        Paginação
+        Área do usuário
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'consulta' %}">
+        Marcar Consulta
       </a>
     </div>
   </li>
@@ -171,83 +143,26 @@
     <a class="dropdown-item py-2 ps-3 border-radius-md" href="./presentation.html">
       <div class="w-100 d-flex align-items-center justify-content-between">
         <div>
-          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Áreas de entrada</h6>
-          <span class="text-sm">Veja todas as áreas de entrada</span>
+          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Negócio</h6>
+          <span class="text-sm">Veja todas as opções</span>
         </div>
         <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
       </div>
     </a>
     <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/input-areas/inputs.html">
-       Entradas
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'cadastro_instituicao' %}">
+        Cadastre-se
       </a>
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/input-areas/forms.html">
-        Formas
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'login_i' %}">
+        Faça login
       </a>
-    </div>
-  </li>
-
-  <li class="nav-item dropdown dropdown-hover dropdown-subitem">
-    <a class="dropdown-item py-2 ps-3 border-radius-md" href="./presentation.html">
-      <div class="w-100 d-flex align-items-center justify-content-between">
-        <div>
-          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Atenção apanhadores</h6>
-          <span class="text-sm">Veja todos os exemplos</span>
-        </div>
-        <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
-      </div>
-    </a>
-    <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/attention-catchers/alerts.html">
-        Alertas
-      </a>
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/attention-catchers/modals.html">
-        Modais
-      </a>
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/attention-catchers/tooltips-popovers.html">
-        Dicas de ferramentas e popovers
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'instituicao' %}">
+        Área da instituição
       </a>
     </div>
   </li>
 
-  <li class="nav-item dropdown dropdown-hover dropdown-subitem">
-    <a class="dropdown-item py-2 ps-3 border-radius-md" href="./presentation.html">
-      <div class="w-100 d-flex align-items-center justify-content-between">
-        <div>
-          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Elementos</h6>
-          <span class="text-sm">Veja todos os elementos</span>
-        </div>
-
-        <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
-      </div>
-    </a>
-    <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/avatars.html">
-        Avatares
-      </a>
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/badges.html">
-        Crachás
-      </a>
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/breadcrumbs.html">
-        Farinha de rosca
-      </a>
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/buttons.html">
-        Botões
-      </a>
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/dropdowns.html">
-        Suspensas
-      </a>
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/progress-bars.html">
-        Barras de progresso
-      </a>
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/toggles.html">
-        Alterna
-      </a>
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/typography.html">
-        Tipografia
-      </a>
-    </div>
-  </li>
+  
 </div>
 
 <div class="row d-lg-none">
@@ -378,36 +293,16 @@
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg" aria-labelledby="dropdownMenuDocs">
             <div class="d-none d-lg-block">
   <ul class="list-group">
-    <li class="nav-item list-group-item border-0 p-0">
-      <a class="dropdown-item py-2 ps-3 border-radius-md" href=" https://www.creative-tim.com/learning-lab/bootstrap/overview/material-kit ">
-        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Getting Started</h6>
-        <span class="text-sm">All about overview, quick start, license and contents</span>
-      </a>
+   
+    
     </li>
     <li class="nav-item list-group-item border-0 p-0">
-      <a class="dropdown-item py-2 ps-3 border-radius-md" href=" https://www.creative-tim.com/learning-lab/bootstrap/colors/material-kit ">
-        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Foundation</h6>
-        <span class="text-sm">See our colors, icons and typography</span>
+      <a class="dropdown-item py-2 ps-3 border-radius-md" href="https://github.com/micaellimaj/Caruaru_Saude">
+        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Repositório</h6>
+        <span class="text-sm">Explore o código fonte do projeto no Github</span>
       </a>
     </li>
-    <li class="nav-item list-group-item border-0 p-0">
-      <a class="dropdown-item py-2 ps-3 border-radius-md" href=" https://www.creative-tim.com/learning-lab/bootstrap/alerts/material-kit ">
-        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Components</h6>
-        <span class="text-sm">Explore our collection of fully designed components</span>
-      </a>
-    </li>
-    <li class="nav-item list-group-item border-0 p-0">
-      <a class="dropdown-item py-2 ps-3 border-radius-md" href=" https://www.creative-tim.com/learning-lab/bootstrap/datepicker/material-kit ">
-        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Plugins</h6>
-        <span class="text-sm">Check how you can integrate our plugins</span>
-      </a>
-    </li>
-    <li class="nav-item list-group-item border-0 p-0">
-      <a class="dropdown-item py-2 ps-3 border-radius-md" href=" https://www.creative-tim.com/learning-lab/bootstrap/utilities/material-kit ">
-        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Utility Classes</h6>
-        <span class="text-sm">For those who want flexibility, use our utility classes</span>
-      </a>
-    </li>
+    
   </ul>
 </div>
 
@@ -423,36 +318,30 @@
       <span class="text-sm">See our colors, icons and typography</span>
     </a>
 
-    <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
-      <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Components</h6>
-      <span class="text-sm">Explore our collection of fully designed components</span>
-    </a>
+    
 
-    <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
-      <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Plugins</h6>
-      <span class="text-sm">Check how you can integrate our plugins</span>
-    </a>
-
-    <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
-      <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Utility Classes</h6>
-      <span class="text-sm">For those who want flexibility, use our utility classes</span>
-    </a>
+    
   </div>
 </div>
 
           </ul>
-        </li>
         <li class="nav-item ms-lg-auto">
-          <a class="nav-link nav-link-icon me-2" href="https://github.com/creativetimofficial/material-kit" target="_blank">
-            <i class="fa fa-github me-1"></i>
-            <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Star us on Github">Github</p>
+          <!-- Link para Instagram -->
+          <a class="nav-link nav-link-icon me-2" href="https://www.instagram.com/seu_perfil" target="_blank">
+              <i class="fa fa-instagram me-1"></i>
+              <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Siga-nos no Instagram"></p>
           </a>
-        </li>
-        <li class="nav-item my-auto ms-3 ms-lg-0">
-          
-          <a href="https://www.creative-tim.com/product/material-kit-pro" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">Upgrade to Pro</a>
-          
-        </li>
+      </li>
+      
+      <li class="nav-item ms-lg-auto">
+          <!-- Link para LinkedIn -->
+          <a class="nav-link nav-link-icon me-2" href="https://www.linkedin.com/in/seu-perfil" target="_blank">
+              <i class="fa fa-linkedin me-1"></i>
+              <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Conecte-se conosco no LinkedIn"></p>
+          </a>
+      </li>
+      
+       
       </ul>
     </div>
   </div>
@@ -759,13 +648,13 @@
           <div class="card-body">
             <div class="author">
               <div class="name">
-                <h6 class="mb-0 font-weight-bolder">Nick Willever</h6>
+                <h6 class="mb-0 font-weight-bolder">João Silva</h6>
                 <div class="stats">
-                  <i class="far fa-clock"></i> 1 day ago
+                  <i class="far fa-clock"></i> 1 dia atrás
                 </div>
               </div>
             </div>
-            <p class="mt-4">"This is an excellent product, the documentation is excellent and helped me get things done more efficiently."</p>
+            <p class="mt-4">"Excelente plataforma, consegui agendar minha consulta em minutos!, super recomendo!"</p>
             <div class="rating mt-3">
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
@@ -782,13 +671,13 @@
           <div class="card-body">
             <div class="author align-items-center">
               <div class="name">
-                <h6 class="text-white mb-0 font-weight-bolder">Shailesh Kushwaha</h6>
+                <h6 class="text-white mb-0 font-weight-bolder">Paula Lima</h6>
                 <div class="stats text-white">
-                  <i class="far fa-clock"></i> 1 week ago
+                  <i class="far fa-clock"></i> 1 semana atrás
                 </div>
               </div>
             </div>
-            <p class="mt-4 text-white">"I found solution to all my design needs from Creative Tim. I use them as a freelancer in my hobby projects for fun! And its really affordable, very humble guys !!!"</p>
+            <p class="mt-4 text-white">"O catálogo de especialidades é incrível. Achei o profissional ideal rapidamente."</p>
             <div class="rating mt-3">
               <i class="fas fa-star text-white"></i>
               <i class="fas fa-star text-white"></i>
@@ -805,13 +694,14 @@
           <div class="card-body">
             <div class="author">
               <div class="name">
-                <h6 class="mb-0 font-weight-bolder">Samuel Kamuli</h6>
+                <h6 class="mb-0 font-weight-bolder">Guilherme Rocha
+                </h6>
                 <div class="stats">
-                  <i class="far fa-clock"></i> 3 weeks ago
+                  <i class="far fa-clock"></i> 3 semanas atrás
                 </div>
               </div>
             </div>
-            <p class="mt-4">"Great product. Helped me cut the time to set up a site. I used the components within instead of starting from scratch. I highly recommend for developers who want to spend more time on the backend!."</p>
+            <p class="mt-4">"Publicidade digital muito eficiente! Meu consultório ganhou novos pacientes em pouco tempo."</p>
             <div class="rating mt-3">
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>

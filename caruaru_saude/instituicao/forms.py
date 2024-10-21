@@ -6,8 +6,5 @@ class AppointmentForm(forms.ModelForm):
         model = Appointment
         fields = ['service', 'professional', 'datetime']
         
-        ''' widgets = {
-            'datetime': forms.DateTimeInput(attrs={'class': 'datetimepicker'}),
-        }
-'''
+        
        

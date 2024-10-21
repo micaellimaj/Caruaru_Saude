@@ -717,18 +717,74 @@
                       
                   <!-- Pedidos de Agendamento e Histórico -->
                   
-    <div id="orders" class="section" style="display:none;">
-      <div class="card-header px-4 py-sm-5 py-3">
-        <h2>Pedidos</h2>
-        <p class="lead">Aqui estão os seus pedidos mais recentes</p>
-      </div>
-      <ul id="appointmentList" class="list-group">
-        <!-- Lista dinâmica de agendamentos será inserida aqui -->
-      </ul>
-    </div>
+                  <div id="orders" class="section" style="display:none;">
+                    <div class="card-header px-4 py-sm-5 py-3">
+                        <h2>Pedidos</h2>
+                        <p class="lead">Aqui estão os seus pedidos mais recentes</p>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Serviço</th>
+                                <th scope="col">Profissional</th>
+                                <th scope="col">Data e Horário</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Loop para exibir agendamentos -->
+                            {% for appointment in appointments %}
+                            <tr>
+                                <td>{{ appointment.service }}</td>
+                                <td>{{ appointment.professional }}</td>
+                                <td>{{ appointment.datetime }}</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="3">Nenhum agendamento encontrado</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
   </div>
 </div>
+
+
+
   </section>
+
+  <!-- instituicao.html -->
+<div class="container mt-5">
+  <h1 class="mb-4">Lista de Agendamentos</h1>
+
+  <!-- Tabela para exibir os agendamentos -->
+  <table class="table table-striped">
+      <thead>
+          <tr>
+              <th scope="col">Serviço</th>
+              <th scope="col">Profissional</th>
+              <th scope="col">Data e Horário</th>
+          </tr>
+      </thead>
+      <tbody>
+          <!-- Loop para listar os agendamentos -->
+          {% for appointment in appointments %}
+          <tr>
+              <td>{{ appointment.service }}</td>
+              <td>{{ appointment.professional }}</td>
+              <td>{{ appointment.datetime }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+              <td colspan="3">Nenhum agendamento encontrado</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>
+
+
   <!-- -------- START FOOTER 5 w/ DARK BACKGROUND ------- -->
   <footer class="footer py-5">
     <div class="container z-index-1 position-relative">
