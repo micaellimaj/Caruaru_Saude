@@ -728,24 +728,51 @@
                                 <th scope="col">Serviço</th>
                                 <th scope="col">Profissional</th>
                                 <th scope="col">Data e Horário</th>
+                                <th scope="col">Ação</th> <!-- Coluna para o botão Excluir -->
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Loop para exibir agendamentos -->
-                            {% for appointment in appointments %}
+                            <!-- Loop para exibir agendamentos paginados -->
+                            {% for appointment in page_obj %}
                             <tr>
                                 <td>{{ appointment.service }}</td>
                                 <td>{{ appointment.professional }}</td>
                                 <td>{{ appointment.datetime }}</td>
+                                <td>
+                                    <form method="POST" action="{% url 'excluir_agendamento' appointment.id %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger">Excluir</button>
+                                    </form>
+                                </td>
                             </tr>
                             {% empty %}
                             <tr>
-                                <td colspan="3">Nenhum agendamento encontrado</td>
+                                <td colspan="4">Nenhum agendamento encontrado</td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
+                
+                    <!-- Paginação -->
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link" href="?page=1">Primeira</a></li>
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a></li>
+                            {% endif %}
+                
+                            <li class="page-item active">
+                                <span class="page-link">{{ page_obj.number }}</span>
+                            </li>
+                
+                            {% if page_obj.has_next %}
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Próxima</a></li>
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Última</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
                 </div>
+                
                 
   </div>
 </div>

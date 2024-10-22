@@ -13,6 +13,7 @@ urlpatterns = [
     path('auth/login_i/', views.login_i, name='login_i'),
     path('agendamento/', views.appointment_view, name='appointment_view'),
     path('lista_agendamentos/', lista_agendamentos_view, name='lista_agendamentos'),
+    path('excluir-agendamento/<int:appointment_id>/', views.excluir_agendamento, name='excluir_agendamento')
     
 
 ]

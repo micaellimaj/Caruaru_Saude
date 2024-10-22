@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate, login as login_django
 from django.contrib.auth.decorators import login_required
 from .models import Appointment
 from .forms import AppointmentForm
+from django.core.paginator import Paginator
+from django.shortcuts import get_object_or_404
 
 # Cadastro da instituição
 def cadastro_instituicao(request):
@@ -47,11 +49,17 @@ def login_i(request):
 
 # View da página de instituição (após o login)
 @login_required(login_url="/auth/login_i/")
-def instituicao(request): 
-    # Busca todos os agendamentos (opcional)
+def instituicao(request):
+    # Busca todos os agendamentos no banco de dados
     appointments = Appointment.objects.all()
-    # Renderiza a página de instituição com a lista de agendamentos
-    return render(request, 'instituicao/instituicao.html', {'appointments': appointments})
+
+    # Paginação: 10 agendamentos por página
+    paginator = Paginator(appointments, 10)  # 10 registros por página
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    # Renderiza a página de instituição com os agendamentos paginados
+    return render(request, 'instituicao/instituicao.html', {'page_obj': page_obj})
 
 # View de agendamentos
 @login_required(login_url="/auth/login_i/")
@@ -74,3 +82,12 @@ def lista_agendamentos_view(request):
 
     # Renderiza a página com a lista de agendamentos
     return render(request, 'instituicao/lista_agendamentos.html', {'appointments': appointments})
+
+@login_required(login_url="/auth/login_i/")
+def excluir_agendamento(request, appointment_id):
+    # Busca o agendamento pelo ID e exclui
+    appointment = get_object_or_404(Appointment, id=appointment_id)
+    appointment.delete()
+    
+    # Redireciona de volta para a página da instituição após excluir
+    return redirect('instituicao')
