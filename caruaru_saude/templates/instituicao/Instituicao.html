@@ -781,35 +781,7 @@
 
   </section>
 
-  <!-- instituicao.html -->
-<div class="container mt-5">
-  <h1 class="mb-4">Lista de Agendamentos</h1>
-
-  <!-- Tabela para exibir os agendamentos -->
-  <table class="table table-striped">
-      <thead>
-          <tr>
-              <th scope="col">Serviço</th>
-              <th scope="col">Profissional</th>
-              <th scope="col">Data e Horário</th>
-          </tr>
-      </thead>
-      <tbody>
-          <!-- Loop para listar os agendamentos -->
-          {% for appointment in appointments %}
-          <tr>
-              <td>{{ appointment.service }}</td>
-              <td>{{ appointment.professional }}</td>
-              <td>{{ appointment.datetime }}</td>
-          </tr>
-          {% empty %}
-          <tr>
-              <td colspan="3">Nenhum agendamento encontrado</td>
-          </tr>
-          {% endfor %}
-      </tbody>
-  </table>
-</div>
+ 
 
 
   <!-- -------- START FOOTER 5 w/ DARK BACKGROUND ------- -->

@@ -13,7 +13,10 @@ urlpatterns = [
     path('auth/login_i/', views.login_i, name='login_i'),
     path('agendamento/', views.appointment_view, name='appointment_view'),
     path('lista_agendamentos/', lista_agendamentos_view, name='lista_agendamentos'),
-    path('excluir-agendamento/<int:appointment_id>/', views.excluir_agendamento, name='excluir_agendamento')
-    
+    path('excluir-agendamento/<int:appointment_id>/', views.excluir_agendamento, name='excluir_agendamento'),
+    path('consulta/', views.consulta_view, name='consulta_view'),
+    path('marcar-consulta/<int:appointment_id>/', views.marcar_consulta, name='marcar_consulta'),
+    path('disponibilidade_consultas/', views.disponibilidade_consultas, name='disponibilidade_consultas')
+
 
 ]
