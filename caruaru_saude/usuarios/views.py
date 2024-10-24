@@ -8,6 +8,9 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render(request, 'index.html')
 
+def usuario(request):
+    return render(request, 'usuario.html')
+
 def cadastro(request):
     if request.method ==  "GET":
         return render(request, 'cadastro.html')

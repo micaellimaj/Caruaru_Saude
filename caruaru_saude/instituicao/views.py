@@ -9,6 +9,7 @@ from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.urls import reverse
 
 
 
@@ -55,17 +56,35 @@ def login_i(request):
 
 # View da página de instituição (após o login)
 @login_required(login_url="/auth/login_i/")
+def marcar_consulta(request, appointment_id):
+    try:
+        # Busca o agendamento pelo ID
+        appointment = Appointment.objects.get(id=appointment_id)
+        
+        # Marcar como agendado
+        appointment.is_booked = True
+        appointment.user = request.user  # Exemplo: associa o agendamento ao usuário atual
+        appointment.save()
+
+        messages.success(request, 'Consulta marcada com sucesso!')
+        return redirect('consulta')  # Redireciona de volta para a página de consultas
+    except Appointment.DoesNotExist:
+        messages.error(request, 'Agendamento não encontrado.')
+        return redirect('consulta')
+    
+@login_required(login_url="/auth/login_i/")
 def instituicao(request):
-    # Busca todos os agendamentos no banco de dados
-    appointments = Appointment.objects.all()
+    # Busca apenas os agendamentos marcados
+    appointments = Appointment.objects.filter(is_booked=True)
 
     # Paginação: 10 agendamentos por página
-    paginator = Paginator(appointments, 10)  # 10 registros por página
+    paginator = Paginator(appointments, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     # Renderiza a página de instituição com os agendamentos paginados
     return render(request, 'instituicao/instituicao.html', {'page_obj': page_obj})
+
 
 # View de agendamentos
 @login_required(login_url="/auth/login_i/")
@@ -121,16 +140,16 @@ def marcar_consulta(request, appointment_id):
         # Busca o agendamento pelo ID
         appointment = Appointment.objects.get(id=appointment_id)
         
-        # Aqui você pode adicionar a lógica para registrar o agendamento como marcado
-        # Dependendo da lógica de negócios, pode ser associar o usuário ao agendamento
+        # Marcar como agendado
+        appointment.is_booked = True
         appointment.user = request.user  # Exemplo: associa o agendamento ao usuário atual
         appointment.save()
 
         messages.success(request, 'Consulta marcada com sucesso!')
-        return redirect('consulta_view')  # Redireciona de volta para a página de consultas
+        return redirect('consulta')  # Redireciona de volta para a página de consultas
     except Appointment.DoesNotExist:
         messages.error(request, 'Agendamento não encontrado.')
-        return redirect('consulta_view')
+        return redirect('consulta')
 
 @login_required(login_url="/auth/login_i/")
 def disponibilidade_consultas(request):
@@ -139,3 +158,9 @@ def disponibilidade_consultas(request):
 
     # Renderiza a nova página com os agendamentos
     return render(request, 'consult/disponibilidade_consultas.html', {'appointments': appointments})
+
+@login_required(login_url="/auth/login_i/")
+def delete_appointment(request, appointment_id):
+    appointment = get_object_or_404(Appointment, id=appointment_id)
+    appointment.delete()
+    return redirect(reverse('instituicao'))

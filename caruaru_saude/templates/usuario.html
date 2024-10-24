@@ -5,7 +5,7 @@
   {% load static %}
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="{% static '/assets/img/apple-icon.png' %}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'assets/img/apple-icon.png' %}">
   <link rel="icon" type="image/png" href="{% static 'assets/img/favicon.png' %}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
@@ -15,7 +15,7 @@
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
-  <link href="{% static 'assets/css/nucleo-icons.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/nucleo-icons.css' %} " rel="stylesheet" />
   <link href="{% static 'assets/css/nucleo-svg.css' %}" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
@@ -417,7 +417,7 @@
   <!-- End Navbar -->
   <!-- -------- START HEADER 4 w/ search book a ticket form ------- -->
   <header>
-    <div class="page-header min-height-400" style="background-image: url('../assets/img/city-profile.jpg');" loading="lazy">
+    <div class="page-header min-height-400" style="background-image: url('{% static 'assets/img/city-profile.jpg' %}');" loading="lazy">
       <span class="mask bg-gradient-dark opacity-8"></span>
     </div>
   </header>
@@ -429,7 +429,7 @@
         <div class="row">
           <div class="col-12 mx-auto">
             <div class="mt-n8 mt-md-n9 text-center">
-              <img class="avatar avatar-xxl shadow-xl position-relative z-index-2" src="../assets/img/bruce-mars.jpg" alt="bruce" loading="lazy">
+              <img class="avatar avatar-xxl shadow-xl position-relative z-index-2" src="{% static 'assets/img/bruce-mars.jpg' %}" alt="bruce" loading="lazy">
             </div>
             <div class="row py-5">
               <div class="col-lg-7 col-md-7 z-index-2 position-relative px-md-2 px-sm-5 mx-auto">
@@ -550,291 +550,183 @@
         <div class="col">
           <div class="card box-shadow-xl overflow-hidden mb-5">
             <div class="row">
-              <!-- Seção da Imagem com opções -->
-            <div class="col-lg-5 position-relative bg-cover px-0" style="background-image: url('{% static 'assets/img/examples/blog2.jpg' %}')" loading="lazy">
-              <div class="z-index-2 text-center d-flex h-100 w-100 d-flex m-auto justify-content-center">
-                <div class="mask bg-gradient-dark opacity-8"></div>
-                <div class="p-5 ps-sm-8 position-relative text-start my-auto z-index-2">
-                  <h3 class="text-white">Opções para a Instituição</h3>
-                  <p class="text-white opacity-8 mb-4">Clique para mais detalhes e configurações.</p>
-                  <div class="d-flex p-2 text-white">
-                    <div>
-                      <i class="fas fa-phone text-sm"></i>
+              <div class="col-lg-5 position-relative bg-cover px-0" style="background-image: url('{% static '/assets/img/examples/blog2.jpg' %}')" loading="lazy">
+                <div class="z-index-2 text-center d-flex h-100 w-100 d-flex m-auto justify-content-center">
+                  <div class="mask bg-gradient-dark opacity-8"></div>
+                  <div class="p-5 ps-sm-8 position-relative text-start my-auto z-index-2">
+                    <h3 class="text-white">Opções para o Usuário</h3>
+                    <p class="text-white opacity-8 mb-4">Clique para mais detalhes e configurações.</p>
+                    <div class="d-flex p-2 text-white">
+                      <div>
+                        <i class="fas fa-phone text-sm"></i>
+                      </div>
+                      <div class="ps-3">
+                        <button class="btn btn-link text-white" onclick="showSection('details')">Detalhes da conta</button>
+                      </div>
                     </div>
-                    <div class="ps-3">
-                      <button class="btn btn-link text-white" onclick="showSection('details')">Detalhes da conta</button>
+                    <div class="d-flex p-2 text-white">
+                      <div>
+                        <i class="fas fa-envelope text-sm"></i>
+                      </div>
+                      <div class="ps-3">
+                        <button class="btn btn-link text-white" onclick="showSection('appointments')">Consultas marcadas</button>
+                      </div>
+                    </div>
+                    <div class="d-flex p-2 text-white">
+                      <div>
+                        <i class="fas fa-map-marker-alt text-sm"></i>
+                      </div>
+                      <div class="ps-3">
+                        <button class="btn btn-link text-white" onclick="showSection('orders')">Pedidos de Agendamento</button>
+                      </div>
+                      
+                    </div>
+                    <div class="mt-4">
+                      <button type="button" class="btn btn-icon-only btn-link text-white btn-lg mb-0" data-toggle="tooltip" data-placement="bottom" data-original-title="Log in with Facebook">
+                        <i class="fab fa-facebook"></i>
+                      </button>
+                      <button type="button" class="btn btn-icon-only btn-link text-white btn-lg mb-0" data-toggle="tooltip" data-placement="bottom" data-original-title="Log in with Twitter">
+                        <i class="fab fa-twitter"></i>
+                      </button>
+                      <button type="button" class="btn btn-icon-only btn-link text-white btn-lg mb-0" data-toggle="tooltip" data-placement="bottom" data-original-title="Log in with Dribbble">
+                        <i class="fab fa-dribbble"></i>
+                      </button>
+                      <button type="button" class="btn btn-icon-only btn-link text-white btn-lg mb-0" data-toggle="tooltip" data-placement="bottom" data-original-title="Log in with Instagram">
+                        <i class="fab fa-instagram"></i>
+                      </button>
                     </div>
                   </div>
-                  <div class="d-flex p-2 text-white">
-                    <div>
-                      <i class="fas fa-envelope text-sm"></i>
-                    </div>
-                    <div class="ps-3">
-                      <button class="btn btn-link text-white" onclick="showSection('appointments')">Adicionar Datas</button>
-                    </div>
-                  </div>
-                  <div class="d-flex p-2 text-white">
-                    <div>
-                      <i class="fas fa-map-marker-alt text-sm"></i>
-                    </div>
-                    <div class="ps-3">
-                      <button class="btn btn-link text-white" onclick="showSection('orders')">Datas Disponíveis</button>
-                    </div>
-                  </div>
-                   <!-- Novo botão "Datas marcadas" -->
-      <div class="d-flex p-2 text-white">
-        <div>
-          <i class="fas fa-calendar-check text-sm"></i>
-        </div>
-        <div class="ps-3">
-          <button class="btn btn-link text-white" onclick="showSection('markedDates')">Datas Marcadas</button>
-        </div>
-      </div>
                 </div>
               </div>
-            </div>
               <div class="col-lg-7">
                 <!-- Dynamic content section -->
                 <div id="content-section">
                   <!-- Account Details section -->
                   <div id="details" class="section">
                     <form class="p-3" id="contact-form" method="post">
-                      {% csrf_token %}
                       <div class="card-header px-4 py-sm-5 py-3">
                         <h2>Detalhes da conta</h2>
-                        <p class="lead">Aqui estão os detalhes da sua conta da Fundação</p>
+                        <p class="lead">Aqui estão os detalhes da sua conta Micael.</p>
                       </div>
                       <div class="card-body pt-1">
                         <div class="row">
-                          <!-- Primeira Coluna -->
-                          <div class="col-lg-6 col-md-6 col-12">
+                          <div class="col-md-12 pe-2 mb-3">
                             <div class="input-group input-group-static mb-4">
                               <label>Meu username é</label>
-                              {{ user_form.username }}
-                            </div>
-                            <div class="input-group input-group-static mb-4">
-                              <label>Meu email é</label>
-                              {{ user_form.email }}
-                            </div>
-                            <div class="input-group input-group-static mb-4">
-                              <label>Minha instituição é</label>
-                              {{ profile_form.instituicao }}
-                            </div>
-                            <div class="input-group input-group-static mb-4">
-                              <label>Meu endereço é</label>
-                              {{ profile_form.endereco }}
+                              <input type="text" class="form-control" placeholder="Nome completo">
                             </div>
                           </div>
-                          
-                          <!-- Segunda Coluna -->
-                          <div class="col-lg-6 col-md-6 col-12">
+                          <div class="col-md-12 pe-2 mb-3">
                             <div class="input-group input-group-static mb-4">
-                              <label>Meu Telefone é</label>
-                              {{ profile_form.telefone }}
+                              <label>Meu email é</label>
+                              <input type="text" class="form-control" placeholder="Nome do Email">
                             </div>
-                            <div class="input-group input-group-static mb-4">
-                              <label>Meu whatsapp é</label>
-                              {{ profile_form.whatsapp }}
-                            </div>
+                          </div>
+                          <div class="col-md-12 pe-2 mb-3">
                             <div class="input-group input-group-static mb-4">
                               <label>Minha senha é</label>
-                              {{ profile_form.senha }}
+                              <input type="password" class="form-control" placeholder="senha">
                             </div>
+                          </div>
+                          <div class="col-md-12 pe-2 mb-3">
                             <div class="input-group input-group-static mb-4">
-                              <label>Meu instagram é</label>
-                              {{ profile_form.instagram }}
+                              <label>Mudar senha</label>
+                              <input type="password" class="form-control" placeholder="nova senha">
                             </div>
                           </div>
                         </div>
                       </div>
-                      
-                      <!-- Botão de confirmação -->
                       <div class="row">
                         <div class="col-md-6 text-end ms-auto">
                           <button type="submit" class="btn bg-gradient-info mb-0">Confirmar</button>
                         </div>
                       </div>
                     </form>
-                    
                   </div>
               
                   <!-- Seção de compromissos -->
-<div id="appointments" class="section" style="display:none;">
-  <div class="card-header px-4 py-sm-5 py-3">
-    <h2>Agendamentos</h2>
-    <p class="lead">Aqui estão as opções de agendamento</p>
-  </div>
-
-  <!-- Adicionar o CSRF token -->
-  <form role="form" action="{% url 'appointment_view' %}" method="POST" class="text-start">
-    {% csrf_token %} 
-    <div class="card-body pt-1">
-      <div class="row">
-        <!-- Seleção de Serviço -->
-        <div class="col-md-12 pe-2 mb-3">
-          <div class="input-group input-group-static mb-4">
-            <label for="id_service">Selecione o serviço</label>
-            <select class="form-control" id="id_service" name="service" required>
-              <option value="" disabled selected>Escolha o serviço</option>
-              <option value="Consulta Médica">Consulta Médica</option>
-              <option value="Exame Laboratorial">Exame Laboratorial</option>
-              <option value="Vacinação">Vacinação</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Seleção de Profissional -->
-        <div class="col-md-12 pe-2 mb-3">
-          <div class="input-group input-group-static mb-4">
-            <label for="id_professional">Adicionar profissional</label>
-            <input type="text" class="form-control" id="id_professional" name="professional" placeholder="Escolha o profissional" required>
-          </div>
-        </div>
-
-        <!-- Seleção de Data e Horário -->
-        <div class="col-md-12 pe-2 mb-3">
-          <div class="input-group input-group-static mb-4">
-            <label for="id_datetime">Selecione a data e horário</label>
-            <input type="text" class="form-control datetimepicker" id="id_datetime" name="datetime" placeholder="Escolha a data e o horário" required>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6 text-end ms-auto">
-          <button type="submit" class="btn bg-gradient-info mb-0">Confirmar</button>
-        </div>
-      </div>
-    </div>
-  </form>
-</div>
-
-                      
-                  <!-- Datas disponiveis -->
-                  
-                  <div id="orders" class="section" style="display:none;">
+                  <div id="appointments" class="section" style="display:none;">
                     <div class="card-header px-4 py-sm-5 py-3">
-                        <h2>Pedidos</h2>
-                        <p class="lead">Aqui estão os seus pedidos mais recentes</p>
-                    </div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Serviço</th>
-                                <th scope="col">Profissional</th>
-                                <th scope="col">Data e Horário</th>
-                                <th scope="col">Ação</th> <!-- Coluna para o botão Excluir -->
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Loop para exibir agendamentos paginados -->
-                            {% for appointment in page_obj %}
-                            <tr>
-                                <td>{{ appointment.service }}</td>
-                                <td>{{ appointment.professional }}</td>
-                                <td>{{ appointment.datetime }}</td>
-                                <td>
-                                    <form method="POST" action="{% url 'excluir_agendamento' appointment.id %}">
-                                        {% csrf_token %}
-                                        <button type="submit" class="btn btn-danger">Excluir</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            {% empty %}
-                            <tr>
-                                <td colspan="4">Nenhum agendamento encontrado</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                
-                    <!-- Paginação -->
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                            {% if page_obj.has_previous %}
-                                <li class="page-item"><a class="page-link" href="?page=1">Primeira</a></li>
-                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a></li>
-                            {% endif %}
-                
-                            <li class="page-item active">
-                                <span class="page-link">{{ page_obj.number }}</span>
-                            </li>
-                
-                            {% if page_obj.has_next %}
-                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Próxima</a></li>
-                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Última</a></li>
-                            {% endif %}
-                        </ul>
-                    </nav>
-                </div>
-                <!-- Agendamentos feitos -->
-                  
-                <div id="markedDates" class="section">
-                  <div class="card-header px-4 py-sm-5 py-3">
                       <h2>Agendamentos</h2>
-                      <p class="lead">Aqui estão os seus agendamentos</p>
+                      <p class="lead">Aqui estão as opções de agendamento</p>
+                    </div>
+                    <form class="p-3" id="contact-form" method="post">
+                      <div class="card-body pt-1">
+                        <div class="row">
+                          <!-- Seleção de Serviço -->
+                          <div class="col-md-12 pe-2 mb-3">
+                            <div class="input-group input-group-static mb-4">
+                              <label>Selecione o serviço</label>
+                              <select class="form-control" id="serviceSelect" required>
+                                <option value="" disabled selected>Escolha o serviço</option>
+                                <option value="Consulta Médica">Consulta Médica</option>
+                                <option value="Exame Laboratorial">Exame Laboratorial</option>
+                                <option value="Vacinação">Vacinação</option>
+                              </select>
+                            </div>
+                          </div>
+                  
+                          <!-- Seleção de Profissional/Instituição -->
+                          <div class="col-md-12 pe-2 mb-3">
+                            <div class="input-group input-group-static mb-4">
+                              <label>Selecione o profissional/ instituição</label>
+                              <select class="form-control" id="professionalSelect" required>
+                                <option value="" disabled selected>Escolha o profissional/instituição</option>
+                                <option value="Hospital São Sebastião" data-service="Consulta Médica">Hospital São Sebastião</option>
+                                <option value="Instituto Pernambuco" data-service="Consulta Médica">Instituto Pernambuco</option>
+                                <option value="Cerpe Caruaru" data-service="Exame Laboratorial">Cerpe Caruaru</option>
+                                <option value="LABOC" data-service="Exame Laboratorial">LABOC</option>
+                                <option value="Previne Vacinas" data-service="Vacinação">Previne Vacinas</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <!-- Seleção de Data e Horário -->
+                          <div class="col-md-12 pe-2 mb-3">
+                            <div class="input-group input-group-static mb-4">
+                              <label>Selecione a data e horário</label>
+                              <input type="text" class="form-control datetimepicker" id="datetime" placeholder="Escolha a data e o horário" required>
+                            </div>
+                          </div>
+                   
+                          <!-- Seleção de Método de Pagamento -->
+                          <div class="col-md-12 pe-2 mb-3">
+                            <div class="input-group input-group-static mb-4">
+                              <label>Método de pagamento</label>
+                              <select class="form-control" id="paymentMethod" required>
+                                <option value="" disabled selected>Escolha o método de pagamento</option>
+                                <option value="Cartão de Crédito">Cartão de Crédito</option>
+                                <option value="Cartão de Débito">Cartão de Débito</option>
+                                <option value="Dinheiro">Dinheiro</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                     
+                  
+                      <div class="row">
+                        <div class="col-md-6 text-end ms-auto">
+                          <button type="submit" class="btn bg-gradient-info mb-0">Confirmar</button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
-          
-                  <table>
-                      <thead>
-                          <tr>
-                              <th scope="col">Serviço</th>
-                              <th scope="col">Profissional</th>
-                              <th scope="col">Data e Horário</th>
-                              <th scope="col">Ação</th> <!-- Coluna para o botão Excluir -->
-                          </tr>
-                      </thead>
-                      <tbody>
-                          {% for appointment in page_obj %}
-                              <tr>
-                                  <td>{{ appointment.service }}</td>
-                                  <td>{{ appointment.professional }}</td>
-                                  <td>{{ appointment.datetime }}</td>
-                                  <td>
-                                      <form method="POST" action="{% url 'excluir_agendamento' appointment.id %}">
-                                          {% csrf_token %}
-                                          <button type="submit">Excluir</button>
-                                      </form>
-                                  </td>
-                              </tr>
-                          {% empty %}
-                              <tr>
-                                  <td colspan="4">Nenhum agendamento marcado.</td>
-                              </tr>
-                          {% endfor %}
-                      </tbody>
-                  </table>
-          
-                  <!-- Paginação -->
-                  <div class="pagination">
-                      <span class="step-links">
-                          {% if page_obj.has_previous %}
-                              <a href="?page=1">&laquo; primeira</a>
-                              <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
-                          {% endif %}
-          
-                          <span class="current">
-                              Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
-                          </span>
-          
-                          {% if page_obj.has_next %}
-                              <a href="?page={{ page_obj.next_page_number }}">próxima</a>
-                              <a href="?page={{ page_obj.paginator.num_pages }}">última &raquo;</a>
-                          {% endif %}
-                      </span>
-                  </div>
-                
-                
+                      
+                  <!-- Pedidos de Agendamento e Histórico -->
+                  
+    <div id="orders" class="section" style="display:none;">
+      <div class="card-header px-4 py-sm-5 py-3">
+        <h2>Pedidos</h2>
+        <p class="lead">Aqui estão os seus pedidos mais recentes</p>
+      </div>
+      <ul id="appointmentList" class="list-group">
+        <!-- Lista dinâmica de agendamentos será inserida aqui -->
+      </ul>
+    </div>
   </div>
 </div>
-
-
-
   </section>
-
- 
-
-
   <!-- -------- START FOOTER 5 w/ DARK BACKGROUND ------- -->
   <footer class="footer py-5">
     <div class="container z-index-1 position-relative">
@@ -897,7 +789,7 @@
   <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
-  <script src="{% static 'assets/js/material-kit.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'assets/js/material-kit.min.js'%}" type="text/javascript"></script>
 
   <!-- JavaScript -->
 <script>
