@@ -11,6 +11,15 @@
 
 <link rel="icon" sizes="76x76" href="{% static 'assets/img/apple-icon.png' %}">
 <link rel="icon" type="image/png" href="{% static 'assets/img/favicon.png' %}">
+<link rel="stylesheet" href="{% static 'assets/css/mapa.css' %}"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+ 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
 
 <title>{% block title %}Caruaru Saúde{% endblock title %}</title>
 
@@ -410,9 +419,15 @@
   
 
 <section class="my-5 py-5">
+
   <div class="container">
-    <h2 class="text-center mb-5">Serviços</h2> <!-- Título adicionado -->
-    <div class="row justify-content-center">
+    <h2 class="titulo-mapa">Mapa</h2>
+     <div id="mapa"></div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.js"></script>
+     <script src="{% static 'assets/js/mapa.js' %}"></script>
+     <h2 class="text-center mb-5">Serviços</h2> <!-- Título adicionado -->
+     <div class="row justify-content-center">
+
       <!-- Primeira linha com 4 colunas -->
       <div class="col-md-3">
         <div class="info">
