@@ -55,22 +55,6 @@ def login_i(request):
             return HttpResponse('Email ou senha inválidos')
 
 # View da página de instituição (após o login)
-@login_required(login_url="/auth/login_i/")
-def marcar_consulta(request, appointment_id):
-    try:
-        # Busca o agendamento pelo ID
-        appointment = Appointment.objects.get(id=appointment_id)
-        
-        # Marcar como agendado
-        appointment.is_booked = True
-        appointment.user = request.user  # Exemplo: associa o agendamento ao usuário atual
-        appointment.save()
-
-        messages.success(request, 'Consulta marcada com sucesso!')
-        return redirect('consulta')  # Redireciona de volta para a página de consultas
-    except Appointment.DoesNotExist:
-        messages.error(request, 'Agendamento não encontrado.')
-        return redirect('consulta')
     
 @login_required(login_url="/auth/login_i/")
 def instituicao(request):
@@ -117,6 +101,28 @@ def excluir_agendamento(request, appointment_id):
     # Redireciona de volta para a página da instituição após excluir
     return redirect('instituicao')
 
+login_required(login_url="/auth/login_i/")
+def marcar_consulta(request, appointment_id):
+    try:
+        # Busca o agendamento pelo ID
+        appointment = Appointment.objects.get(id=appointment_id)
+        
+        # Verifica se a consulta já foi marcada
+        if appointment.is_booked:
+            messages.error(request, 'Este agendamento já foi marcado.')
+            return redirect('consulta_view')
+
+        # Marcar como agendado
+        appointment.is_booked = True
+        appointment.user = request.user  # Associa o agendamento ao usuário atual
+        appointment.save()
+
+        messages.success(request, 'Consulta marcada com sucesso!')
+        return redirect('lista_agendamentos_usuario')  # Redireciona para a página de agendamentos do usuário
+    except Appointment.DoesNotExist:
+        messages.error(request, 'Agendamento não encontrado.')
+        return redirect('consulta_view')
+
 
 @login_required(login_url="/auth/login_i/")
 def consulta_view(request):
@@ -132,24 +138,6 @@ def consulta_view(request):
     # Renderiza a página de consulta com os agendamentos
     return render(request, 'consult/consulta.html', {'page_obj': page_obj})
 
-
-
-@login_required(login_url="/auth/login_i/")
-def marcar_consulta(request, appointment_id):
-    try:
-        # Busca o agendamento pelo ID
-        appointment = Appointment.objects.get(id=appointment_id)
-        
-        # Marcar como agendado
-        appointment.is_booked = True
-        appointment.user = request.user  # Exemplo: associa o agendamento ao usuário atual
-        appointment.save()
-
-        messages.success(request, 'Consulta marcada com sucesso!')
-        return redirect('consulta')  # Redireciona de volta para a página de consultas
-    except Appointment.DoesNotExist:
-        messages.error(request, 'Agendamento não encontrado.')
-        return redirect('consulta')
 
 @login_required(login_url="/auth/login_i/")
 def disponibilidade_consultas(request):

@@ -603,115 +603,46 @@
                 <div id="content-section">
                   <!-- Account Details section -->
                   <div id="details" class="section">
-                    <form class="p-3" id="contact-form" method="post">
-                      <div class="card-header px-4 py-sm-5 py-3">
+                    <form method="post" action="{% url 'usuario' %}">
+                        {% csrf_token %}
                         <h2>Detalhes da conta</h2>
-                        <p class="lead">Aqui estão os detalhes da sua conta Micael.</p>
-                      </div>
-                      <div class="card-body pt-1">
-                        <div class="row">
-                          <div class="col-md-12 pe-2 mb-3">
-                            <div class="input-group input-group-static mb-4">
-                              <label>Meu username é</label>
-                              <input type="text" class="form-control" placeholder="Nome completo">
-                            </div>
-                          </div>
-                          <div class="col-md-12 pe-2 mb-3">
-                            <div class="input-group input-group-static mb-4">
-                              <label>Meu email é</label>
-                              <input type="text" class="form-control" placeholder="Nome do Email">
-                            </div>
-                          </div>
-                          <div class="col-md-12 pe-2 mb-3">
-                            <div class="input-group input-group-static mb-4">
-                              <label>Minha senha é</label>
-                              <input type="password" class="form-control" placeholder="senha">
-                            </div>
-                          </div>
-                          <div class="col-md-12 pe-2 mb-3">
-                            <div class="input-group input-group-static mb-4">
-                              <label>Mudar senha</label>
-                              <input type="password" class="form-control" placeholder="nova senha">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6 text-end ms-auto">
-                          <button type="submit" class="btn bg-gradient-info mb-0">Confirmar</button>
-                        </div>
-                      </div>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" value="{{ user.username }}" required><br>
+                
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" value="{{ user.email }}" required><br>
+                
+                        <label for="senha">Nova senha (opcional):</label>
+                        <input type="password" id="senha" name="senha" placeholder="Deixe em branco se não quiser mudar"><br>
+                
+                        <button type="submit" class="btn bg-gradient-info">Atualizar Dados</button>
                     </form>
-                  </div>
+                </div>
+                
               
                   <!-- Seção de compromissos -->
-                  <div id="appointments" class="section" style="display:none;">
+                  <div id="appointments" class="section" style="display:block;">
                     <div class="card-header px-4 py-sm-5 py-3">
-                      <h2>Agendamentos</h2>
-                      <p class="lead">Aqui estão as opções de agendamento</p>
+                        <h2>Agendamentos</h2>
+                        <p class="lead">Aqui estão os agendamentos que você fez</p>
                     </div>
-                    <form class="p-3" id="contact-form" method="post">
-                      <div class="card-body pt-1">
-                        <div class="row">
-                          <!-- Seleção de Serviço -->
-                          <div class="col-md-12 pe-2 mb-3">
-                            <div class="input-group input-group-static mb-4">
-                              <label>Selecione o serviço</label>
-                              <select class="form-control" id="serviceSelect" required>
-                                <option value="" disabled selected>Escolha o serviço</option>
-                                <option value="Consulta Médica">Consulta Médica</option>
-                                <option value="Exame Laboratorial">Exame Laboratorial</option>
-                                <option value="Vacinação">Vacinação</option>
-                              </select>
-                            </div>
-                          </div>
-                  
-                          <!-- Seleção de Profissional/Instituição -->
-                          <div class="col-md-12 pe-2 mb-3">
-                            <div class="input-group input-group-static mb-4">
-                              <label>Selecione o profissional/ instituição</label>
-                              <select class="form-control" id="professionalSelect" required>
-                                <option value="" disabled selected>Escolha o profissional/instituição</option>
-                                <option value="Hospital São Sebastião" data-service="Consulta Médica">Hospital São Sebastião</option>
-                                <option value="Instituto Pernambuco" data-service="Consulta Médica">Instituto Pernambuco</option>
-                                <option value="Cerpe Caruaru" data-service="Exame Laboratorial">Cerpe Caruaru</option>
-                                <option value="LABOC" data-service="Exame Laboratorial">LABOC</option>
-                                <option value="Previne Vacinas" data-service="Vacinação">Previne Vacinas</option>
-                              </select>
-                            </div>
-                          </div>
-
-                          <!-- Seleção de Data e Horário -->
-                          <div class="col-md-12 pe-2 mb-3">
-                            <div class="input-group input-group-static mb-4">
-                              <label>Selecione a data e horário</label>
-                              <input type="text" class="form-control datetimepicker" id="datetime" placeholder="Escolha a data e o horário" required>
-                            </div>
-                          </div>
-                   
-                          <!-- Seleção de Método de Pagamento -->
-                          <div class="col-md-12 pe-2 mb-3">
-                            <div class="input-group input-group-static mb-4">
-                              <label>Método de pagamento</label>
-                              <select class="form-control" id="paymentMethod" required>
-                                <option value="" disabled selected>Escolha o método de pagamento</option>
-                                <option value="Cartão de Crédito">Cartão de Crédito</option>
-                                <option value="Cartão de Débito">Cartão de Débito</option>
-                                <option value="Dinheiro">Dinheiro</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                     
-                  
-                      <div class="row">
-                        <div class="col-md-6 text-end ms-auto">
-                          <button type="submit" class="btn bg-gradient-info mb-0">Confirmar</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+                
+                    {% if appointments %}
+                        <ul>
+                            {% for appointment in appointments %}
+                                <li>
+                                    Serviço: {{ appointment.service }} <br>
+                                    Profissional: {{ appointment.professional }} <br>
+                                    Data e Horário: {{ appointment.datetime }} <br>
+                                    <hr>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>Você ainda não tem agendamentos.</p>
+                    {% endif %}
+                </div>
+                
                       
                   <!-- Pedidos de Agendamento e Histórico -->
                   
@@ -726,6 +657,8 @@
     </div>
   </div>
 </div>
+
+
   </section>
   <!-- -------- START FOOTER 5 w/ DARK BACKGROUND ------- -->
   <footer class="footer py-5">

@@ -7,9 +7,8 @@ urlpatterns = [
     path('cadastro/', views.cadastro, name='cadastro'),
     path('index/', views.index, name="index"),
     path('login/', views.login, name="login"),
-    path('usuario/', views.usuario, name="plataforma")
-
+    path('lista_agendamentos_usuario/', views.lista_agendamentos_usuario, name='lista_agendamentos_usuario'),
+    path('usuario/', views.usuario, name="usuario"),
+    path('agendar_consulta/<int:appointment_id>/', views.agendar_consulta, name='agendar_consulta'),  # Correção aqui
 ]
-
-
 
