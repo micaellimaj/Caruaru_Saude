@@ -10,12 +10,14 @@ urlpatterns = [
     path('cadastro_instituicao/', views.cadastro_instituicao, name='cadastro_instituicao'),
     path('login_i/', views.login_i, name='login_i'),
     path('instituicao/', views.instituicao, name='instituicao'),
-    path('auth/login_i/', views.login_i, name='login_i'),
+    #path('auth/login_i/', views.login_i, name='login_i'),
     path('agendamento/', views.appointment_view, name='appointment_view'),
     path('excluir-agendamento/<int:appointment_id>/', views.excluir_agendamento, name='excluir_agendamento'),
     path('consulta/', views.consulta_view, name='consulta_view'),
     path('marcar-consulta/<int:appointment_id>/', views.marcar_consulta, name='marcar_consulta'),
-    path('delete_appointment/<int:appointment_id>/', views.delete_appointment, name='delete_appointment')
+    path('delete_appointment/<int:appointment_id>/', views.delete_appointment, name='delete_appointment'),
+    path('instituicao/detalhes/', views.instituicao_detalhes, name='instituicao_detalhes'),
+
 
 
 ]

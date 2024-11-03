@@ -11,5 +11,6 @@ urlpatterns = [
     path('usuario/', views.usuario, name="usuario"),
     path('agendar_consulta/<int:appointment_id>/', views.agendar_consulta, name='agendar_consulta'),  # Correção aqui
     path('catalogo/', views.catalogo, name='catalogo'),
+    path('logout/', views.logout_view, name='logout'),
 ]
 

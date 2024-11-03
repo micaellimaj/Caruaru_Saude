@@ -10,7 +10,8 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.urls import reverse
-
+from .forms import InstitutionProfileForm, InstitutionDetailsForm
+from .models import Instituicao
 
 
 
@@ -21,22 +22,32 @@ def cadastro_instituicao(request):
     else:
         username = request.POST.get('username')
         email = request.POST.get('email')
+        senha = request.POST.get('senha')
         nome = request.POST.get('nome')
         endereco = request.POST.get('endereco')
         telefone = request.POST.get('telefone')
         whatsapp = request.POST.get('whatsapp')
-        senha = request.POST.get('senha')
         instagram = request.POST.get('instagram')
 
+        # Verifique se o usuário já existe
         user = User.objects.filter(username=username).first()
-
         if user:
             return HttpResponse('Já existe um usuário com esse username')
-        
-        user = User.objects.create_user(username=username, email=email, password=senha)
-        user.save()
 
-        return HttpResponse("Usuário Cadastrado com sucesso")
+        # Crie o usuário
+        user = User.objects.create_user(username=username, email=email, password=senha)
+        
+        # Crie a instituição associada ao usuário
+        instituicao = Instituicao.objects.create(
+            user=user,
+            nome=nome,
+            endereco=endereco,
+            telefone=telefone,
+            whatsapp=whatsapp,
+            instagram=instagram
+        )
+
+        return HttpResponse("Instituição cadastrada com sucesso")
 
 # Login da instituição
 def login_i(request):
@@ -50,7 +61,7 @@ def login_i(request):
 
         if user:
             login_django(request, user)
-            return redirect('instituicao/instituicao')  # Redireciona para a view 'instituicao'
+            return redirect('instituicao')  # Redireciona para a view 'instituicao'
         else:
             return HttpResponse('Email ou senha inválidos')
 
@@ -137,3 +148,20 @@ def delete_appointment(request, appointment_id):
     appointment = get_object_or_404(Appointment, id=appointment_id)
     appointment.delete()
     return redirect(reverse('instituicao'))
+
+@login_required(login_url="/auth/login/")
+def instituicao_detalhes(request):
+    instituicao = get_object_or_404(Instituicao, user=request.user)  # Obtém a instituição do usuário logado
+
+    if request.method == "POST":
+        instituicao.nome = request.POST.get('nome')
+        instituicao.endereco = request.POST.get('endereco')
+        instituicao.telefone = request.POST.get('telefone')
+        instituicao.whatsapp = request.POST.get('whatsapp')
+        instituicao.instagram = request.POST.get('instagram')
+        
+        instituicao.save()  # Salva as alterações no modelo Instituição
+
+        return redirect('instituicao_detalhes')  # Redireciona após atualização
+
+    return render(request, 'instituicao/detalhes.html', {'instituicao': instituicao})

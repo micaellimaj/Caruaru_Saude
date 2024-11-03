@@ -18,3 +18,14 @@ class Appointment(models.Model):
 
     def __str__(self):
         return f"Agendamento de {self.service} com {self.professional} em {self.datetime}"
+    
+class Instituicao(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)  # Conecta com o modelo User, mas separa na tabela Instituição
+    nome = models.CharField(max_length=100)
+    endereco = models.CharField(max_length=255)
+    telefone = models.CharField(max_length=20)
+    whatsapp = models.CharField(max_length=20, blank=True, null=True)
+    instagram = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.nome

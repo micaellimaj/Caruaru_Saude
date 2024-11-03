@@ -6,6 +6,7 @@ from django.contrib.auth import login as login_django
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from instituicao.models import Appointment
+from django.contrib.auth import logout
 
 
 def index(request):
@@ -110,3 +111,7 @@ def agendar_consulta(request, appointment_id):
 
     # Renderiza a página de consulta, caso não seja um POST
     return render(request, 'consult/consulta.html', {'appointment': appointment})
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')  # Redireciona para a página de login ou outra página desejada após o logout

@@ -460,66 +460,40 @@
                 <!-- Dynamic content section -->
                 <div id="content-section">
                   <!-- Account Details section -->
-                  <div id="details" class="section">
-                    <form class="p-3" id="contact-form" method="post">
-                      {% csrf_token %}
-                      <div class="card-header px-4 py-sm-5 py-3">
-                        <h2>Detalhes da conta</h2>
-                        <p class="lead">Aqui estão os detalhes da sua conta da Fundação</p>
-                      </div>
-                      <div class="card-body pt-1">
-                        <div class="row">
-                          <!-- Primeira Coluna -->
-                          <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group input-group-static mb-4">
-                              <label>Meu username é</label>
-                              {{ user_form.username }}
-                            </div>
-                            <div class="input-group input-group-static mb-4">
-                              <label>Meu email é</label>
-                              {{ user_form.email }}
-                            </div>
-                            <div class="input-group input-group-static mb-4">
-                              <label>Minha instituição é</label>
-                              {{ profile_form.instituicao }}
-                            </div>
-                            <div class="input-group input-group-static mb-4">
-                              <label>Meu endereço é</label>
-                              {{ profile_form.endereco }}
-                            </div>
+                  <div id="content-section">
+                    <div id="details" class="section">
+                      <form method="post" action="{% url 'instituicao_detalhes' %}" class="p-4">
+                          {% csrf_token %}
+                          <div class="card-body pt-1">
+                              <h2 class="mb-4">Detalhes da Instituição</h2>
+                              <div class="mb-3">
+                                  <label for="nome" class="form-label">Nome da Instituição:</label>
+                                  <input type="text" class="form-control" id="nome" name="nome" value="{{ instituicao.nome }}" required>
+                              </div>
+                              <div class="mb-3">
+                                  <label for="endereco" class="form-label">Endereço:</label>
+                                  <input type="text" class="form-control" id="endereco" name="endereco" value="{{ instituicao.endereco }}" required>
+                              </div>
+                              <div class="mb-3">
+                                  <label for="telefone" class="form-label">Telefone:</label>
+                                  <input type="text" class="form-control" id="telefone" name="telefone" value="{{ instituicao.telefone }}" required>
+                              </div>
+                              <div class="mb-3">
+                                  <label for="whatsapp" class="form-label">WhatsApp:</label>
+                                  <input type="text" class="form-control" id="whatsapp" name="whatsapp" value="{{ instituicao.whatsapp }}">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="instagram" class="form-label">Instagram:</label>
+                                  <input type="text" class="form-control" id="instagram" name="instagram" value="{{ instituicao.instagram }}">
+                              </div>
+                              <div class="text-end">
+                                  <button type="submit" class="btn bg-gradient-info mb-0">Atualizar Dados</button>
+                              </div>
                           </div>
-                          
-                          <!-- Segunda Coluna -->
-                          <div class="col-lg-6 col-md-6 col-12">
-                            <div class="input-group input-group-static mb-4">
-                              <label>Meu Telefone é</label>
-                              {{ profile_form.telefone }}
-                            </div>
-                            <div class="input-group input-group-static mb-4">
-                              <label>Meu whatsapp é</label>
-                              {{ profile_form.whatsapp }}
-                            </div>
-                            <div class="input-group input-group-static mb-4">
-                              <label>Minha senha é</label>
-                              {{ profile_form.senha }}
-                            </div>
-                            <div class="input-group input-group-static mb-4">
-                              <label>Meu instagram é</label>
-                              {{ profile_form.instagram }}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <!-- Botão de confirmação -->
-                      <div class="row">
-                        <div class="col-md-6 text-end ms-auto">
-                          <button type="submit" class="btn bg-gradient-info mb-0">Confirmar</button>
-                        </div>
-                      </div>
-                    </form>
-                    
+                      </form>
                   </div>
+                  
+                  
               
                   <!-- Seção de compromissos -->
 <div id="appointments" class="section" style="display:none;">
@@ -701,7 +675,35 @@
 
   </section>
 
- 
+  <form method="post" action="{% url 'instituicao_detalhes' %}" class="p-4">
+    {% csrf_token %}
+    <div class="card-body pt-1">
+        <h2 class="mb-4">Detalhes da Instituição</h2>
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome da Instituição:</label>
+            <input type="text" class="form-control" id="nome" name="nome" value="{{ instituicao.nome }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="endereco" class="form-label">Endereço:</label>
+            <input type="text" class="form-control" id="endereco" name="endereco" value="{{ instituicao.endereco }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="telefone" class="form-label">Telefone:</label>
+            <input type="text" class="form-control" id="telefone" name="telefone" value="{{ instituicao.telefone }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="whatsapp" class="form-label">WhatsApp:</label>
+            <input type="text" class="form-control" id="whatsapp" name="whatsapp" value="{{ instituicao.whatsapp }}">
+        </div>
+        <div class="mb-3">
+            <label for="instagram" class="form-label">Instagram:</label>
+            <input type="text" class="form-control" id="instagram" name="instagram" value="{{ instituicao.instagram }}">
+        </div>
+        <div class="text-end">
+            <button type="submit" class="btn bg-gradient-info mb-0">Atualizar Dados</button>
+        </div>
+    </div>
+</form>
 
 
   <!-- -------- START FOOTER 5 w/ DARK BACKGROUND ------- -->
