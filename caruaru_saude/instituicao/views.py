@@ -83,14 +83,6 @@ def appointment_view(request):
 
     return render(request, 'instituicao/instituicao.html', {'form': form})
 
-# Lista de agendamentos (pode ser renderizado na mesma página ou em uma página separada)
-@login_required(login_url="/auth/login_i/")
-def lista_agendamentos_view(request):
-    # Busca todos os agendamentos no banco de dados
-    appointments = Appointment.objects.all()
-
-    # Renderiza a página com a lista de agendamentos
-    return render(request, 'instituicao/lista_agendamentos.html', {'appointments': appointments})
 
 @login_required(login_url="/auth/login_i/")
 def excluir_agendamento(request, appointment_id):
@@ -130,7 +122,7 @@ def consulta_view(request):
     appointments = Appointment.objects.filter(is_booked=False)
 
      # Paginação: 10 agendamentos por página
-    paginator = Paginator(appointments, 10)  # 10 registros por página
+    paginator = Paginator(appointments, 7)  # 10 registros por página
     page_number = request.GET.get('page')  # Pega o número da página a partir da query string
     page_obj = paginator.get_page(page_number)  # Obtém a página específica
 
@@ -139,13 +131,6 @@ def consulta_view(request):
     return render(request, 'consult/consulta.html', {'page_obj': page_obj})
 
 
-@login_required(login_url="/auth/login_i/")
-def disponibilidade_consultas(request):
-    # Busca apenas os agendamentos que não foram marcados
-    appointments = Appointment.objects.filter(is_booked=False)
-
-    # Renderiza a nova página com os agendamentos
-    return render(request, 'consult/disponibilidade_consultas.html', {'appointments': appointments})
 
 @login_required(login_url="/auth/login_i/")
 def delete_appointment(request, appointment_id):

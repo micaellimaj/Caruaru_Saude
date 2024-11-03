@@ -11,6 +11,9 @@ from instituicao.models import Appointment
 def index(request):
     return render(request, 'index.html')
 
+def catalogo(request):
+    return render(request, 'catalogo.html')
+
 def cadastro(request):
     if request.method ==  "GET":
         return render(request, 'cadastro.html')

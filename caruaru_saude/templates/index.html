@@ -81,14 +81,8 @@
   <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
    Páginas de destino
   </h6>
-  <a href="./pages/about-us.html" class="dropdown-item border-radius-md">
-    <span>Sobre nós</span>
-  </a>
-  <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">
+  <a href="{% url 'catalogo' %}" class="dropdown-item border-radius-md">
     <span>Catálogo</span>
-  </a>
-  <a href="./pages/author.html" class="dropdown-item border-radius-md">
-    <span>Autora</span>
   </a>
   
 </div>
@@ -139,10 +133,10 @@
       <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'login' %}">
        Faça login
       </a>
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/navigation/pagination.html">
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'usuario' %}">
         Área do usuário
       </a>
-      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/navigation/pagination.html">
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'consulta_view' %}">
         Marcar Consulta
       </a>
     </div>
@@ -336,7 +330,7 @@
           </ul>
         <li class="nav-item ms-lg-auto">
           <!-- Link para Instagram -->
-          <a class="nav-link nav-link-icon me-2" href="https://www.instagram.com/seu_perfil" target="_blank">
+          <a class="nav-link nav-link-icon me-2" href="https://www.instagram.com/caruarusaude" target="_blank">
               <i class="fa fa-instagram me-1"></i>
               <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Siga-nos no Instagram"></p>
           </a>
