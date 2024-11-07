@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from instituicao.models import Appointment
 from django.contrib.auth import logout
+from .models import Usuario
 
 
 def index(request):
@@ -29,7 +30,9 @@ def cadastro(request):
             return HttpResponse('Já existe um usuário com esse username')
         
         user = User.objects.create_user(username=username, email=email, password=senha)
-        user.save()
+        usuario = Usuario.objects.create(
+            user=user
+        )
 
         return HttpResponse("Usuário Cadastrado com sucesso")
 
@@ -45,13 +48,24 @@ def login(request):
         if user:
             login_django(request, user)
 
-            return HttpResponse('autenticado')
+             # Verificar o tipo de usuário
+            if hasattr(user, 'usuario'):
+                # É um usuário comum
+                return redirect('usuario')  
+            elif hasattr(user, 'instituicao'):
+                # É uma instituição
+                return redirect('isntituicao') 
+            return HttpResponse('Usuário não identificado')
         else:
             return HttpResponse('Email ou senha inválidos')
 
 @login_required(login_url="/auth/login/")
 def usuario(request):
     user = request.user  # Pega o usuário logado
+    try:
+        usuario = user.usuario  # Verifica se o usuário é um `Usuario`
+    except Usuario.DoesNotExist:
+        return HttpResponse("Esse usuário não é um usuário comum")
 
     # Busca os agendamentos do usuário logado
     user_appointments = Appointment.objects.filter(user=user, is_booked=True)
@@ -65,7 +79,7 @@ def usuario(request):
         user.username = username
         user.email = email
         if senha:
-            user.set_password(senha)  # Atualiza a senha do usuário
+            user.set_password(senha)  
         user.save()
 
         # Atualiza a sessão com o novo hash de senha, para não deslogar
@@ -80,6 +94,13 @@ def usuario(request):
 
 @login_required(login_url="/auth/login/")
 def lista_agendamentos_usuario(request):
+    user = request.user
+    try:
+        usuario = user.usuario  # Verifica se o usuário é um `Usuario`
+    except Usuario.DoesNotExist:
+        return HttpResponse("Esse usuário não é um usuário comum")
+
+
     # Busca apenas os agendamentos marcados pelo usuário logado
     user_appointments = Appointment.objects.filter(user=request.user, is_booked=True)
 
@@ -88,6 +109,12 @@ def lista_agendamentos_usuario(request):
 
 @login_required(login_url="/auth/login/")
 def agendar_consulta(request, appointment_id):
+    user = request.user
+    try:
+        usuario = user.usuario  # Verifica se o usuário é um `Usuario`
+    except Usuario.DoesNotExist:
+        return HttpResponse("Esse usuário não é um usuário comum")
+    
     # Obtém o agendamento específico pelo ID
     appointment = get_object_or_404(Appointment, id=appointment_id)
 
@@ -103,7 +130,7 @@ def agendar_consulta(request, appointment_id):
             professional=professional,
             datetime=datetime,
             is_booked=True,  # Marcar como reservado
-            user=request.user  # Associar ao usuário logado
+            user=user # Associar ao usuário logado
         )
 
         # Redireciona para a página de consulta ou para a página de agendamentos do usuário

@@ -61,14 +61,27 @@ def login_i(request):
 
         if user:
             login_django(request, user)
-            return redirect('instituicao')  # Redireciona para a view 'instituicao'
+
+            if hasattr(user, 'instituicao'):
+                # É uma instituicao
+                return redirect('instituicao') 
+            elif hasattr(user, 'usuario'):
+                # É uma usuário
+                return redirect('usuario')  
+            return HttpResponse('Usuário não identificado')
         else:
             return HttpResponse('Email ou senha inválidos')
-
+            
 # View da página de instituição (após o login)
     
 @login_required(login_url="/auth/login_i/")
 def instituicao(request):
+    user = request.user  # Pega o usuário logado
+    try:
+        instituicao = user.instituicao  # Verifica se o instituicao é um `Instituicao`
+    except Instituicao.DoesNotExist:
+        return HttpResponse("Esse usuário não é uma Instituição")
+
     # Busca apenas os agendamentos marcados
     appointments = Appointment.objects.filter(is_booked=True)
 
