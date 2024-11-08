@@ -331,7 +331,7 @@
   <!-- End Navbar -->
   <!-- -------- START HEADER 4 w/ search book a ticket form ------- -->
   <header>
-    <div class="page-header min-height-400" style="background-image: url('{% static 'assets/img/caruaru_2.jpeg' %}');" loading="lazy">
+    <div class="page-header min-height-400" style="background-image: url({% static 'assets/img/caruaru_2.jpeg' %});" loading="lazy">
       <span class="mask bg-gradient-dark opacity-8"></span>
     </div>
   </header>
@@ -342,12 +342,23 @@
       <div class="container">
         <div class="row">
           <div class="col-12 mx-auto">
-           
-           
+            <div class="mt-n8 mt-md-n9 text-center">
+              <img class="avatar avatar-xxl shadow-xl position-relative z-index-2" src="{% static 'assets/img/usuario.png' %}" alt="bruce" loading="lazy">
             </div>
-          </div>
-        </div>
-      </div>
+            <div class="row py-5">
+              <div class="col-lg-7 col-md-7 z-index-2 position-relative px-md-2 px-sm-5 mx-auto">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h3 class="mb-0">Bem  vindo Usuário!</h3>
+                 
+                </div>
+                <p class="text-lg mb-0">
+                  Bem-vindo ao Caruaru Saúde! Aqui, você tem acesso fácil e rápido aos melhores serviços de saúde na sua região. Explore as opções disponíveis, marque consultas e cuide da sua saúde com praticidade e confiança. <br><a href="javascript:;" class="text-info icon-move-right">More about me
+                    <i class="fas fa-arrow-right text-sm ms-1"></i>
+                  </a>
+                </p>
+              </div>
+            </div>
+
     </section>
     <!-- END Testimonials w/ user image & text & info -->
     <!-- START Blogs w/ 4 cards w/ image & text & link -->
@@ -358,11 +369,8 @@
             <div class="card card-background cursor-pointer">
               <div class="full-background" style="background-image: url('{% static 'assets/img/caruaru_2.jpeg' %}')" loading="lazy"></div>
               <div class="card-body">
-                <h2 class="card-title">Conta</h2>
-                <p>Acesse sua conta e altere dados pessoais</p>
-                <a href="javascript:;" class="text-white text-sm icon-move-right">Read More
-                  <i class="fas fa-arrow-right text-xs ms-1"></i>
-                </a>
+                <h3 class="card-title">Detalhes da Conta</h3>
+                <p>Acesse sua conta e altere dados pessoais.</p>
               </div>
             </div>
           </div>
@@ -370,11 +378,8 @@
             <div class="card card-background cursor-pointer">
               <div class="full-background" style="background-image: url('{% static 'assets/img/caruaru_2.jpeg' %}')" loading="lazy"></div>
               <div class="card-body">
-                <h2 class="card-title">Consulta</h2>
-                <p>Veja suas consultas marcadas</p>
-                <a href="javascript:;" class="text-white text-sm icon-move-right">Read More
-                  <i class="fas fa-arrow-right text-xs ms-1"></i>
-                </a>
+                <h3 class="card-title">Consultas Marcadas</h3>
+                <p>Marque consultas e veja sua lista.</p>
               </div>
             </div>
           </div>
@@ -383,10 +388,8 @@
               <div class="full-background" style="background-image: url('{% static 'assets/img/caruaru_2.jpeg' %}')" loading="lazy"></div>
               <div class="card-body">
                 <h2 class="card-title">Agendamentos</h2>
-                <p>sem ideias?</p>
-                <a href="javascript:;" class="text-white text-sm icon-move-right">Read More
-                  <i class="fas fa-arrow-right text-xs ms-1"></i>
-                </a>
+                <p>Por enquanto vazio!</p>
+                
               </div>
             </div>
           </div>
@@ -481,7 +484,11 @@
                   <div id="appointments" class="section" style="display: none;">
                     <div class="card-header px-4 py-sm-5 py-3">
                       <h2>Agendamentos</h2>
-                      <p class="lead">Aqui estão os agendamentos que você fez</p>
+                      <p class="nav-item my-auto ms-3 ms-lg-0">
+                        <a href="{% url 'consulta_view' %}" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">CLICA AQUI PARA MARCAR UMA CONSULTA</a>
+                      </p>
+                      <p class="lead">Aqui abaixo estão os agendamentos que você fez:</p>
+                      
                     </div>
                     {% if appointments %}
                       <ul>
@@ -544,7 +551,7 @@
         </div>
         <div class="col-lg-6 ms-auto text-lg-end text-center">
           <p class="mb-5 text-lg text-dark font-weight-bold">
-            A recompensa por subir no palco é a fama.O preço da fama é que você não pode sair do palco.
+            "Saúde é o bem mais valioso. Invista em você!"
           </p>
           <a href="javascript:;" target="_blank" class="text-dark me-xl-4 me-4 opacity-5">
             <span class="fab fa-dribbble"></span>

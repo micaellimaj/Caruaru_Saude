@@ -12,7 +12,8 @@ from django.contrib import messages
 from django.urls import reverse
 from .forms import InstitutionProfileForm, InstitutionDetailsForm
 from .models import Instituicao
-
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth import logout
 
 
 # Cadastro da instituição
@@ -47,7 +48,7 @@ def cadastro_instituicao(request):
             instagram=instagram
         )
 
-        return HttpResponse("Instituição cadastrada com sucesso")
+        return render(request, "instituicao/login_i.html")
 
 # Login da instituição
 def login_i(request):
@@ -80,7 +81,7 @@ def instituicao(request):
     try:
         instituicao = user.instituicao  # Verifica se o instituicao é um `Instituicao`
     except Instituicao.DoesNotExist:
-        return HttpResponse("Esse usuário não é uma Instituição")
+        return render(request, "instituicao/login_i.html")
 
     # Busca apenas os agendamentos marcados
     appointments = Appointment.objects.filter(is_booked=True)
@@ -165,6 +166,7 @@ def delete_appointment(request, appointment_id):
 @login_required(login_url="/auth/login/")
 def instituicao_detalhes(request):
     instituicao = get_object_or_404(Instituicao, user=request.user)  # Obtém a instituição do usuário logado
+    user = request.user
 
     if request.method == "POST":
         instituicao.nome = request.POST.get('nome')
@@ -175,6 +177,20 @@ def instituicao_detalhes(request):
         
         instituicao.save()  # Salva as alterações no modelo Instituição
 
-        return redirect('instituicao_detalhes')  # Redireciona após atualização
+        # Atualiza a senha do usuário, se fornecida
+        senha = request.POST.get('senha')
+        if senha:
+            user.set_password(senha)
+            user.save()
+            # Atualiza a sessão para que o usuário não seja desconectado após mudar a senha
+            update_session_auth_hash(request, user)
+
+        return redirect('instituicao')  # Redireciona após atualização
 
     return render(request, 'instituicao/detalhes.html', {'instituicao': instituicao})
+
+def logout_view_intituicao(request):
+    logout(request)
+    return redirect('instituicao/login_i')
+
+

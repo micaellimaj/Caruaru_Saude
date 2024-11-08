@@ -332,6 +332,9 @@
                 <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Conecte-se conosco no LinkedIn"></p>
             </a>
         </li>
+        <li class="nav-item my-auto ms-3 ms-lg-0">
+          <a href="{% url 'logout_instituicao' %}" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">Sair</a>
+        </li>
         
          
         </ul>
@@ -342,7 +345,7 @@
   </div></div></div>
   <!-- -------- START HEADER 4 w/ search book a ticket form ------- -->
   <header>
-    <div class="page-header min-height-400" style="background-image: url('{% static 'assets/img/caruaru_3.jpeg' %}');" loading="lazy">
+    <div class="page-header min-height-400" style="background-image: url({% static 'assets/img/caruaru_3.jpeg' %});" loading="lazy">
       <span class="mask bg-gradient-dark opacity-8"></span>
     </div>
   </header>
@@ -353,12 +356,25 @@
       <div class="container">
         <div class="row">
           <div class="col-12 mx-auto">
-            
-            
+            <div class="mt-n8 mt-md-n9 text-center">
+              <img class="avatar avatar-xxl shadow-xl position-relative z-index-2" src="{% static 'assets/img/instituicao1.jpg' %}" alt="bruce" loading="lazy">
             </div>
-          </div>
-        </div>
-      </div>
+            <div class="row py-5">
+              <div class="col-lg-7 col-md-7 z-index-2 position-relative px-md-2 px-sm-5 mx-auto">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h3 class="mb-0">Bem  vindo Instituição</h3>
+                 
+                </div>
+                <p class="text-lg mb-0">
+                  Bem-vindo a Área da instituição do Caruaru Saúde! Agradecemos sua participação em nossa plataforma e o compromisso em fornecer serviços de qualidade para a comunidade. Gerencie facilmente seus serviços e esteja sempre conectado aos cidadãos. <br><a href="javascript:;" class="text-info icon-move-right">More about me
+                    <i class="fas fa-arrow-right text-sm ms-1"></i>
+                  </a>
+                </p>
+              </div>
+            </div>
+
+      
+         
     </section>
     <!-- END Testimonials w/ user image & text & info -->
     <!-- START Blogs w/ 4 cards w/ image & text & link -->
@@ -369,10 +385,8 @@
             <div class="card card-background cursor-pointer">
               <div class="full-background" style="background-image: url('{% static 'assets/img/caruaru_3.jpeg' %}')" loading="lazy"></div>
               <div class="card-body">
-                <h2 class="card-title">Conta</h2>
-                <p>Acesse sua conta e altere dados pessoais</p>
-                <a href="javascript:;" class="text-white text-sm icon-move-right">Read More
-                  <i class="fas fa-arrow-right text-xs ms-1"></i>
+                <h3 class="card-title">Detalhes da conta</h3>
+                <p>Acesse sua conta e altere os dados pessoais da sua instituição.</p>
                 </a>
               </div>
             </div>
@@ -381,11 +395,8 @@
             <div class="card card-background cursor-pointer">
               <div class="full-background" style="background-image: url('{% static 'assets/img/caruaru_3.jpeg' %}')" loading="lazy"></div>
               <div class="card-body">
-                <h2 class="card-title">Data</h2>
-                <p>Adicionar data disponível</p>
-                <a href="javascript:;" class="text-white text-sm icon-move-right">Read More
-                  <i class="fas fa-arrow-right text-xs ms-1"></i>
-                </a>
+                <h3 class="card-title">Adicionar Data e Horário</h3>
+                <p>Adicione os horários e datas disponíveis para consulta com o cliente.</p>
               </div>
             </div>
           </div>
@@ -393,11 +404,8 @@
             <div class="card card-background cursor-pointer">
               <div class="full-background" style="background-image: url('{% static 'assets/img/caruaru_3.jpeg' %}')" loading="lazy"></div>
               <div class="card-body">
-                <h2 class="card-title">Agendamentos</h2>
-                <p>Agendamentos marcados</p>
-                <a href="javascript:;" class="text-white text-sm icon-move-right">Read More
-                  <i class="fas fa-arrow-right text-xs ms-1"></i>
-                </a>
+                <h3 class="card-title">Consultas Agendadas </h3>
+                <p>Agendamentos marcados pelo cliente conforme data disponibilizada.</p>
               </div>
             </div>
           </div>
@@ -422,7 +430,7 @@
                   <p class="text-white opacity-8 mb-4">Clique para mais detalhes e configurações.</p>
                   <div class="d-flex p-2 text-white">
                     <div>
-                      <i class="fas fa-phone text-sm"></i>
+                      <i class="fas fa-clinic-medical text-sm"></i>
                     </div>
                     <div class="ps-3">
                       <button class="btn btn-link text-white" onclick="showSection('details')">Detalhes da conta</button>
@@ -430,15 +438,15 @@
                   </div>
                   <div class="d-flex p-2 text-white">
                     <div>
-                      <i class="fas fa-envelope text-sm"></i>
+                      <i class="fas fa-calendar-alt text-sm"></i>
                     </div>
                     <div class="ps-3">
-                      <button class="btn btn-link text-white" onclick="showSection('appointments')">Adicionar Datas</button>
+                      <button class="btn btn-link text-white" onclick="showSection('appointments')">Adicionar Data e Horário</button>
                     </div>
                   </div>
                   <div class="d-flex p-2 text-white">
                     <div>
-                      <i class="fas fa-map-marker-alt text-sm"></i>
+                      <i class="fas fa-tasks text-sm"></i>
                     </div>
                     <div class="ps-3">
                       <button class="btn btn-link text-white" onclick="showSection('orders')">Consultas Agendadas</button>
@@ -463,34 +471,62 @@
                   <div id="content-section">
                     <div id="details" class="section">
                       <form method="post" action="{% url 'instituicao_detalhes' %}" class="p-4">
-                          {% csrf_token %}
-                          <div class="card-body pt-1">
-                              <h2 class="mb-4">Detalhes da Instituição</h2>
-                              <div class="mb-3">
-                                  <label for="nome" class="form-label">Nome da Instituição:</label>
-                                  <input type="text" class="form-control" id="nome" name="nome" value="{{ instituicao.nome }}" required>
-                              </div>
-                              <div class="mb-3">
-                                  <label for="endereco" class="form-label">Endereço:</label>
-                                  <input type="text" class="form-control" id="endereco" name="endereco" value="{{ instituicao.endereco }}" required>
-                              </div>
-                              <div class="mb-3">
-                                  <label for="telefone" class="form-label">Telefone:</label>
-                                  <input type="text" class="form-control" id="telefone" name="telefone" value="{{ instituicao.telefone }}" required>
-                              </div>
-                              <div class="mb-3">
-                                  <label for="whatsapp" class="form-label">WhatsApp:</label>
-                                  <input type="text" class="form-control" id="whatsapp" name="whatsapp" value="{{ instituicao.whatsapp }}">
-                              </div>
-                              <div class="mb-3">
-                                  <label for="instagram" class="form-label">Instagram:</label>
-                                  <input type="text" class="form-control" id="instagram" name="instagram" value="{{ instituicao.instagram }}">
-                              </div>
-                              <div class="text-end">
-                                  <button type="submit" class="btn bg-gradient-info mb-0">Atualizar Dados</button>
-                              </div>
-                          </div>
-                      </form>
+                        {% csrf_token %}
+                        <div class="card-body pt-1">
+                            <h2 class="mb-4">Detalhes da Instituição</h2>
+                            <p class="lead">Aqui você pode alterar os dados da instituição.</p>
+                            <!-- Campo de Nome da Instituição -->
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">
+                                    Nome da Instituição {% if instituicao.nome %} ({{ instituicao.nome }}){% endif %}:
+                                </label>
+                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o novo nome" required>
+                            </div>
+                            
+                            <!-- Campo de Endereço -->
+                            <div class="mb-3">
+                                <label for="endereco" class="form-label">
+                                    Endereço {% if instituicao.endereco %} ({{ instituicao.endereco }}){% endif %}:
+                                </label>
+                                <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Digite o novo endereço" required>
+                            </div>
+                            
+                            <!-- Campo de Telefone -->
+                            <div class="mb-3">
+                                <label for="telefone" class="form-label">
+                                    Telefone {% if instituicao.telefone %} ({{ instituicao.telefone }}){% endif %}:
+                                </label>
+                                <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite o novo telefone" required>
+                            </div>
+                            
+                            <!-- Campo de WhatsApp -->
+                            <div class="mb-3">
+                                <label for="whatsapp" class="form-label">
+                                    WhatsApp {% if instituicao.whatsapp %} ({{ instituicao.whatsapp }}){% endif %}:
+                                </label>
+                                <input type="text" class="form-control" id="whatsapp" name="whatsapp" placeholder="Digite o novo WhatsApp">
+                            </div>
+                            
+                            <!-- Campo de Instagram -->
+                            <div class="mb-3">
+                                <label for="instagram" class="form-label">
+                                    Instagram {% if instituicao.instagram %} ({{ instituicao.instagram }}){% endif %}:
+                                </label>
+                                <input type="url" class="form-control" id="instagram" name="instagram" placeholder="Digite o novo Instagram">
+                            </div>
+                    
+                            <!-- Campo de Nova Senha -->
+                            <div class="mb-3">
+                                <label for="senha" class="form-label">Nova senha (opcional):</label>
+                                <input type="password" class="form-control" id="senha" name="senha" placeholder="Deixe em branco se não quiser mudar">
+                            </div>
+                            
+                            <!-- Botão de Atualização -->
+                            <div class="text-end">
+                                <button type="submit" class="btn bg-gradient-info mb-0">Atualizar Dados</button>
+                            </div>
+                        </div>
+                    </form>
                   </div>
                   
                   
@@ -498,8 +534,8 @@
                   <!-- Seção de compromissos -->
 <div id="appointments" class="section" style="display:none;">
   <div class="card-header px-4 py-sm-5 py-3">
-    <h2>Agendamentos</h2>
-    <p class="lead">Aqui estão as opções de agendamento</p>
+    <h2>Adicionar Data e Horário</h2>
+    <p class="lead">Aqui você pode adicionar quando vai está disponível e o paciente terá acesso as opções de agendamento.</p>
   </div>
 
   <!-- Adicionar o CSRF token -->
@@ -551,8 +587,8 @@
                   
                   <div id="orders" class="section" style="display:none;">
                     <div class="card-header px-4 py-sm-5 py-3">
-                        <h2>Pedidos</h2>
-                        <p class="lead">Aqui estão os seus pedidos mais recentes</p>
+                        <h2>Consultas Agendadas</h2>
+                        <p class="lead">Aqui estão as consultas marcadas mais recentes pelos pacientes.</p>
                     </div>
                     <table class="table">
                         <thead>
@@ -675,35 +711,8 @@
 
   </section>
 
-  <form method="post" action="{% url 'instituicao_detalhes' %}" class="p-4">
-    {% csrf_token %}
-    <div class="card-body pt-1">
-        <h2 class="mb-4">Detalhes da Instituição</h2>
-        <div class="mb-3">
-            <label for="nome" class="form-label">Nome da Instituição:</label>
-            <input type="text" class="form-control" id="nome" name="nome" value="{{ instituicao.nome }}" required>
-        </div>
-        <div class="mb-3">
-            <label for="endereco" class="form-label">Endereço:</label>
-            <input type="text" class="form-control" id="endereco" name="endereco" value="{{ instituicao.endereco }}" required>
-        </div>
-        <div class="mb-3">
-            <label for="telefone" class="form-label">Telefone:</label>
-            <input type="text" class="form-control" id="telefone" name="telefone" value="{{ instituicao.telefone }}" required>
-        </div>
-        <div class="mb-3">
-            <label for="whatsapp" class="form-label">WhatsApp:</label>
-            <input type="text" class="form-control" id="whatsapp" name="whatsapp" value="{{ instituicao.whatsapp }}">
-        </div>
-        <div class="mb-3">
-            <label for="instagram" class="form-label">Instagram:</label>
-            <input type="text" class="form-control" id="instagram" name="instagram" value="{{ instituicao.instagram }}">
-        </div>
-        <div class="text-end">
-            <button type="submit" class="btn bg-gradient-info mb-0">Atualizar Dados</button>
-        </div>
-    </div>
-</form>
+  
+
 
 
   <!-- -------- START FOOTER 5 w/ DARK BACKGROUND ------- -->
@@ -711,7 +720,7 @@
     <div class="container z-index-1 position-relative">
       <div class="row">
         <div class="col-lg-4 me-auto mb-lg-0 mb-4 text-lg-start text-center">
-          <h6 class="text-dark font-weight-bolder text-uppercase mb-lg-4 mb-3">Material Design</h6>
+          <h6 class="text-dark font-weight-bolder text-uppercase mb-lg-4 mb-3">Caruaru Saúde</h6>
           <ul class="nav flex-row ms-n3 justify-content-lg-start justify-content-center mb-4 mt-sm-0">
             <li class="nav-item">
               <a class="nav-link text-dark opacity-8" href="https://www.creative-tim.com" target="_blank">
@@ -742,7 +751,7 @@
         </div>
         <div class="col-lg-6 ms-auto text-lg-end text-center">
           <p class="mb-5 text-lg text-dark font-weight-bold">
-            The reward for getting on the stage is fame. The price of fame is you can’t get off the stage.
+            "Cuidar é a melhor forma de transformar vidas e construir um futuro saudável."
           </p>
           <a href="javascript:;" target="_blank" class="text-dark me-xl-4 me-4 opacity-5">
             <span class="fab fa-dribbble"></span>
@@ -818,9 +827,10 @@
   });
 </script>
 
-//Função para capturar e exibir os agendamentos na lista
+    
 
 <script>
+   //Função para capturar e exibir os agendamentos na lista
 document.getElementById('contact-form').addEventListener('submit', function(event) {
   event.preventDefault(); // Impede o envio do formulário
 

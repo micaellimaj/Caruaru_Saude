@@ -54,7 +54,7 @@ def login(request):
                 return redirect('usuario')  
             elif hasattr(user, 'instituicao'):
                 # É uma instituição
-                return redirect('isntituicao') 
+                return redirect('instituicao') 
             return HttpResponse('Usuário não identificado')
         else:
             return HttpResponse('Email ou senha inválidos')
