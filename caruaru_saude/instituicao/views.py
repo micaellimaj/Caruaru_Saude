@@ -33,7 +33,10 @@ def cadastro_instituicao(request):
         # Verifique se o usuário já existe
         user = User.objects.filter(username=username).first()
         if user:
-            return HttpResponse('Já existe um usuário com esse username')
+            # Adiciona a mensagem de erro
+            messages.error(request, 'Já existe um usuário com esse username.')
+            # Renderiza a página novamente (não se esqueça de passar o contexto necessário)
+            return render(request, 'instituicao/cadastro_instituicao.html')
 
         # Crie o usuário
         user = User.objects.create_user(username=username, email=email, password=senha)
@@ -69,31 +72,70 @@ def login_i(request):
             elif hasattr(user, 'usuario'):
                 # É uma usuário
                 return redirect('usuario')  
-            return HttpResponse('Usuário não identificado')
+            messages.error(request, 'Usuário não identificado')
+            return render(request, 'instituicao/login_i.html')
         else:
-            return HttpResponse('Email ou senha inválidos')
+            messages.error(request, 'Email ou senha inválidos')
+            return render(request, 'instituicao/login_i.html')
+
             
 # View da página de instituição (após o login)
     
 @login_required(login_url="/auth/login_i/")
 def instituicao(request):
-    user = request.user  # Pega o usuário logado
+    user = request.user  # Usuário logado
     try:
-        instituicao = user.instituicao  # Verifica se o instituicao é um `Instituicao`
+        instituicao = user.instituicao  # Verifica se o usuário logado é uma instituição
     except Instituicao.DoesNotExist:
-        return render(request, "instituicao/login_i.html")
+        return redirect("login_i")  # Redireciona para login se o usuário não for uma instituição
 
-    # Busca apenas os agendamentos marcados
-    appointments = Appointment.objects.filter(is_booked=True)
+    # Filtra todas as consultas marcadas ou não marcadas
+    #consultas = Appointment.objects.all()
+    consultas = Appointment.objects.filter(is_booked=True)
+    
 
-    # Paginação: 10 agendamentos por página
-    paginator = Paginator(appointments, 10)
+
+    if request.method == "POST":
+        # Exclusão de consulta
+        appointment_id = request.POST.get("appointment_id")
+        appointment = get_object_or_404(Appointment, id=appointment_id)
+        appointment.delete()
+        return redirect("instituicao")
+
+    # Paginação para consultas
+    paginator = Paginator(consultas, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    # Renderiza a página de instituição com os agendamentos paginados
     return render(request, 'instituicao/instituicao.html', {'page_obj': page_obj})
 
+@login_required(login_url="/auth/login_i/")
+def instituicao_view(request):
+    user = request.user  # Usuário logado
+    try:
+        instituicao = user.instituicao  # Verifica se o usuário logado é uma instituição
+    except Instituicao.DoesNotExist:
+        return redirect("login_i")
+    # Consultas que o usuário não marcou (disponíveis)
+    consultas_nao_marcadas = Appointment.objects.filter(is_booked=False)
+    
+    # Consultas que o usuário já marcou
+    consultas_marcadas = Appointment.objects.all()
+    
+    # Paginação para consultas não marcadas
+    paginator_nao_marcadas = Paginator(consultas_nao_marcadas, 10)  # 10 consultas por página
+    page_number_nao_marcadas = request.GET.get('page')
+    page_obj_nao_marcadas = paginator_nao_marcadas.get_page(page_number_nao_marcadas)
+    
+    # Paginação para consultas marcadas
+    paginator_marcadas = Paginator(consultas_marcadas, 10)
+    page_number_marcadas = request.GET.get('page')
+    page_obj_marcadas = paginator_marcadas.get_page(page_number_marcadas)
+
+    return render(request, 'instituicao/instituicao.html', {
+        'page_obj_nao_marcadas': page_obj_nao_marcadas,
+        'page_obj_marcadas': page_obj_marcadas
+    })
 
 # View de agendamentos
 @login_required(login_url="/auth/login_i/")
@@ -102,12 +144,12 @@ def appointment_view(request):
         form = AppointmentForm(request.POST)
         if form.is_valid():
             form.save()  # Salva os dados do agendamento no banco de dados
-            return HttpResponse("Agendamento cadastrado com sucesso!")
+            messages.success(request, "Agendamento cadastrado com sucesso!")
+            return redirect('instituicao')
     else:
         form = AppointmentForm()
 
     return render(request, 'instituicao/instituicao.html', {'form': form})
-
 
 @login_required(login_url="/auth/login_i/")
 def excluir_agendamento(request, appointment_id):
@@ -117,6 +159,7 @@ def excluir_agendamento(request, appointment_id):
     
     # Redireciona de volta para a página da instituição após excluir
     return redirect('instituicao')
+
 
 login_required(login_url="/auth/login_i/")
 def marcar_consulta(request, appointment_id):
@@ -146,6 +189,7 @@ def consulta_view(request):
     # Busca apenas os agendamentos que não foram marcados
     appointments = Appointment.objects.filter(is_booked=False)
 
+
      # Paginação: 10 agendamentos por página
     paginator = Paginator(appointments, 7)  # 10 registros por página
     page_number = request.GET.get('page')  # Pega o número da página a partir da query string
@@ -163,9 +207,9 @@ def delete_appointment(request, appointment_id):
     appointment.delete()
     return redirect(reverse('instituicao'))
 
-@login_required(login_url="/auth/login/")
+@login_required(login_url="/auth/login_i/")
 def instituicao_detalhes(request):
-    instituicao = get_object_or_404(Instituicao, user=request.user)  # Obtém a instituição do usuário logado
+    instituicao = get_object_or_404(Instituicao, user=request.user)  
     user = request.user
 
     if request.method == "POST":
@@ -188,6 +232,7 @@ def instituicao_detalhes(request):
         return redirect('instituicao')  # Redireciona após atualização
 
     return render(request, 'instituicao/detalhes.html', {'instituicao': instituicao})
+
 
 def logout_view_intituicao(request):
     logout(request)

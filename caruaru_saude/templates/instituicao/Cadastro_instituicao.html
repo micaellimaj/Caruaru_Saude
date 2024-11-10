@@ -415,12 +415,20 @@
                 <p class="mt-4 text-sm text-center">
                   Você possui uma conta? <a href="/login">Faça login</a>
               </p>
+              {% if messages %}
+    <div id="error-message" class="alert alert-danger">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
               </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+     
     
     <footer class="footer position-absolute bottom-2 py-2 w-100">
       <div class="container">
@@ -482,6 +490,15 @@
       validatePhoneNumber(this);
     });
   });
+</script>
+
+<script>
+  setTimeout(function() {
+      var message = document.getElementById("error-message");
+      if (message) {
+          message.style.display = 'none';
+      }
+  }, 5000);  // A mensagem desaparece após 5000 milissegundos (5 segundos)
 </script>
 
 </body>

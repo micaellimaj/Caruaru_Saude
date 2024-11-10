@@ -380,18 +380,17 @@
     <!-- START Blogs w/ 4 cards w/ image & text & link -->
     <section class="py-3">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-3 col-md-6 mb-4">
             <div class="card card-background cursor-pointer">
               <div class="full-background" style="background-image: url('{% static 'assets/img/caruaru_3.jpeg' %}')" loading="lazy"></div>
               <div class="card-body">
-                <h3 class="card-title">Detalhes da conta</h3>
-                <p>Acesse sua conta e altere os dados pessoais da sua instituição.</p>
-                </a>
+                <h3 class="card-title">Detalhes da instituição</h3>
+                <p>Acesse sua conta institucional e altere os dados pessoais da instituição cadastrada.</p>
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-3 col-md-6 mb-4">
             <div class="card card-background cursor-pointer">
               <div class="full-background" style="background-image: url('{% static 'assets/img/caruaru_3.jpeg' %}')" loading="lazy"></div>
               <div class="card-body">
@@ -400,18 +399,28 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-3 col-md-6 mb-4">
             <div class="card card-background cursor-pointer">
               <div class="full-background" style="background-image: url('{% static 'assets/img/caruaru_3.jpeg' %}')" loading="lazy"></div>
               <div class="card-body">
-                <h3 class="card-title">Consultas Agendadas </h3>
+                <h3 class="card-title">Consultas Agendadas</h3>
                 <p>Agendamentos marcados pelo cliente conforme data disponibilizada.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card card-background cursor-pointer">
+              <div class="full-background" style="background-image: url('{% static 'assets/img/caruaru_3.jpeg' %}')" loading="lazy"></div>
+              <div class="card-body">
+                <h3 class="card-title">Todas as Consultas disponibilizadas</h3>
+                <p>Agendamentos marcados ou não pelo cliente conforme data disponibilizada.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    
     
     <!-- END Blogs w/ 4 cards w/ image & text & link -->
   </div>
@@ -433,7 +442,7 @@
                       <i class="fas fa-clinic-medical text-sm"></i>
                     </div>
                     <div class="ps-3">
-                      <button class="btn btn-link text-white" onclick="showSection('details')">Detalhes da conta</button>
+                      <button class="btn btn-link text-white" onclick="showSection('details')">Detalhes da Instituição</button>
                     </div>
                   </div>
                   <div class="d-flex p-2 text-white">
@@ -453,14 +462,14 @@
                     </div>
                   </div>
                    <!-- Novo botão "Datas marcadas" -->
-      <div class="d-flex p-2 text-white">
-        <div>
-          <i class="fas fa-calendar-check text-sm"></i>
-        </div>
-        <div class="ps-3">
-          <button class="btn btn-link text-white" onclick="showSection('markedDates')">Datas Marcadas</button>
-        </div>
-      </div>
+                <div class="d-flex p-2 text-white">
+                  <div>
+                    <i class="fas fa-calendar-check text-sm"></i>
+                  </div>
+                  <div class="ps-3">
+                    <button class="btn btn-link text-white" onclick="showSection('markedDates')">Todas as Consultas disponibilizadas</button>
+                  </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -469,7 +478,7 @@
                 <div id="content-section">
                   <!-- Account Details section -->
                   <div id="content-section">
-                    <div id="details" class="section">
+                    <div id="details" class="section" style="display:block;">
                       <form method="post" action="{% url 'instituicao_detalhes' %}" class="p-4">
                         {% csrf_token %}
                         <div class="card-body pt-1">
@@ -583,135 +592,127 @@
 </div>
 
                       
-                  <!-- Datas disponiveis -->
-                  
-                  <div id="orders" class="section" style="display:none;">
-                    <div class="card-header px-4 py-sm-5 py-3">
-                        <h2>Consultas Agendadas</h2>
-                        <p class="lead">Aqui estão as consultas marcadas mais recentes pelos pacientes.</p>
-                    </div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Serviço</th>
-                                <th scope="col">Profissional</th>
-                                <th scope="col">Data e Horário</th>
-                                <th scope="col">Ação</th> <!-- Coluna para o botão Excluir -->
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Loop para exibir agendamentos paginados -->
-                            {% for appointment in page_obj %}
-                            <tr>
-                                <td>{{ appointment.service }}</td>
-                                <td>{{ appointment.professional }}</td>
-                                <td>{{ appointment.datetime }}</td>
-                                <td>
-                                    <form method="POST" action="{% url 'excluir_agendamento' appointment.id %}">
-                                        {% csrf_token %}
-                                        <button type="submit" class="btn btn-danger">Excluir</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            {% empty %}
-                            <tr>
-                                <td colspan="4">Nenhum agendamento encontrado</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                  <!-- Primeira lista: Consultas não marcadas -->
+<div id="orders" class="section" style="display:none;">
+  <div class="card-header px-4 py-sm-5 py-3">
+      <h2>Consultas Disponíveis</h2>
+      <p class="lead">Aqui estão as consultas disponíveis, que ainda não foram marcadas.</p>
+  </div>
+  <table class="table">
+      <thead>
+          <tr>
+              <th scope="col">Serviço</th>
+              <th scope="col">Profissional</th>
+              <th scope="col">Data e Horário</th>
+              <th scope="col">Ação</th> <!-- Coluna para ação -->
+          </tr>
+      </thead>
+      <tbody>
+          {% for appointment in page_obj_nao_marcadas %}
+          <tr>
+              <td>{{ appointment.service }}</td>
+              <td>{{ appointment.professional }}</td>
+              <td>{{ appointment.datetime }}</td>
+              <td>
+                  <form method="POST" action="{% url 'excluir_agendamento' appointment.id %}">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-success">Excluir consultas</button>
+                  </form>
+              </td>
+          </tr>
+          {% empty %}
+          <tr>
+              <td colspan="4">Nenhuma consulta disponível.</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+  
+  <!-- Paginação para consultas não marcadas -->
+  <div class="pagination">
+      <span class="step-links">
+          {% if page_obj_nao_marcadas.has_previous %}
+              <a href="?page=1">&laquo; primeira</a>
+              <a href="?page={{ page_obj_nao_marcadas.previous_page_number }}">anterior</a>
+          {% endif %}
+          <span class="current">
+              Página {{ page_obj_nao_marcadas.number }} de {{ page_obj_nao_marcadas.paginator.num_pages }}.
+          </span>
+          {% if page_obj_nao_marcadas.has_next %}
+              <a href="?page={{ page_obj_nao_marcadas.next_page_number }}">próxima</a>
+              <a href="?page={{ page_obj_nao_marcadas.paginator.num_pages }}">última &raquo;</a>
+          {% endif %}
+      </span>
+  </div>
+</div>
                 
-                    
-
-
-              <!-- Paginação -->
-
-              <nav aria-label="Page navigation">
-                <div class="pagination-container">
-                    {% if page_obj.has_previous %}
-                        <li class="page-item"><a class="page-link" href="?page=1">Primeira</a></li>
-                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a></li>
-                    {% endif %}
-                    
-                    <li class="page-item active">
-                        <span class="page-link">{{ page_obj.number }}</span>
-                    </li>
-                    
-                    {% if page_obj.has_next %}
-                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Próxima</a></li>
-                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Última</a></li>
-                    {% endif %}
-                </div>
-            </nav>
-            
-                </div>
 
                 
-                <!-- Agendamentos feitos -->
-                  <!-- 
-                <div id="markedDates" class="section">
-                  <div class="card-header px-4 py-sm-5 py-3">
-                      <h2>Agendamentos</h2>
-                      <p class="lead">Aqui estão os seus agendamentos</p>
-                  </div>
-          
-                  <table>
-                      <thead>
-                          <tr>
-                              <th scope="col">Serviço</th>
-                              <th scope="col">Profissional</th>
-                              <th scope="col">Data e Horário</th>
-                              <th scope="col">Ação</th> <!-- Coluna para o botão Excluir 
-                          </tr>
-                      </thead>
-                      <tbody>
-                          {% for appointment in page_obj %}
-                              <tr>
-                                  <td>{{ appointment.service }}</td>
-                                  <td>{{ appointment.professional }}</td>
-                                  <td>{{ appointment.datetime }}</td>
-                                  <td>
-                                      <form method="POST" action="{% url 'excluir_agendamento' appointment.id %}">
-                                          {% csrf_token %}
-                                          <button type="submit">Excluir</button>
-                                      </form>
-                                  </td>
-                              </tr>
-                          {% empty %}
-                              <tr>
-                                  <td colspan="4">Nenhum agendamento marcado.</td>
-                              </tr>
-                          {% endfor %}
-                      </tbody>
-                  </table>
-          
-                  <!-- Paginação 
-                  <div class="pagination">
-                      <span class="step-links">
-                          {% if page_obj.has_previous %}
-                              <a href="?page=1">&laquo; primeira</a>
-                              <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
-                          {% endif %}
-          
-                          <span class="current">
-                              Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
-                          </span>
-          
-                          {% if page_obj.has_next %}
-                              <a href="?page={{ page_obj.next_page_number }}">próxima</a>
-                              <a href="?page={{ page_obj.paginator.num_pages }}">última &raquo;</a>
-                          {% endif %}
-                      </span>
-                  </div>
-                -->
-                
+                <!-- Segunda lista: Consultas marcadas -->
+<div id="markedDates" class="section" style="display:none;">
+  <div class="card-header px-4 py-sm-5 py-3">
+      <h2>Consultas Marcadas</h2>
+      <p class="lead">Aqui estão as suas consultas marcadas.</p>
+  </div>
+
+  <table class="table">
+      <thead>
+          <tr>
+              <th scope="col">Serviço</th>
+              <th scope="col">Profissional</th>
+              <th scope="col">Data e Horário</th>
+              <th scope="col">Ação</th> <!-- Coluna para o botão de excluir -->
+          </tr>
+      </thead>
+      <tbody>
+          {% for appointment in page_obj_marcadas %}
+          <tr>
+              <td>{{ appointment.service }}</td>
+              <td>{{ appointment.professional }}</td>
+              <td>{{ appointment.datetime }}</td>
+              <td>
+                  <form method="POST" action="{% url 'excluir_agendamento' appointment.id %}">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-danger">Excluir</button>
+                  </form>
+              </td>
+          </tr>
+          {% empty %}
+          <tr>
+              <td colspan="4">Nenhum agendamento encontrado.</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+  
+  <!-- Paginação para consultas marcadas -->
+  <div class="pagination">
+      <span class="step-links">
+          {% if page_obj_marcadas.has_previous %}
+              <a href="?page=1">&laquo; primeira</a>
+              <a href="?page={{ page_obj_marcadas.previous_page_number }}">anterior</a>
+          {% endif %}
+          <span class="current">
+              Página {{ page_obj_marcadas.number }} de {{ page_obj_marcadas.paginator.num_pages }}.
+          </span>
+          {% if page_obj_marcadas.has_next %}
+              <a href="?page={{ page_obj_marcadas.next_page_number }}">próxima</a>
+              <a href="?page={{ page_obj_marcadas.paginator.num_pages }}">última &raquo;</a>
+          {% endif %}
+      </span>
+  </div>
 </div>
 
 
-
   </section>
-
   
+  {% if messages %}
+  <div id="success-message" class="alert alert-success">
+      {% for message in messages %}
+          <p>{{ message }}</p>
+      {% endfor %}
+  </div>
+{% endif %}
 
 
 
@@ -856,7 +857,16 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 });
 </script>
 
-  
+
+<script>
+  // A mensagem de sucesso apos a intituicao adicionat horário disponivel (5 segundos)
+  setTimeout(function() {
+      var message = document.getElementById("success-message");
+      if (message) {
+          message.style.display = 'none';
+      }
+  }, 10000);  // A mensagem desaparece após 5000 milissegundos (5 segundos)
+</script>
 
 </body>
 

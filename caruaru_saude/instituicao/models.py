@@ -14,6 +14,7 @@ class Appointment(models.Model):
     datetime = models.DateTimeField()
     is_booked = models.BooleanField(default=False)  # Novo campo para indicar se está marcada
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)  # Relaciona com o usuário que marcou a consulta, se necessário
+    instituicao = models.ForeignKey('Instituicao', on_delete=models.CASCADE,null=True, blank=True)  # Associando a uma instituição
 
 
     def __str__(self):
