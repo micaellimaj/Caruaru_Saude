@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link rel="icon" sizes="76x76" href="{% static 'assets/img/apple-icon.png' %}">
-<link rel="icon" type="image/png" href="{% static 'assets/img/favicon.png' %}">
+<link rel="icon" type="image/png" href="{% static 'assets/img/favicon.svg' %}">
 <link rel="stylesheet" href="{% static 'assets/css/mapa.css' %}"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -359,7 +359,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-7 text-center mx-auto">
-          <h1 class="text-white pt-3 mt-n5">Caruaru Saúde</h1>
+          <div class="svg-logo pt-3 mt-n5">
+            <img src="{% static 'assets/img/logo.svg' %}" alt="Logo" class="responsive-svg">
+          </div>
           <p class="lead text-white mt-3">Busca/divulgação de produtos/serviços na área da saúde da região do Agreste/PE<br/> Propondo Soluções Inteligentes Para Demandas Cotidianas. </p>
         </div>
       </div>
