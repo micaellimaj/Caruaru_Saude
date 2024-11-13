@@ -126,6 +126,7 @@ hr {
   opacity: 0.25;
 }
 
+
 h1,
 .h1,
 h2,
@@ -143,6 +144,17 @@ h6,
   font-weight: 400;
   line-height: 1.2;
   color: #344767;
+}
+h15,
+.h15 {
+  font-size: calc(1.3125rem + 0.75vw);
+  font-family: var(--bs-font-sans-serif);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #fff;
 }
 
 h1,
