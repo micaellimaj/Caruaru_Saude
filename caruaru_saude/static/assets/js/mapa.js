@@ -454,6 +454,59 @@ const diagnosticosporimagem = L.layerGroup([
   `),
 ]);  
 
+const laboratorios = L.layerGroup([
+  L.marker([-8.279978661208665, -35.96750592818916], {icon: laboratorio})
+  .bindPopup(`
+    <b>LABOC</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipNDsYmpIwUyHSoSZiLj40Kwjl8zkX4ETR13t9tB=s680-w680-h510" alt="laboc" width="300"><br><br>
+    <br>Rua Belmiro Pereira - 282, Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558131362934">(81) 3136-2934</a><br>
+    <br><a href="https://wa.me/5581996991533">WhatsApp</a><br>
+    <br>E-mail: <a href="mailto:laboccentral@outlook.com">laboccentral@outlook.com</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/laboc.laboratorios" target="_blank">@laboc.laboratorios</a><br>
+    <br><a href="https://maps.app.goo.gl/tSzp5kER4dqC8nXR9" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.274381105384245, -35.97370791734529], {icon: laboratorio})
+  .bindPopup(`
+    <b>Cerpe Caruaru</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipPDuvC6cXcXx6ZZRGaB1Sb2R0qlVOcuriOKXOj2=s680-w680-h510" alt="cerpe" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 868 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558134169922">(81) 3416-9922</a><br>
+    <br><a href="https://wa.me/558134169922">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/cerpediagnosticos" target="_blank">@cerpediagnosticos</a><br>
+    <br><a href="https://maps.app.goo.gl/LAcmiSAJioVMUgiJ9" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.274732657674312, -35.9735456188227], {icon: laboratorio})
+  .bindPopup(`
+    <b>Laboratório Luiz Alberto Florencio</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipMhZ0w6KityFs8k0UNUOQK_ADi-LCKmRyN-72lB=s680-w680-h510" alt="laflaflaf" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 834 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558137216721">(81) 3721-6721</a><br>
+    <br><a href="https://wa.me/5581971151312">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/labluizflorencio" target="_blank">@labluizflorencio</a><br>
+    <br><a href="https://maps.app.goo.gl/xrYKfv5Y6uiae5858" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.272924659933372, -35.97481008006192], {icon: laboratorio})
+  .bindPopup(`
+    <b>Laboratório Médico Dr. Romualdo Lins</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipMCfG17fCU0YBiMAhPGsYIMxfe8zbkiXaHuQOlP=s680-w680-h510" alt="lmdrl" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 1083 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558137217424">(81) 3721-7424</a><br>
+    <br><a href="https://wa.me/558137217424">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/laboratoriodrromualdo" target="_blank">@laboratoriodrromualdo</a><br>
+    <br><a href="https://maps.app.goo.gl/88y34CAG5zj7jNXj8" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.270030777205124, -35.97601515000178], {icon: laboratorio})
+  .bindPopup(`
+    <b>Laboratório de Análises Clínicas Unimed Caruaru (Unilab)</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipOHjCUEcJLLqK3SRP-Gk6xmlbzcRu77LzKLR2Lr=s680-w680-h510" alt="unilab" width="300"><br><br>
+    <br>Av. Dr. Pedro Jordão, 1252 – anexo A – Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558121035000">(81) 2103-5000</a><br>
+    <br><a href="https://wa.me/558121035000">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/unimedcaruaru" target="_blank">@unimedcaruaru</a><br>
+    <br><a href="https://maps.app.goo.gl/ZiA6kwbCbRwMzGSPA" target="_blank">Como chegar?</a>
+  `),
+]);
 // Base layers 
 const baseLayers = {
   "Mapa de ruas": openstret,
@@ -470,6 +523,7 @@ const overlays = {
   "Material Hospitalar": matshospital,
   "Clínicas": clinicas,
   "Diagnósticos por Imagem": diagnosticosporimagem,
+  "Laboratórios": laboratorios,
 };
 
 
