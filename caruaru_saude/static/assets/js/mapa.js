@@ -239,7 +239,57 @@ const farmacias = L.layerGroup([
     `),    
 ]);
 
-
+const oticas = L.layerGroup([
+  L.marker([-8.285669303481574, -35.97016903128614], {icon: otica})
+  .bindPopup(`
+    <b>Óticas Arco Verde Caruaru (CENTRO)</b><br><br>
+    <img src="https://lh5.googleusercontent.com/proxy/pus_8Ye7cFDNKHufd3k6JOC03vASqarfVrFW_2u-wzrcX2t0cTrw8taXQG2v_6A-x2SHFX29rufEWZn9W2Ur7s1goUY" alt="avcc" width="300"><br><br>
+    <br> Vig. Freire, 46 - Nossa Sra. das Dores<br>
+    <br>Telefone: <a href="tel:+5581998443232">(81) 99844-3232</a><br>
+    <br><a href="https://wa.me/5581998443232">WhatsApp</a><br>
+    <br>E-mail: <a href="mailto:sac@oticasarcoverde.com.br">sac@oticasarcoverde.com.br</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/oticas_arcoverde_caruaru" target="_blank">@oticas_arcoverde_caruaru</a><br>
+    <br><a href="https://maps.app.goo.gl/gyq2ij6YfDzHTRmH8" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.273196372423294, -35.97465429290981], {icon: otica})
+  .bindPopup(`
+    <b>Ótica Muniz Premium</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipPIwA1Faf1eZJLpg3wqamEC8P0L_tzVEe4uYKc6=s680-w680-h510" alt="omp" width="300"><br><br>
+    <br> Av. Agamenon Magalhães, 1063 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+5581985866202">(81) 98586-6202</a><br>
+    <br><a href="https://wa.me/5581985866202">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/oticamunizpremium" target="_blank">@oticamunizpremium</a><br>
+    <br><a href="https://maps.app.goo.gl/Q9HcbeC5hDBKib1c8" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.273948292623034, -35.97464695972303], {icon: otica})
+  .bindPopup(`
+    <b>Óticas Arco Verde Empresarial</b><br><br>
+    <img src="https://lh5.googleusercontent.com/proxy/pus_8Ye7cFDNKHufd3k6JOC03vASqarfVrFW_2u-wzrcX2t0cTrw8taXQG2v_6A-x2SHFX29rufEWZn9W2Ur7s1goUY" alt="avcc" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 1019 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558132366437">(81) 3236-6437</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/oticas_arcoverde_caruaru" target="_blank">@oticas_arcoverde_caruaru</a><br>
+    <br><a href="https://maps.app.goo.gl/nPbkffcEBZrDyvPR9" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.280696955503203, -35.97115201421418], {icon: otica})
+  .bindPopup(`
+    <b>Óticas Diniz</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipPyhHAFS92eaQiaRwlYw4wm_lkBjhnRPudtGwPP=s680-w680-h510" alt="odz" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 217 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+5581982137084">(81) 98213-7084</a><br>
+    <br><a href="https://wa.me/5581982137084">WhatsApp</a><br>
+    <br>E-mail: <a href="mailto:sacdiniz@oticasdiniz.com.br">sacdiniz@oticasdiniz.com.br</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/oticadinizpe" target="_blank">@oticadinizpe</a><br>
+    <br><a href="https://maps.app.goo.gl/u9qtKjv4abDFNd7k6" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.27410749724395, -35.97429342241345], {icon: otica})
+  .bindPopup(`
+    <b>Ótica Provisão</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipOAMK2640Eh-htBzLCEO2BunO-quhfYdGCwqrS1=s680-w680-h510" alt="op" width="300"><br><br>
+    <br>Galeria Vandete - Av. Agamenon Magalhães, 975 - LOJA 02 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558137213567">(81) 3721-3567</a><br>
+    <br><a href="https://maps.app.goo.gl/NAs2W91TFgLYZb138" target="_blank">Como chegar?</a>
+  `),
+]);
 
 // Base layers (camadas base)
 const baseLayers = {
@@ -253,6 +303,7 @@ const baseLayers = {
 const overlays = {
   "Hospitais": hospitais,
   "Farmácias": farmacias,
+  "Óticas": oticas,
 };
 
 // Adiciona o controle de layers ao mapa
