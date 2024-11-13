@@ -507,6 +507,29 @@ const laboratorios = L.layerGroup([
     <br><a href="https://maps.app.goo.gl/ZiA6kwbCbRwMzGSPA" target="_blank">Como chegar?</a>
   `),
 ]);
+
+const vacinas = L.layerGroup([
+  L.marker([-8.272566992447256, -35.974487029124475], {icon: vacina})
+  .bindPopup(`
+    <b>Previne Vacinas</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipPR1LQr-6fK19s6pntf6Fkl88naa15uP8cembaD=s680-w680-h510" alt="previnevacinas" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 1080 - Loja 0, Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558137191947">(81) 3719-1947</a><br>
+    <br><a href="https://wa.me/5581988732143">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/previnevacinas" target="_blank">@previnevacinas</a><br>
+    <br><a href="https://maps.app.goo.gl/hE15FmdbDb1fpgwk7" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.271347789280423, -35.975061511786905], {icon: vacina})
+  .bindPopup(`
+    <b>VaciAmar</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipO1CaNbxgwfiAmrpc7Bf0rFUehh8kzWKzhvR4N4=s680-w680-h510" alt="VaciAmar" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 1184 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+5581979055586">(81) 97905-5586</a><br>
+    <br><a href="https://wa.me/5581993496037">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/laboc.laboratorios" target="_blank">@laboc.laboratorios</a><br>
+    <br><a href="https://maps.app.goo.gl/7iUCYzoanz3vSSkU8" target="_blank">Como chegar?</a>
+  `),
+]);
 // Base layers 
 const baseLayers = {
   "Mapa de ruas": openstret,
@@ -524,6 +547,7 @@ const overlays = {
   "Clínicas": clinicas,
   "Diagnósticos por Imagem": diagnosticosporimagem,
   "Laboratórios": laboratorios,
+  "Centro de Vacinação": vacinas,
 };
 
 
