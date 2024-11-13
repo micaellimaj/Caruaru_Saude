@@ -526,10 +526,44 @@ const vacinas = L.layerGroup([
     <br>Av. Agamenon Magalhães, 1184 - Maurício de Nassau<br>
     <br>Telefone: <a href="tel:+5581979055586">(81) 97905-5586</a><br>
     <br><a href="https://wa.me/5581993496037">WhatsApp</a><br>
-    <br>Instagram: <a href="https://www.instagram.com/laboc.laboratorios" target="_blank">@laboc.laboratorios</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/vaciamar" target="_blank">@vaciamar</a><br>
     <br><a href="https://maps.app.goo.gl/7iUCYzoanz3vSSkU8" target="_blank">Como chegar?</a>
   `),
 ]);
+
+const oftalmologistas = L.layerGroup([
+  L.marker([-8.280661802387371, -35.97109839033792], {icon: oftalmologista})
+  .bindPopup(`
+    <b>Neo Oftalmologia</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipMvkDC38n5qd78v2JWMmpYGXRZzItelTqNSpK7g=s680-w680-h510" alt="neoftalmologia" width="300"><br><br>
+    <br>Av. Oswaldo Cruz, 217 - 3º Andar Sala 01 G2 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558131373737">(81) 3137-3737</a><br>
+    <br><a href="https://wa.me/558131363935">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/previnevacinas" target="_blank">@neooftalmologia</a><br>
+    <br><a href="https://maps.app.goo.gl/CPgkHkLmdsEU6NnUA" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.273774386475491, -35.97438171803202], {icon: oftalmologista})
+  .bindPopup(`
+    <b>Íris</b><br><br>
+    <img src="https://lh3.googleusercontent.com/proxy/yu8IXz2aca6PPJqjbrFK9C04qcnkd3OAf9TWrcLqywiF8-bv-w2jEVmCqtK0VAW2Eb4liVJwsvUlYIrETTToS5GFspkccOVhleRxT12YGLvN0MAbEG3VLuC_C7w0fIDOljzQbTSR1mDPr9NHlw82XnPp6K6HungIhHOoBg=s680-w680-h510" alt="íris" width="300"><br><br>
+    <br>Agamenon Empresarial - Av. Agamenon Magalhães, 1019 - 7° andar - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558132998388">(81) 3299-8388</a><br>
+    <br><a href="https://wa.me/558132998388">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/iris.oftalmo" target="_blank">@iris.oftalmo</a><br>
+    <br><a href="https://maps.app.goo.gl/DZ42zhmdB5uyGd3y6" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.277777431291899, -35.97187904606957], {icon: oftalmologista})
+  .bindPopup(`
+    <b>Oculare Medical Center</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipOc5mXCDheco4Jnlo8_oL6V6Kl1NHtVYK5koGVl=s680-w680-h510" alt="oculare" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 444 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558137252020">(81) 3725-2020</a><br>
+    <br>E-mail: <a href="mailto:atendimento@clinicaoculare.com.br">atendimento@clinicaoculare.com.br</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/ocularemedicalcenter" target="_blank">@ocularemedicalcenter</a><br>
+    <br><a href="https://maps.app.goo.gl/vdpVcu7AsgCHGt5W8" target="_blank">Como chegar?</a>
+  `),
+]);
+
 // Base layers 
 const baseLayers = {
   "Mapa de ruas": openstret,
@@ -548,6 +582,7 @@ const overlays = {
   "Diagnósticos por Imagem": diagnosticosporimagem,
   "Laboratórios": laboratorios,
   "Centro de Vacinação": vacinas,
+  "Oftalmologia": oftalmologistas,
 };
 
 
