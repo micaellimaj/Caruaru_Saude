@@ -291,6 +291,56 @@ const oticas = L.layerGroup([
   `),
 ]);
 
+const matshospital = L.layerGroup([
+  L.marker([-8.2728038240122, -35.974822764107266], {icon: mathospital})
+  .bindPopup(`
+    <b>Promec Material Médico e Hospitalar</b><br><br>
+    <img src="https://lh3.googleusercontent.com/proxy/g6RSULwfKZU228S17ni4dEetjujR_dvUa5tcowUDiXJ7ZejWV0rfR7e8Q5QaflGEoRTU47KiJ5JlZst5-d898WxMpQSAOFjv0zx37ZNUeoLlE5wxP7nsWmQvmDWl6vqQuCIr6wT6Ui-I-WX0tmvzLG0aKWOT4hMxzL7XDA=s680-w680-h510" alt="promec" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 1143 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+5508002814944">0800 281 4944</a><br>
+    <br><a href="https://wa.me/5581996053874">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/promecltda1" target="_blank">@promecltda1</a><br>
+    <br><a href="https://maps.app.goo.gl/tQHYDUPW8VLsiEVx9" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.274303821972946, -35.97373130379127], {icon: mathospital})
+  .bindPopup(`
+    <b>Lojão das Clínicas</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipNucCUIdgwwoZ7MxVG-MrjkWfSW56UY70QMDjZN=s680-w680-h510" alt="ldc" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 930 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558131364133">(81) 3136-4133 </a><br>
+    <br>Instagram: <a href="https://www.instagram.com/redelojaodasclinicas" target="_blank">@redelojaodasclinicas</a><br>
+    <br><a href="https://maps.app.goo.gl/AEytbB6F1onftiN77" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.277369260494297, -35.972863009229], {icon: mathospital})
+  .bindPopup(`
+    <b>Jamed Saúde</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipMvycJwonVqjjGCRTV39ND2sRU1ty2LYfoRxK9f=s680-w680-h510" alt="jamed" width="300"><br><br>
+    <br>Loja 01 - Av. Agamenon Magalhães, 547 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+5581988893517">(81) 98889-3517</a><br>
+    <br><a href="https://wa.me/5581988893517">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/jamedsaude" target="_blank">@jamedsaude</a><br>
+    <br><a href="https://maps.app.goo.gl/kFZci6sTop75n9ZZ8" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.273411444540132, -35.97456574382303], {icon: mathospital})
+  .bindPopup(`
+    <b>Master Saúde</b><br><br>
+    <img src="https://i0.wp.com/www.blogdoneylima.com.br/wp-content/uploads/2021/12/DSC03278.jpg?ssl=1" alt="ms" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 1053 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558131371772">(81) 3137-1772</a><br>
+   <br>Instagram: <a href="https://www.instagram.com/mastersaudepe" target="_blank">@mastersaudepe</a><br>
+    <br><a href="https://maps.app.goo.gl/rHSYF7Fbvjo1LwYj7" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.274275799723304, -35.973686084052424], {icon: mathospital})
+  .bindPopup(`
+    <b>Santos Médica</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipPTIq4Q5fpX1qil7cC_ictNq0QewZlk_q_9OwyR=s680-w680-h510" alt="sms" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 930 - Loja 02 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+5581996270415">(81) 99627-0415</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/santosmedica" target="_blank">@santosmedica</a><br>
+    <br><a href="https://maps.app.goo.gl/4bvY2hy9Yspv7VuX6" target="_blank">Como chegar?</a>
+  `),
+]);
+
 // Base layers (camadas base)
 const baseLayers = {
   "Mapa de ruas": openstret,
@@ -304,6 +354,7 @@ const overlays = {
   "Hospitais": hospitais,
   "Farmácias": farmacias,
   "Óticas": oticas,
+  "Material Hospitalar": matshospital,
 };
 
 // Adiciona o controle de layers ao mapa
