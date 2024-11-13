@@ -374,7 +374,7 @@ const clinicas = L.layerGroup([
     <br>Instagram: <a href="https://www.instagram.com/cdt.caruaru" target="_blank">@cdt.caruaru</a><br>
     <br><a href="https://maps.app.goo.gl/TTY3SJ1un7aezko17" target="_blank">Como chegar?</a>
   `),
-  L.marker([-8.273874750105636, -35.97455554231752], {icon: clinica})
+  L.marker([-8.273717956669575, -35.974396708248285], {icon: clinica})
   .bindPopup(`
     <b>Otorrinos Agreste</b><br><br>
     <img src="https://images.adsttc.com/media/images/5e5e/fd52/6ee6/7e7b/b200/0149/newsletter/featured_BEZE-001-IM-FOTOS_JACKSON_CARVALHO-R00_(15).jpg?1583283521" alt="ota" width="300"><br><br>
@@ -399,6 +399,61 @@ const clinicas = L.layerGroup([
   `),
 ]);
 
+const diagnosticosporimagem = L.layerGroup([
+  L.marker([-8.269747021344728, -35.97342082165303], {icon: diagnostico})
+  .bindPopup(`
+    <b>Ultra Radiologia Avançada</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipNJ0__7piSduO8P6FAt8SbMdx-gp4lclwIOoK5R=s680-w680-h510" alt="urauaura" width="300"><br><br>
+    <br>Av. Dr. Pedro Jordão, 1252 – anexo A – Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+5581981309191">(81) 98130-9191</a><br>
+    <br><a href="https://wa.me/5581981309191">WhatsApp</a><br>
+    <br>E-mail: <a href="mailto:contato@ultraradiologia.com">contato@ultraradiologia.com</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/ultracaruaru" target="_blank">@ultracaruaru</a><br>
+    <br><a href="https://maps.app.goo.gl/k5NyPsvndqr6xbJ97" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.274349234209295, -35.97413338867477], {icon: diagnostico})
+  .bindPopup(`
+    <b>Imagem Diagnóstico</b><br><br>
+    <img src="https://lh3.googleusercontent.com/proxy/HRf5QT7xl4e9NmhrmXwkXJizKCx3xhlTH0afHFf5bvjEdyiIizwTCUehsCc3gRKp-sIitU5xH3txasU3f2sCQK82_1L_rio7zCwIXQ-PiNovw7vj6lBubmb5J-zE-TqNtBwT48AOMZzxQnz3iqyseXwUkdeNtp4S7LQJlw=s680-w680-h510" alt="imagemdiagnostico" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 961 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558137214002">(81) 3721-4002</a><br>
+    <br><a href="https://wa.me/5581988736052">WhatsApp</a><br>
+    <br>E-mail: <a href="mailto:contato@ipcaruaru.com.br">contato@ipcaruaru.com.br</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/ipcaruaru" target="_blank">@ipcaruaru</a><br>
+    <br><a href="https://maps.app.goo.gl/viE4zNTYDTTtuSxX6" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.2720743853599, -35.97510965962973], {icon: diagnostico})
+  .bindPopup(`
+    <b>Imax Diagnóstico</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipPFk_hYrlS0Q1R03_rVCtDXSAZ3UsHBxjbvEFDN=s680-w680-h510" alt="imax" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 1233 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558137256800">(81) 3725-6800</a><br>
+    <br><a href="https://wa.me/5581999640097">WhatsApp</a><br>
+    <br>E-mail: <a href="mailto:ouvidoria@imaxdiagnostico.com.br">ouvidoria@imaxdiagnostico.com.br</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/imaxdiagnostico" target="_blank">@imaxdiagnostico</a><br>
+    <br><a href="https://maps.app.goo.gl/snLs2SYSQSCoXspR6" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.274760858557391, -35.97358369710849], {icon: diagnostico})
+  .bindPopup(`
+    <b>Manoel Florêncio Diagnósticos</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipN4mAE3dPqOvpYQn6lt5FWP2we611Jq4tBN-yVO=s680-w680-h510" alt="mfd" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 834 - Maurício de Nassau, Caruaru - PE<br>
+    <br>Telefone: <a href="tel:+558137277000">(81) 3727-7000</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/mflorenciodiagnosticos" target="_blank">@mflorenciodiagnosticos</a><br>
+    <br><a href="https://maps.app.goo.gl/UsjNKKshzjSBnby26" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.271004892084758, -35.97651765296094], {icon: diagnostico})
+  .bindPopup(`
+    <b>DIA- Diagnóstico por Imagem Agreste</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipN4mAvltw6aTFGcEOhcB7ZdWuE5azo0kHK6Nr5f=s680-w680-h510" alt="dia" width="300"><br><br>
+    <br>R. Equatorial, 13 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558137215928">(81) 3721-5928</a><br>
+    <br><a href="https://wa.me/558137215928">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/diagreste" target="_blank">@diagreste</a><br>
+    <br><a href="https://maps.app.goo.gl/1yk4hVdmumgfp2yN6" target="_blank">Como chegar?</a>
+  `),
+]);  
+
 // Base layers 
 const baseLayers = {
   "Mapa de ruas": openstret,
@@ -413,7 +468,8 @@ const overlays = {
   "Farmácias": farmacias,
   "Óticas": oticas,
   "Material Hospitalar": matshospital,
-  "Clínicas": clinicas
+  "Clínicas": clinicas,
+  "Diagnósticos por Imagem": diagnosticosporimagem,
 };
 
 
