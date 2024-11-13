@@ -127,7 +127,7 @@ const animal = L.icon({
 
 
 
-// Grupo de marcadores: Cidades importantes
+// Grupo de marcadores
 const hospitais = L.layerGroup([
     L.marker([-8.260470465898486, -35.96651349618412], {icon: hospital})
     .bindPopup(`
@@ -185,7 +185,6 @@ const hospitais = L.layerGroup([
   
 ]);
 
-// Grupo de marcadores: Parques Nacionais
 const farmacias = L.layerGroup([
     L.marker([-8.267358125656317, -35.964399774632994], {icon: farmacia})
     .bindPopup(`
@@ -341,7 +340,66 @@ const matshospital = L.layerGroup([
   `),
 ]);
 
-// Base layers (camadas base)
+const clinicas = L.layerGroup([
+  L.marker([-8.275462558224026, -35.972264754674704], {icon: clinica})
+  .bindPopup(`
+    <b>Neotorrino</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipPaPiEntfW550cphI0bLqbUmStAhiefAGpwpgE-=s680-w680-h510" alt="neotorrino" width="300"><br><br>
+    <br>R. João Cursino, 753 - Maurício de Nassau<br>
+    <br>Especialidades: Otorrinolaringologistas<br>
+    <br>Telefone: <a href="tel:+5581996816651">(81) 99681-6651</a><br>
+    <br><a href="https://wa.me/5581996816651">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/neotorrino" target="_blank">@neotorrino</a><br>
+    <br><a href="https://maps.app.goo.gl/4d9EGVyQEiio4DZt5" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.273881221479348, -35.974557840780285], {icon: clinica})
+  .bindPopup(`
+    <b>Clínica Dermatológica | Catarina Carvalho Soprano</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipP0yT_oMGlNh7ZjDapK5eMrajQxzjSWduIlE-0k=s680-w680-h510" alt="cdccs" width="300"><br><br>
+    <br>Av Agamenon Magalhães 1019 Agamenon Empresarial, Cobertura - Maurício de Nassau<br>
+    <br>Especialidades: Clínica Dermatológica<br>
+    <br>Telefone: <a href="tel:+55819828896641">(81) 982889-6641</a><br>
+    <br><a href="https://wa.me/5587988594326">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/catarinacarvalhodermato" target="_blank">@catarinacarvalhodermato</a><br>
+    <br><a href="https://maps.app.goo.gl/uRrPEA7QXoBoUFnx9" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.280318106803005, -35.971620942735505], {icon: clinica})
+  .bindPopup(`
+    <b>AmorSaúde Caruaru</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipPMQMYMGj7R8xKIJUbOYHHGUgnNEL-iXnvwxgxd=s680-w680-h510" alt="asc" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 225 - Maurício de Nassau<br>
+    <br>Especialidades: Medicina, odontologia e exames<br>
+    <br>Telefone: <a href="tel:+558137210202">(81) 3721-0202</a><br>
+    <br><a href="https://wa.me/558137210202">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/cdt.caruaru" target="_blank">@cdt.caruaru</a><br>
+    <br><a href="https://maps.app.goo.gl/TTY3SJ1un7aezko17" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.273874750105636, -35.97455554231752], {icon: clinica})
+  .bindPopup(`
+    <b>Otorrinos Agreste</b><br><br>
+    <img src="https://images.adsttc.com/media/images/5e5e/fd52/6ee6/7e7b/b200/0149/newsletter/featured_BEZE-001-IM-FOTOS_JACKSON_CARVALHO-R00_(15).jpg?1583283521" alt="ota" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 1019 - Agamenon Empresarial - Sala 509 - Maurício de Nassau<br>
+    <br>Especialidades: Clínica de otorrinolaringologia<br>
+    <br>Telefone: <a href="tel:+5581992009082">(81) 99200-9082</a><br>
+    <br><a href="https://wa.me/5581999960001">WhatsApp</a><br>
+    <br>E-mail: <a href="mailto:marcacao@otorrinosagreste.com.br">marcacao@otorrinosagreste.com.br</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/otorrinosagreste" target="_blank">@otorrinosagreste</a><br>
+    <br><a href="https://maps.app.goo.gl/WYNGvEWMEDsssnjH6" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.279102897957218, -35.968242307403884], {icon: clinica})
+  .bindPopup(`
+    <b>Estimular Multidisciplinar</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipNlDS5T6AazXwgaaqS5eNnGGJQknJXyeJg3QmCJ=s680-w680-h510" alt="cem" width="300"><br><br>
+    <br>R. Joaquim Tabosa, 25, Maurício de Nassau<br>
+    <br>Especialidades: Fonoaudiologia, psicologia, psicopedagogia, fisioterapia, nutrição, acupuntura auricular, neuropsicopedagogia, neurologia infantil, ventosaterapia<br>
+    <br>Telefone: <a href="tel:+558137215529">(81) 3721-5529</a><br>
+    <br><a href="https://wa.me/5581996324363">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/estimular_multi" target="_blank">@estimular_multi</a><br>
+    <br><a href="https://maps.app.goo.gl/HW2J3aFk8AsDHdft6" target="_blank">Como chegar?</a>
+  `),
+]);
+
+// Base layers 
 const baseLayers = {
   "Mapa de ruas": openstret,
   "Google Maps": googleStreets,
@@ -349,16 +407,17 @@ const baseLayers = {
   "Satélite + Ruas": googleHybrid
 };
 
-// Overlays (camadas sobrepostas)
+// Overlays 
 const overlays = {
   "Hospitais": hospitais,
   "Farmácias": farmacias,
   "Óticas": oticas,
   "Material Hospitalar": matshospital,
+  "Clínicas": clinicas
 };
 
-// Adiciona o controle de layers ao mapa
+
 L.control.layers(baseLayers, overlays).addTo(map);
 
-// Exibe as camadas "Cidades" por padrão
+
 cities.addTo(map);
