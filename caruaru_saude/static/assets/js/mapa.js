@@ -649,6 +649,40 @@ const cardiologias = L.layerGroup([
   `),
 ]);
 
+const mentalidade = L.layerGroup([
+  L.marker([-8.277777341084436, -35.97187787056852], {icon: mental})
+  .bindPopup(`
+    <b>Equilíbrio Master</b><br><br>
+    <img src="https://www.cremepe.org.br/wp-content/uploads/2021/10/download.jpg" alt="permanetntem" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 444 - 6º andar - sala 109 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558131368080">(81) 3136-8080</a><br>
+    <br><a href="https://wa.me/5581998002503">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/equilibriomaster" target="_blank">@equilibriomaster </a><br>
+    <br><a href="https://maps.app.goo.gl/H4jWQuxxukwmbgd37" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.273440985741496, -35.97463726158035], {icon: mental})
+  .bindPopup(`
+    <b>Neuropsicóloga Érika Aleixo</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipMiSns6ikG4CYbLNxgVPeNqQOzl7Hn98yrW-4LD=s680-w680-h510" alt="neuropisciasoc" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 1053 - sl 110 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+5581993101010">(81) 99310-1010</a><br>
+    <br><a href="https://wa.me/5581993101010">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/erikaaleixoneuropsi" target="_blank">@erikaaleixoneuropsi </a><br>
+    <br><a href="https://maps.app.goo.gl/U9Rp2azipdTj2bBY8" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.266765468011258, -35.975342402402596], {icon: mental})
+  .bindPopup(`
+    <b>RAID Estação Agreste</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipNj8IHZoHi0nQ8J7XkbkBng531W8mvOeANZ9upt=s680-w680-h510" alt="radasd" width="300"><br><br>
+    <br>R. José Vicente Lacerda, 51 - Nova Caruaru<br>
+    <br>Telefone: <a href="tel:+5581991773578">(81) 99177-3578</a><br>
+    <br><a href="https://wa.me/5581991773578">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/raidagreste" target="_blank">@raidagreste </a><br>
+    <br><a href="https://maps.app.goo.gl/yf4LZaysde62dNss6" target="_blank">Como chegar?</a>
+  `),
+
+
+]);
 // Base layers 
 const baseLayers = {
   "Mapa de ruas": openstret,
@@ -671,6 +705,7 @@ const overlays = {
   "Pediatria": pediatrias,
   "Ortopedia": ortopedias,
   "Cardiologia": cardiologias,
+  "Saúde Mental": mentalidade,
 };
 
 
