@@ -618,6 +618,37 @@ const ortopedias = L.layerGroup([
 
 ]);
 
+const cardiologias = L.layerGroup([
+  L.marker([-8.269756218936722, -35.97531524807447], {icon: cardiologia})
+  .bindPopup(`
+    <b>Tricordis</b><br><br>
+    <img src="https://www.cpconstrucao.com.br/wp-content/uploads/2022/03/TIMES-BUSINESS-6.jpg" alt="treerte" width="300"><br><br>
+    <br>Empresarial Times Business Center, R. Lourdes Casé Porto, 51, Mauricio de Nassau, Sala 1212<br>
+    <br>Telefone: <a href="tel:+558121617101">(81) 2161-7101</a><br>
+    <br><a href="https://wa.me/5581971012030">WhatsApp</a><br>
+    <br>E-mail: <a href="mailto:tricordiscaruaru@gmail.com">tricordiscaruaru@gmail.com</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/tricordiscaruaru" target="_blank">@tricordiscaruaru</a><br>
+    <br><a href="https://maps.app.goo.gl/QVd8V5rLWzSLUWMQ6" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.271855483614702, -35.97516139768497], {icon: cardiologia})
+  .bindPopup(`
+    <b>Dr. Andresson Andrade - Cardiologia</b><br><br>
+    <img src="https://lh3.googleusercontent.com/proxy/qORCZScqkKW6uj5F3uVsVTKZm4s1w_SC9VwyyucJv6XQTzLiEY7j1KfEDT2Jqbhw49s7AT1dkq189x_eO0UYjt5-X5Re7hsvLU4H9FNr1JqAPHBrwPU5KWcvP8WD5bc3Mdu7DPz0L-0FQvIHQ9N39WKkriUx0Tg3ALoxog=s680-w680-h510" alt="dasd" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 1233 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558131371925">(81) 3137-1925</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/dr.andresson" target="_blank">@dr.andresson</a><br>
+    <br><a href="https://maps.app.goo.gl/PWEHcvBrvvFsY9KT9" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.274162791722691, -35.97378021657991], {icon: cardiologia})
+  .bindPopup(`
+    <b>CEMEC</b><br><br>
+    <img src="https://lh3.googleusercontent.com/proxy/oxzkyQ_BwZq5t4jxXB3b8ZZTxZovm4w01pBSeOldaXZCX1_z8P_C8vTqfNK_J_kQsr0fSCn2R_Q_qrCE-nJ7UgkV7DSahzL26KwjXwv7BsA9wPBLUEJmGNYKzc3pRFJB_4a4hxcVtOgt1MsKmEkaKFbBdytsuFlwMw0WwQ=s680-w680-h510" alt="cemec" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 940 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558137224298">(81) 3722-4298</a><br>
+    <br><a href="https://maps.app.goo.gl/RPLrS3tt3GzoqXca8" target="_blank">Como chegar?</a>
+  `),
+]);
+
 // Base layers 
 const baseLayers = {
   "Mapa de ruas": openstret,
@@ -639,6 +670,7 @@ const overlays = {
   "Oftalmologia": oftalmologistas,
   "Pediatria": pediatrias,
   "Ortopedia": ortopedias,
+  "Cardiologia": cardiologias,
 };
 
 
