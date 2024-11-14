@@ -594,6 +594,30 @@ const pediatrias = L.layerGroup([
   `),
 ]);
 
+const ortopedias = L.layerGroup([
+  L.marker([-8.270481203541532, -35.9768205486035], {icon: ortopedia})
+  .bindPopup(`
+    <b>Clínica Pronto Orto</b><br><br>
+    <img src="https://lh3.googleusercontent.com/proxy/KRPawmt1rO1NeBXiaVuot8eYThJzbAZX3f-CVSLt8TdAX02m1-S_JhEHoNg-CCnO32OPKTF-clfViDzjD92iUA8za8aj2dWlkxCmygj9EmmmJq8X2XFHLFaVTW82TgMb0M8q493pt2Tet-bTxJ-0HkizAjNk7o6rj0iyCg=s680-w680-h510" alt="ortopediassdasd" width="300"><br><br>
+    <br>R. Ibicuí, 15 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558137232286">(81) 3723-2286</a><br>
+    <br><a href="https://wa.me/5581995194294">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/prontoorto" target="_blank">@prontoorto</a><br>
+    <br><a href="https://maps.app.goo.gl/3pzxAy2vyfHm6Hp19" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.274335800784623, -35.97415410217493], {icon: ortopedia})
+  .bindPopup(`
+    <b>Dr. Valth Guimarães Ortopedista</b><br><br>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwFqxhSJn8XP4qotWUPspnmh8hFxXrdTWulg&s" alt="ipsda" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 961 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+5581999294960">(81) 99929-4960</a><br>
+    <br><a href="https://wa.me/5581999179609">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/dr.valth_ortopedia" target="_blank">@dr.valth_ortopedia</a><br>
+    <br><a href="https://maps.app.goo.gl/1JoHLzVcqv2LrjCw6" target="_blank">Como chegar?</a>
+  `),
+
+]);
+
 // Base layers 
 const baseLayers = {
   "Mapa de ruas": openstret,
@@ -614,6 +638,7 @@ const overlays = {
   "Centro de Vacinação": vacinas,
   "Oftalmologia": oftalmologistas,
   "Pediatria": pediatrias,
+  "Ortopedia": ortopedias,
 };
 
 
