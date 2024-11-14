@@ -564,6 +564,36 @@ const oftalmologistas = L.layerGroup([
   `),
 ]);
 
+const pediatrias = L.layerGroup([
+  L.marker([-8.275461576557758, -35.97367172193518], {icon: pediatria})
+  .bindPopup(`
+    <b>Áurea Pediatra</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipMFM0cS6N6IpxOzf7VKg4XUE-eoWOUGKMnvrsFm=s680-w680-h510" alt="aupe" width="300"><br><br>
+    <br>Consultório particular - Pediatria "Happy Children" / Rua Walfrido Nunes, 303, IOC, 2° Andar, Sala 205, Caruaru - PE<br>
+    <br>Telefone: <a href="tel:+558137243477">(81) 3724-3477</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/aureapediatra" target="_blank">@aureapediatra</a><br>
+    <br><a href="https://maps.app.goo.gl/jYNjZtp2r3RCsxFx6" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.273872396073532, -35.97452415642345], {icon: pediatria})
+  .bindPopup(`
+    <b>Dr. Erton Tabosa</b><br><br>
+    <img src="https://images.adsttc.com/media/images/5e5e/fcae/6ee6/7e7b/b200/0144/large_jpg/BEZE-001-IM-FOTOS_JACKSON_CARVALHO-R00_(8).jpg?1583283362" alt="det" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, s/n - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+558137221717">(81) 3722-1717</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/ClínicaDrErtonTabosa" target="_blank">@ClínicaDrErtonTabosa</a><br>
+    <br><a href="https://maps.app.goo.gl/EBEgmXTdoABZUcqz8" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.26971839837334, -35.975343729422384], {icon: pediatria})
+  .bindPopup(`
+    <b>Dra. Roberta Leite</b><br><br>
+    <img src="https://th.bing.com/th/id/R.23823633ca4625ff1296107cb5880686?rik=tek9w0Gn8SgTFg&pid=ImgRaw&r=0" alt="etbc" width="300"><br><br>
+    <br>Av. Agamenon Magalhães, 1487 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+5581996318900">(81) 99631-8900</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/drarobertaleitee" target="_blank">@drarobertaleitee</a><br>
+    <br><a href="https://maps.app.goo.gl/7sd4EVPekCgvVouT6" target="_blank">Como chegar?</a>
+  `),
+]);
+
 // Base layers 
 const baseLayers = {
   "Mapa de ruas": openstret,
@@ -583,6 +613,7 @@ const overlays = {
   "Laboratórios": laboratorios,
   "Centro de Vacinação": vacinas,
   "Oftalmologia": oftalmologistas,
+  "Pediatria": pediatrias,
 };
 
 
