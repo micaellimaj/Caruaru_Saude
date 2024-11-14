@@ -681,8 +681,39 @@ const mentalidade = L.layerGroup([
     <br><a href="https://maps.app.goo.gl/yf4LZaysde62dNss6" target="_blank">Como chegar?</a>
   `),
 
+]);
+
+const animals = L.layerGroup([
+  L.marker([-8.284432031186368, -35.9433327273622], {icon: animal})
+  .bindPopup(`
+    <b>Zoofarma - Farmácia veterinária</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipN1Bk0hzHyXTSPoHY_lvIfP--wYVLcoSr3zjDuv=s680-w680-h510" alt="zoofarma" width="300"><br><br>
+    <br>R. Oslo, 01 - Dep. Jose Antonio Liberato<br>
+    <br>Telefone: <a href="tel:+5581997695003">(81) 99769-5003</a><br>
+    <br><a href="https://wa.me/5581997695003">WhatsApp</a><br>
+    <br><a href="https://maps.app.goo.gl/eQsarduCBUFc74Ud8" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.299367150698698, -35.95189993028494], {icon: animal})
+  .bindPopup(`
+    <b>AME Animal Caruaru</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipN64T8W-tK1Pb6t4XptThCmZFh6LJ_eaUTG1rP_=s680-w680-h510" alt="ameanimal" width="300"><br><br>
+    <br>Av. Rádio Cultura, 1000 - Indianópolis<br>
+    <br>Telefone: <a href="tel:+5581983846732">(81) 98384-6732</a><br>
+    <br><a href="https://maps.app.goo.gl/SKXKZcbvs8KpDy8A6" target="_blank">Como chegar?</a>
+  `),
+  L.marker([-8.277780851836198, -35.97034786166039], {icon: animal})
+  .bindPopup(`
+    <b>Centro Veterinário Jerônimo Ribeiro</b><br><br>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipPLyON_gB6BI2uJ2DZH7x7qvlAsgqt35LD21Psk=s680-w680-h510" alt="radasd" width="300"><br><br>
+    <br>Rua Padre Antônio Tomaz, 128 - Maurício de Nassau<br>
+    <br>Telefone: <a href="tel:+5581996095148">(81) 99609-5148</a><br>
+    <br><a href="https://wa.me/5581996095148">WhatsApp</a><br>
+    <br>Instagram: <a href="https://www.instagram.com/cvjroficial" target="_blank">@cvjroficial </a><br>
+    <br><a href="https://maps.app.goo.gl/fnWGGpoHm8yYQJSPA" target="_blank">Como chegar?</a>
+  `),
 
 ]);
+
 // Base layers 
 const baseLayers = {
   "Mapa de ruas": openstret,
@@ -706,6 +737,7 @@ const overlays = {
   "Ortopedia": ortopedias,
   "Cardiologia": cardiologias,
   "Saúde Mental": mentalidade,
+  "Saúde Animal": animals,
 };
 
 
