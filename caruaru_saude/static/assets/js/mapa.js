@@ -743,5 +743,8 @@ const overlays = {
 
 L.control.layers(baseLayers, overlays).addTo(map);
 
+for (const layer in overlays) {
+  overlays[layer].addTo(map);
+}
 
 cities.addTo(map);
