@@ -73,6 +73,12 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
 
 ## 🫂 Equipe do Projeto:
 
+<div align="center">
+ 
+ <td><img src="/caruaru_saude/static/assets/readme/captura1.png" width="850" style="display: block; margin: 0 auto;" alt="miro"> </td>
+  </div>
+
+
 1. [João Paulo](https://github.com/jposilva) -> CEO : 
   * **Responsabilidades**: João Paulo assumiu a liderança como CEO, sendo o responsável pela gestão do grupo e pela coordenação das atividades. Ele elaborou os requisitos do projeto, realizou pesquisas de mercado e desenvolveu a estratégia de negócios. Além disso, João foi responsável por buscar monitoria e investimentos para o crescimento do projeto.
 2. [Lucas Vinícius](https://github.com/Lucas-pypy) -> Desenvolvedor Full-stack :  
