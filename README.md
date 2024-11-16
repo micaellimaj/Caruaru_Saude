@@ -1,10 +1,18 @@
-# 💊 Caruaru Saúde - Plataforma de Serviços de Saúde no Agreste de Pernambuco 🌵
+# 💊 Caruaru Saúde - Plataforma de Serviços de Saúde 
+<div align="center">
+ 
+ <td><img src="/caruaru_saude/static/assets/img/caruarusaude2.jpeg" width="500" style="display: block; margin: 0 auto;" alt="Dinha"> </td>
+  </div>
 
 ## 🔍 Introdução:
 O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvida para conectar os cidadãos da região do Agreste Pernambucano a serviços e profissionais de saúde. Voltada para atender tanto às necessidades da população quanto das instituições médicas, a plataforma oferece uma solução prática e acessível para a busca e agendamento de consultas, além de informações essenciais sobre clínicas e profissionais de saúde locais. Utilizando tecnologias robustas de back-end e front-end, o Caruaru Saúde visa facilitar o acesso a serviços médicos e promover a saúde na região.
 
 ##  💬 Objetivo:
  O objetivo do Caruaru Saúde é simplificar e melhorar o acesso da população aos serviços de saúde no Agreste Pernambucano, oferecendo uma plataforma intuitiva e completa. Através de funcionalidades como cadastro, login, favoritos, marcação de consultas e um catálogo de instituições com busca por especialidades, o projeto facilita o processo de busca e interação com profissionais de saúde, além de proporcionar uma experiência digital otimizada para a população.
+
+## Visualização:
+
+![visualizacao do Projeto](caruaru_saude/static/assets/readme/caruaru_saude_curto.gif)
 
 ## 📱 Tecnologias utilizadas: 
 
