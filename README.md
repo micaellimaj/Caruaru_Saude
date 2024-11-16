@@ -10,7 +10,7 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
 ##  💬 Objetivo:
  O objetivo do Caruaru Saúde é simplificar e melhorar o acesso da população aos serviços de saúde no Agreste Pernambucano, oferecendo uma plataforma intuitiva e completa. Através de funcionalidades como cadastro, login, favoritos, marcação de consultas e um catálogo de instituições com busca por especialidades, o projeto facilita o processo de busca e interação com profissionais de saúde, além de proporcionar uma experiência digital otimizada para a população.
 
-## Visualização:
+## 🪟 Visualização:
 
 ![visualizacao do Projeto](caruaru_saude/static/assets/readme/caruaru_saude_curto.gif)
 
