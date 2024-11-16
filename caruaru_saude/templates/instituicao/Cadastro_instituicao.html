@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-br" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'assets/img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'assets/img/favicon.svg' %}">
+  <title>
+    Cadastro Instituição
+  </title>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="{% static 'assets/css/nucleo-icons.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/nucleo-svg.css' %}"rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="{% static 'assets/css/material-kit.css' %}" rel="stylesheet" />
+  <!-- Nepcha Analytics (nepcha.com) -->
+  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+
+<style>
+  .telefone-input, .whatsapp-input {
+    -webkit-appearance: textfield;
+  }
+  
+  .telefone-input::-webkit-inner-spin-button, .whatsapp-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  
+  .telefone-input:focus, .whatsapp-input:focus {
+    outline: none;
+  }
+</style>
+
+</head>
+
+<body class="sign-in-basic">
+  <!-- Navbar Transparent -->
+  <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
+    <div class="container">
+      <a class="navbar-brand font-weight-bolder ms-sm-3" href="{% url 'index' %}" rel="tooltip" title="Caruaru saúde" data-placement="bottom" target="_blank">
+        Caruaru Saúde
+      </a>
+      <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon mt-2">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
+        <ul class="navbar-nav navbar-nav-hover ms-auto">
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
+             Páginas
+              <img src="{% static 'assets/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow ms-auto ms-md-2">
+            </a>
+            <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
+              <div class="d-none d-lg-block">
+    <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+     Páginas de destino
+    </h6>
+    <a href="{% url 'catalogo' %}" class="dropdown-item border-radius-md">
+      <span>Catálogo</span>
+    </a>
+    
+  </div>
+  
+  <div class="d-lg-none">
+    <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+      Páginas de destino
+    </h6>
+  
+    <a href="./pages/about-us.html" class="dropdown-item border-radius-md">
+      <span>Sobre nós</span>
+    </a>
+    <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">
+      <span>Contate-nos</span>
+    </a>
+    <a href="./pages/author.html" class="dropdown-item border-radius-md">
+      <span>Autora</span>
+    </a>
+  
+  
+  </div>
+  
+            </div>
+          </li>
+  
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="material-icons opacity-6 me-2 text-md">view_day</i>
+              Conta
+              <img src="{% static 'assets/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow ms-auto ms-md-2">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuBlocks">
+              <div class="d-none d-lg-block">
+    <li class="nav-item dropdown dropdown-hover dropdown-subitem">
+      <a class="dropdown-item py-2 ps-3 border-radius-md" href="./presentation.html">
+        <div class="w-100 d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Usuário</h6>
+            <span class="text-sm">Veja todas as opções</span>
+          </div>
+          <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
+        </div>
+      </a>
+      <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
+        <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'cadastro' %}">
+          Cadastre-se
+        </a>
+        <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'login' %}">
+         Faça login
+        </a>
+        <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'usuario' %}">
+          Área do usuário
+        </a>
+        <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'consulta_view' %}">
+          Marcar Consulta
+        </a>
+      </div>
+    </li>
+  
+    <li class="nav-item dropdown dropdown-hover dropdown-subitem">
+      <a class="dropdown-item py-2 ps-3 border-radius-md" href="./presentation.html">
+        <div class="w-100 d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Negócio</h6>
+            <span class="text-sm">Veja todas as opções</span>
+          </div>
+          <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
+        </div>
+      </a>
+      <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
+        <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'cadastro_instituicao' %}">
+          Cadastre-se
+        </a>
+        <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'login_i' %}">
+          Faça login
+        </a>
+        <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'instituicao' %}">
+          Área da instituição
+        </a>
+      </div>
+    </li>
+  
+    
+  </div>
+  
+  <div class="row d-lg-none">
+    <div class="col-md-12">
+      <div class="d-flex mb-2">
+        <div class="icon h-10 me-3 d-flex mt-1">
+          <i class="ni ni-single-copy-04 text-gradient text-primary"></i>
+        </div>
+        <div class="w-100 d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Page Sections</h6>
+          </div>
+        </div>
+      </div>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/page-sections/hero-sections.html">
+        Page Headers
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/page-sections/features.html">
+        Features
+      </a>
+  
+      <div class="d-flex mb-2 mt-3">
+        <div class="icon h-10 me-3 d-flex mt-1">
+          <i class="ni ni-laptop text-gradient text-primary"></i>
+        </div>
+        <div class="w-100 d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Navigation</h6>
+          </div>
+        </div>
+      </div>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/navigation/navbars.html">
+        Navbars
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/navigation/nav-tabs.html">
+        Nav Tabs
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/navigation/pagination.html">
+        Pagination
+      </a>
+  
+  
+      <div class="d-flex mb-2 mt-3">
+        <div class="icon h-10 me-3 d-flex mt-1">
+          <i class="ni ni-badge text-gradient text-primary"></i>
+        </div>
+        <div class="w-100 d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Input Areas</h6>
+          </div>
+        </div>
+      </div>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/input-areas/inputs.html">
+        Inputs
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/input-areas/forms.html">
+        Forms
+      </a>
+  
+  
+      <div class="d-flex mb-2 mt-3">
+        <div class="icon h-10 me-3 d-flex mt-1">
+          <i class="ni ni-notification-70 text-gradient text-primary"></i>
+        </div>
+        <div class="w-100 d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Attention Catchers</h6>
+          </div>
+        </div>
+      </div>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/attention-catchers/alerts.html">
+        Alerts
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/attention-catchers/modals.html">
+        Modals
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/attention-catchers/tooltips-popovers.html">
+        Tooltips & Popovers
+      </a>
+  
+  
+      <div class="d-flex mb-2 mt-3">
+        <div class="icon h-10 me-3 d-flex mt-1">
+          <i class="ni ni-app text-gradient text-primary"></i>
+        </div>
+        <div class="w-100 d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Elements</h6>
+          </div>
+        </div>
+      </div>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/avatars.html">
+        Avatars
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/badges.html">
+        Badges
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/breadcrumbs.html">
+        Breadcrumbs
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/buttons.html">
+        Buttons
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/dropdowns.html">
+        Dropdowns
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/progress-bars.html">
+        Progress Bars
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/toggles.html">
+        Toggles
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/typography.html">
+        Typography
+      </a>
+    </div>
+  </div>
+  
+            </ul>
+          </li>
+  
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="material-icons opacity-6 me-2 text-md">article</i>
+              Docs
+              <img src="{% static 'assets/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow ms-auto ms-md-2">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg" aria-labelledby="dropdownMenuDocs">
+              <div class="d-none d-lg-block">
+    <ul class="list-group">
+     
+      
+      </li>
+      <li class="nav-item list-group-item border-0 p-0">
+        <a class="dropdown-item py-2 ps-3 border-radius-md" href="https://github.com/micaellimaj/Caruaru_Saude">
+          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Repositório</h6>
+          <span class="text-sm">Explore o código fonte do projeto no Github</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+  
+  <div class="row d-lg-none">
+    <div class="col-md-12 g-0">
+      <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
+        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Getting Started</h6>
+        <span class="text-sm">All about overview, quick start, license and contents</span>
+      </a>
+  
+      <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
+        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Foundation</h6>
+        <span class="text-sm">See our colors, icons and typography</span>
+      </a>
+  
+      
+  
+      
+    </div>
+  </div>
+  
+            </ul>
+          <li class="nav-item ms-lg-auto">
+            <!-- Link para Instagram -->
+            <a class="nav-link nav-link-icon me-2" href="https://www.instagram.com/caruarusaude" target="_blank">
+                <i class="fa fa-instagram me-1"></i>
+                <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Siga-nos no Instagram"></p>
+            </a>
+        </li>
+        
+        <li class="nav-item ms-lg-auto">
+            <!-- Link para LinkedIn -->
+            <a class="nav-link nav-link-icon me-2" href="https://www.linkedin.com/in/seu-perfil" target="_blank">
+                <i class="fa fa-linkedin me-1"></i>
+                <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Conecte-se conosco no LinkedIn"></p>
+            </a>
+        </li>
+        
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  </div></div></div>
+  <!-- End Navbar -->
+  <div class="page-header align-items-start min-vh-100" 
+     style="background-image: url('{% static "assets/img/instituicaoback.jpg" %}');" 
+     loading="lazy">    <span class="mask bg-gradient-dark opacity-6"></span>
+    <div class="container my-auto">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 col-12 mx-auto">
+          <div class="card z-index-0 fadeIn3 fadeInBottom">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Cadastrar Instituição</h4>
+                <div class="row mt-3">
+                  
+              </div>
+            </div>
+            <div class="card-body">
+              <form role="form" action="{% url 'cadastro_instituicao' %}" method="POST" class="text-start">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-12">
+                    <div class="input-group input-group-outline my-3">
+                      <label class="form-label">Username</label>
+                      <input type="text" name="username" class="form-control" required>
+                    </div>
+                    <div class="input-group input-group-outline my-3">
+                      <label class="form-label">Email</label>
+                      <input type="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="input-group input-group-outline my-3">
+                      <label class="form-label">Nome instituição</label>
+                      <input type="text" name="nome" class="form-control" required>
+                    </div>
+                    <div class="input-group input-group-outline my-3">
+                      <label class="form-label">Endereço</label>
+                      <input type="text" name="endereco" class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12">
+                    <div class="input-group input-group-outline my-3">
+                      <label class="form-label">Telefone</label>
+                      <input type="text" name="telefone" class="form-control telefone-input">
+                    </div>
+                    
+                    <div class="input-group input-group-outline my-3">
+                      <label class="form-label">Whatsapp</label>
+                      <input type="text" name="whatsapp" class="form-control whatsapp-input">
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                      <label class="form-label">Password</label>
+                      <input type="password" name="senha" class="form-control" required>
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                      <label class="form-label">Instagram (opcional) </label>
+                      <input type="text" name="instagram" class="form-control" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="subitem" class="btn bg-gradient-primary w-100 my-4 mb-2">Cadastrar</button>
+                </div>
+                <p class="mt-4 text-sm text-center">
+                  Você possui uma conta? <a href="{% url 'login_i' %}">Faça login</a>
+              </p>
+              {% if messages %}
+    <div id="error-message" class="alert alert-danger">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    
+    <footer class="footer position-absolute bottom-2 py-2 w-100">
+      <div class="container">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-12 col-md-6 my-auto">
+            <div class="copyright text-center text-sm text-white text-lg-start">
+              © <script>
+                document.write(new Date().getFullYear())
+              </script>,
+              Feito com <i class="fa fa-heart" aria-hidden="true"></i> por
+              <a href="{% url 'index' %}" class="font-weight-bold text-white" target="_blank">Caruaru Saúde</a>
+              mais que um mapa, saúde.
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+              <li class="nav-item">
+                <a href="{% url 'index' %}" class="nav-link text-white" target="_blank">Caruaru Saúde</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="{% static 'assets/js/core/popper.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'assets/js/core/bootstrap.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'assets/js/plugins/perfect-scrollbar.min.js' %}"></script>
+  <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+  <script src="{% static 'assets/js/material-kit.min.js' %}" type="text/javascript"></script>
+
+  <!--  Formatação numero e zap do form   -->
+<script>
+  function validatePhoneNumber(input) {
+    var phoneNumber = input.value.replace(/\D/g, '');
+    
+    // Formata o número de acordo com o formato desejado
+    var formattedNumber = phoneNumber.length === 10 ? 
+                          `+55 (${phoneNumber.slice(0, 2)}) ${phoneNumber.slice(2, 5)} ${phoneNumber.slice(5, 7)} ${phoneNumber.slice(7)}` :
+                          phoneNumber;
+    
+    input.value = formattedNumber;
+  }
+  
+  document.querySelectorAll('.telefone-input, .whatsapp-input').forEach(function(input) {
+    input.addEventListener('input', function() {
+      validatePhoneNumber(this);
+    });
+  });
+</script>
+
+<script>
+  setTimeout(function() {
+      var message = document.getElementById("error-message");
+      if (message) {
+          message.style.display = 'none';
+      }
+  }, 5000);  // A mensagem desaparece após 5000 milissegundos (5 segundos)
+</script>
+
+</body>
+
+</html>

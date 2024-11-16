@@ -1,0 +1,1058 @@
+
+<!DOCTYPE html>
+<html lang="pt-br" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+    <!-- Carregando os arquivos estáticos -->
+    {% load static %}
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" sizes="76x76" href="{% static 'assets/img/apple-icon.png' %}">
+<link rel="icon" type="image/png" href="{% static 'assets/img/favicon.svg' %}">
+<link rel="stylesheet" href="{% static 'assets/css/mapa.css' %}"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+ 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+
+<title>{% block title %}Caruaru Saúde{% endblock title %}</title>
+
+
+    
+
+<!--     Fonts and icons     -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+
+<!-- Nucleo Icons -->
+<link href="{% static 'assets/css/nucleo-icons.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/nucleo-svg.css' %}" rel="stylesheet" />
+
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+<!-- CSS Files -->
+
+
+
+<link id="pagestyle" href="{% static 'assets/css/material-kit.css' %}" rel="stylesheet" />
+
+
+<!-- Nepcha Analytics (nepcha.com) -->
+<!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+<script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+</head>
+
+<body class="index-page bg-gray-200">
+  
+  
+  <!-- Navbar -->
+<div class="container position-sticky z-index-sticky top-0"><div class="row"><div class="col-12">
+<nav class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+  <div class="container-fluid px-0">
+    <a class="navbar-brand font-weight-bolder ms-sm-3" href="{% url 'index' %}" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+      Caruaru Saúde
+    </a>
+    <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon mt-2">
+        <span class="navbar-toggler-bar bar1"></span>
+        <span class="navbar-toggler-bar bar2"></span>
+        <span class="navbar-toggler-bar bar3"></span>
+      </span>
+    </button>
+    <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
+      <ul class="navbar-nav navbar-nav-hover ms-auto">
+        <li class="nav-item dropdown dropdown-hover mx-2">
+          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
+           Páginas
+            <img src="{% static 'assets/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow ms-auto ms-md-2">
+          </a>
+          <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
+            <div class="d-none d-lg-block">
+  <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+   Páginas de destino
+  </h6>
+  <a href="{% url 'catalogo' %}" class="dropdown-item border-radius-md">
+    <span>Catálogo</span>
+  </a>
+  
+</div>
+
+<div class="d-lg-none">
+  <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+    Páginas de destino
+  </h6>
+
+  <a href="./pages/about-us.html" class="dropdown-item border-radius-md">
+    <span>Sobre nós</span>
+  </a>
+  <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">
+    <span>Contate-nos</span>
+  </a>
+  <a href="./pages/author.html" class="dropdown-item border-radius-md">
+    <span>Autora</span>
+  </a>
+
+
+</div>
+
+          </div>
+        </li>
+
+        <li class="nav-item dropdown dropdown-hover mx-2">
+          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="material-icons opacity-6 me-2 text-md">view_day</i>
+            Conta
+            <img src="{% static 'assets/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow ms-auto ms-md-2">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuBlocks">
+            <div class="d-none d-lg-block">
+  <li class="nav-item dropdown dropdown-hover dropdown-subitem">
+    <a class="dropdown-item py-2 ps-3 border-radius-md" href="{% url 'usuario' %}">
+      <div class="w-100 d-flex align-items-center justify-content-between">
+        <div>
+          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Usuário</h6>
+          <span class="text-sm">Veja todas as opções</span>
+        </div>
+        <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
+      </div>
+    </a>
+    <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'cadastro' %}">
+        Cadastre-se
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'login' %}">
+       Faça login
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'usuario' %}">
+        Área do usuário
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'consulta_view' %}">
+        Marcar Consulta
+      </a>
+    </div>
+  </li>
+
+  <li class="nav-item dropdown dropdown-hover dropdown-subitem">
+    <a class="dropdown-item py-2 ps-3 border-radius-md" href="{% url 'instituicao' %}">
+      <div class="w-100 d-flex align-items-center justify-content-between">
+        <div>
+          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Negócio</h6>
+          <span class="text-sm">Veja todas as opções</span>
+        </div>
+        <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
+      </div>
+    </a>
+    <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'cadastro_instituicao' %}">
+        Cadastre-se
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'login_i' %}">
+        Faça login
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'instituicao' %}">
+        Área da instituição
+      </a>
+    </div>
+  </li>
+
+  
+</div>
+
+<div class="row d-lg-none">
+  <div class="col-md-12">
+    <div class="d-flex mb-2">
+      <div class="icon h-10 me-3 d-flex mt-1">
+        <i class="ni ni-single-copy-04 text-gradient text-primary"></i>
+      </div>
+      <div class="w-100 d-flex align-items-center justify-content-between">
+        <div>
+          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Page Sections</h6>
+        </div>
+      </div>
+    </div>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/page-sections/hero-sections.html">
+      Page Headers
+    </a>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/page-sections/features.html">
+      Features
+    </a>
+
+    <div class="d-flex mb-2 mt-3">
+      <div class="icon h-10 me-3 d-flex mt-1">
+        <i class="ni ni-laptop text-gradient text-primary"></i>
+      </div>
+      <div class="w-100 d-flex align-items-center justify-content-between">
+        <div>
+          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Navigation</h6>
+        </div>
+      </div>
+    </div>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/navigation/navbars.html">
+      Navbars
+    </a>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/navigation/nav-tabs.html">
+      Nav Tabs
+    </a>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/navigation/pagination.html">
+      Pagination
+    </a>
+
+
+    <div class="d-flex mb-2 mt-3">
+      <div class="icon h-10 me-3 d-flex mt-1">
+        <i class="ni ni-badge text-gradient text-primary"></i>
+      </div>
+      <div class="w-100 d-flex align-items-center justify-content-between">
+        <div>
+          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Input Areas</h6>
+        </div>
+      </div>
+    </div>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/input-areas/inputs.html">
+      Inputs
+    </a>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/input-areas/forms.html">
+      Forms
+    </a>
+
+
+    <div class="d-flex mb-2 mt-3">
+      <div class="icon h-10 me-3 d-flex mt-1">
+        <i class="ni ni-notification-70 text-gradient text-primary"></i>
+      </div>
+      <div class="w-100 d-flex align-items-center justify-content-between">
+        <div>
+          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Attention Catchers</h6>
+        </div>
+      </div>
+    </div>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/attention-catchers/alerts.html">
+      Alerts
+    </a>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/attention-catchers/modals.html">
+      Modals
+    </a>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/attention-catchers/tooltips-popovers.html">
+      Tooltips & Popovers
+    </a>
+
+
+    <div class="d-flex mb-2 mt-3">
+      <div class="icon h-10 me-3 d-flex mt-1">
+        <i class="ni ni-app text-gradient text-primary"></i>
+      </div>
+      <div class="w-100 d-flex align-items-center justify-content-between">
+        <div>
+          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Elements</h6>
+        </div>
+      </div>
+    </div>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/avatars.html">
+      Avatars
+    </a>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/badges.html">
+      Badges
+    </a>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/breadcrumbs.html">
+      Breadcrumbs
+    </a>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/buttons.html">
+      Buttons
+    </a>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/dropdowns.html">
+      Dropdowns
+    </a>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/progress-bars.html">
+      Progress Bars
+    </a>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/toggles.html">
+      Toggles
+    </a>
+    <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/typography.html">
+      Typography
+    </a>
+  </div>
+</div>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown dropdown-hover mx-2">
+          <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="material-icons opacity-6 me-2 text-md">article</i>
+            Docs
+            <img src="{% static 'assets/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow ms-auto ms-md-2">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg" aria-labelledby="dropdownMenuDocs">
+            <div class="d-none d-lg-block">
+  <ul class="list-group">
+   
+    
+    </li>
+    <li class="nav-item list-group-item border-0 p-0">
+      <a class="dropdown-item py-2 ps-3 border-radius-md" href="https://github.com/micaellimaj/Caruaru_Saude">
+        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Repositório</h6>
+        <span class="text-sm">Explore o código fonte do projeto no Github</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+<div class="row d-lg-none">
+  <div class="col-md-12 g-0">
+    <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
+      <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Getting Started</h6>
+      <span class="text-sm">All about overview, quick start, license and contents</span>
+    </a>
+
+    <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
+      <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Foundation</h6>
+      <span class="text-sm">See our colors, icons and typography</span>
+    </a>
+
+    
+
+    
+  </div>
+</div>
+
+          </ul>
+        <li class="nav-item ms-lg-auto">
+          <!-- Link para Instagram -->
+          <a class="nav-link nav-link-icon me-2" href="https://www.instagram.com/caruarusaude" target="_blank">
+              <i class="fa fa-instagram me-1"></i>
+              <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Siga-nos no Instagram"></p>
+          </a>
+      </li>
+      
+      <li class="nav-item ms-lg-auto">
+          <!-- Link para LinkedIn -->
+          <a class="nav-link nav-link-icon me-2" href="https://www.linkedin.com/in/seu-perfil" target="_blank">
+              <i class="fa fa-linkedin me-1"></i>
+              <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Conecte-se conosco no LinkedIn"></p>
+          </a>
+      </li>
+      
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- End Navbar -->
+</div></div></div>
+
+
+<header class="header-2">
+  <div class="page-header min-vh-75 relative" style="background-image: url('{% static "assets/img/caruaru.jpg" %}')">
+    <span class="mask bg-gradient-primary opacity-4"></span>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 text-center mx-auto">
+          <div class="svg-logo pt-3 mt-n5">
+            <img src="{% static 'assets/img/logo.svg' %}" alt="Logo" class="responsive-svg">
+          </div>
+          <p class="lead text-white mt-3">Busca/divulgação de produtos/serviços na área da saúde da região do Agreste/PE<br/> Propondo Soluções Inteligentes Para Demandas Cotidianas. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+{% block conteudo %}
+<div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
+
+  <section class="pt-3 pb-4" id="count-stats">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 mx-auto py-3">
+          <div class="row">
+            <div class="col-md-3 position-relative">
+              <div class="p-3 text-center">
+                <h1 class="text-gradient text-primary"><span id="state1" countTo="1000">0</span>+</h1>
+                <h5 class="mt-3">Serviços de Saúde Cadastrados</h5>
+                <p class="text-sm font-weight-normal">Mais de mil serviços disponíveis na nossa plataforma.</p>
+              </div>
+              <hr class="vertical dark">
+            </div>
+            <div class="col-md-3 position-relative">
+              <div class="p-3 text-center">
+                <h1 class="text-gradient text-primary"><span id="state2" countTo="500">0</span>+</h1>
+                <h5 class="mt-3">Teleconsultas Realizadas</h5>
+                <p class="text-sm font-weight-normal">Teleconsultas realizadas com sucesso através da nossa plataforma.</p>
+              </div>
+              <hr class="vertical dark">
+            </div>
+            <div class="col-md-3 position-relative">
+              <div class="p-3 text-center">
+                <h1 class="text-gradient text-primary"><span id="state3" countTo="60">0</span>+</h1>
+                <h5 class="mt-3">Cidades Atendidas</h5>
+                <p class="text-sm font-weight-normal">Presença em mais de 60 cidades da região.</p>
+              </div>
+              <hr class="vertical dark">
+            </div>
+            <div class="col-md-3">
+              <div class="p-3 text-center">
+                <h1 class="text-gradient text-primary" id="state4" countTo="100">100%</h1>
+                <h5 class="mt-3">Gratuito para Cidadãos</h5>
+                <p class="text-sm font-weight-normal">Acesso a serviços essenciais de saúde de forma totalmente gratuita.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+<section class="my-5 py-5">
+
+  <div class="container">
+    <h2 class="titulo-mapa">Mapa</h2>
+     <div id="mapa"></div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-groupedlayercontrol/0.6.1/leaflet.groupedlayercontrol.min.js"></script>
+     <script src="{% static 'assets/js/mapa.js' %}"></script>
+     <h2 class="text-center mb-5">Serviços</h2> <!-- Título adicionado -->
+     <div class="row justify-content-center">
+
+      <!-- Primeira linha com 4 colunas -->
+      <div class="col-md-3">
+        <div class="info">
+          <i class="fas fa-stethoscope text-gradient text-primary text-3xl"></i>
+          <h5 class="font-weight-bolder mt-3">Catálogo de Especialidades</h5>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-check-circle text-success"></i> <!-- Ícone de Grátis -->
+            <p class="text-muted ms-2 mb-0">Grátis</p> <!-- Texto do lado do ícone -->
+          </div>
+          <p>Encontre facilmente especialistas e serviços de saúde de acordo com suas necessidades.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="info">
+          <i class="fas fa-search text-gradient text-primary text-3xl"></i>
+          <h5 class="font-weight-bolder mt-3">Buscador Inteligente</h5>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-check-circle text-success"></i> <!-- Ícone de Grátis -->
+            <p class="text-muted ms-2 mb-0">Grátis</p> <!-- Texto do lado do ícone -->
+          </div>
+          <p>Faça buscas rápidas e precisas para encontrar profissionais e clínicas.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="info">
+          <i class="fas fa-map-marker-alt text-gradient text-primary text-3xl"></i>
+          <h5 class="font-weight-bolder mt-3">Localizador Maps</h5>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-check-circle text-success"></i> <!-- Ícone de Grátis -->
+            <p class="text-muted ms-2 mb-0">Grátis</p> <!-- Texto do lado do ícone -->
+          </div>
+          <p>Localize os serviços de saúde mais próximos com integração ao Google Maps.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="info">
+          <i class="fas fa-newspaper text-gradient text-primary text-3xl"></i>
+          <h5 class="font-weight-bolder mt-3">Portal de Notícias</h5>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-check-circle text-success"></i> <!-- Ícone de Grátis -->
+            <p class="text-muted ms-2 mb-0">Grátis</p> <!-- Texto do lado do ícone -->
+          </div>
+          <p>Mantenha-se atualizado com as novidades do setor de saúde da região.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Segunda linha com 4 colunas -->
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-3">
+        <div class="info">
+          <i class="fas fa-file-medical text-gradient text-primary text-3xl"></i>
+          <h5 class="font-weight-bolder mt-3">Prontuário</h5>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-dollar-sign text-warning"></i> <!-- Ícone de Pago -->
+            <p class="text-muted ms-2 mb-0">Pago</p> <!-- Texto do lado do ícone -->
+          </div>
+          <p>Tenha seu histórico médico armazenado de forma segura e acessível.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="info">
+          <i class="fas fa-calendar-alt text-gradient text-primary text-3xl"></i>
+          <h5 class="font-weight-bolder mt-3">Controle de Consultas e Exames</h5>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-check-circle text-success"></i> <!-- Ícone de Grátis -->
+            <p class="text-muted ms-2 mb-0">Grátis</p> <!-- Texto do lado do ícone -->
+          </div>
+          <p>Gerencie sua agenda de consultas e exames de forma prática e organizada.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="info">
+          <i class="fas fa-book-open text-gradient text-primary text-3xl"></i>
+          <h5 class="font-weight-bolder mt-3">Revista Saúde Agreste</h5>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-check-circle text-success"></i> <!-- Ícone de Grátis -->
+            <p class="text-muted ms-2 mb-0">Grátis</p> <!-- Texto do lado do ícone -->
+          </div>
+          <p>Acesse a edição digital da nossa revista com dicas e notícias sobre saúde.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="info">
+          <i class="fas fa-user-md text-gradient text-primary text-3xl"></i>
+          <h5 class="font-weight-bolder mt-3">Teleconsulta para Cidadãos</h5>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-dollar-sign text-warning"></i> <!-- Ícone de Pago -->
+            <p class="text-muted ms-2 mb-0">Pago</p> <!-- Texto do lado do ícone -->
+          </div>
+          <p>Faça consultas médicas no conforto de sua casa.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terceira linha com 4 colunas -->
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-3">
+        <div class="info">
+          <i class="fas fa-file-signature text-gradient text-primary text-3xl"></i>
+          <h5 class="font-weight-bolder mt-3">Prontuário, Agenda e Publicidade para Profissionais</h5>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-dollar-sign text-warning"></i> <!-- Ícone de Pago -->
+            <p class="text-muted ms-2 mb-0">Pago</p> <!-- Texto do lado do ícone -->
+          </div>
+          <p>Controle prontuários, organize sua agenda e promova seus serviços na plataforma e redes sociais.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="info">
+          <i class="fas fa-bullhorn text-gradient text-primary text-3xl"></i>
+          <h5 class="font-weight-bolder mt-3">Gestão de Redes Sociais e Publicidade</h5>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-dollar-sign text-warning"></i> <!-- Ícone de Pago -->
+            <p class="text-muted ms-2 mb-0">Pago</p> <!-- Texto do lado do ícone -->
+          </div>
+          <p>Promova sua clínica ou empresa através de pacotes de publicidade digital e física.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="info">
+          <i class="fas fa-briefcase-medical text-gradient text-primary text-3xl"></i>
+          <h5 class="font-weight-bolder mt-3">Divulgação de Vagas e Currículos</h5>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-check-circle text-success"></i> <!-- Ícone de Grátis -->
+            <p class="text-muted ms-2 mb-0">Grátis</p> <!-- Texto do lado do ícone -->
+          </div>
+          <p>Profissionais podem encontrar vagas na área da saúde e empresas podem buscar candidatos.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="info">
+          <i class="fas fa-university text-gradient text-primary text-3xl"></i>
+          <h5 class="font-weight-bolder mt-3">Faculdades e Cursos de Saúde</h5>
+          <div class="d-flex align-items-center">
+            <i class="fas fa-check-circle text-success"></i> <!-- Ícone de Grátis -->
+            <p class="text-muted ms-2 mb-0">Grátis</p> <!-- Texto do lado do ícone -->
+          </div>
+          <p>Encontre cursos e faculdades na área da saúde para aprimorar seus conhecimentos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- -------- START Content Presentation Docs ------- -->
+<div class="container mt-sm-5">
+  <div class="page-header py-6 py-md-5 my-sm-3 mb-3 border-radius-xl" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/desktop.jpg');" loading="lazy">
+    <span class="mask bg-gradient-dark"></span>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 ms-auto me-auto">
+          <h1 class="text-white">Por que o Caruaru Saúde existe?</h1>
+          <p class="lead text-white opacity-8">Caruaru é um dos polos de saúde mais importantes da região do Agreste Pernambucano, atendendo mais de 60 cidades e uma população de cerca de 1 milhão de habitantes. Contudo, falta uma plataforma unificada e eficiente que permita a busca rápida e acessível por profissionais e serviços de saúde. O Caruaru Saúde surge para preencher essa lacuna, conectando cidadãos a médicos, clínicas, hospitais, laboratórios, academias, e lojas de produtos naturais e suplementos, promovendo saúde e bem-estar.</p>
+          <a href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-kit" class="text-white icon-move-right">
+            Read docs
+            <i class="fas fa-arrow-right text-sm ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <!-- Para Cidadãos -->
+    <div class="col-lg-4">
+      <div class="info-horizontal bg-gradient-primary border-radius-xl d-block d-md-flex p-4">
+        <i class="material-icons text-white text-3xl">local_hospital</i>
+        <div class="ps-0 ps-md-3 mt-3 mt-md-0">
+          <h5 class="text-white">Para Cidadãos</h5>
+          <p class="text-white">Facilitamos sua vida com um buscador inteligente de serviços de saúde e teleconsulta disponível a qualquer hora.</p>
+          <a href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-kit" class="text-white icon-move-right">
+            Vamos começar
+            <i class="fas fa-arrow-right text-sm ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Para Profissionais de Saúde -->
+    <div class="col-lg-4 px-lg-1 mt-lg-0 mt-4">
+      <div class="info-horizontal bg-gray-100 border-radius-xl d-block d-md-flex p-4 h-100">
+        <i class="material-icons text-gradient text-primary text-3xl">medical_services</i>
+        <div class="ps-0 ps-md-3 mt-3 mt-md-0">
+          <h5>Para Profissionais de Saúde</h5>
+          <p>Expanda sua visibilidade e organize sua agenda com nossas ferramentas especializadas. Cadastre-se agora para ter seu perfil divulgado.</p>
+          <a href="https://www.creative-tim.com/learning-lab/bootstrap/datepicker/material-kit" class="text-primary icon-move-right">
+            Leia mais
+            <i class="fas fa-arrow-right text-sm ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Para Empresas de Saúde -->
+    <div class="col-lg-4 mt-lg-0 mt-4">
+      <div class="info-horizontal bg-gray-100 border-radius-xl d-block d-md-flex p-4">
+        <i class="material-icons text-gradient text-primary text-3xl">business_center</i>
+        <div class="ps-0 ps-md-3 mt-3 mt-md-0">
+          <h5>Para Empresas de Saúde</h5>
+          <p>Ganhe destaque na sua área! Oferecemos soluções de publicidade e presença digital para atrair mais clientes.</p>
+          <a href="https://www.creative-tim.com/learning-lab/bootstrap/utilities/material-kit" class="text-primary icon-move-right">
+            Leia mais
+            <i class="fas fa-arrow-right text-sm ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -------- END Content Presentation Docs ------- -->
+
+
+<section class="py-7">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mx-auto text-center">
+        <h2 class="mb-0">Confiada por mais de</h2>
+        <h2 class="text-gradient text-primary mb-3">1 milhão de cidadãos e profissionais de saúde</h2>
+        <p class="lead"> A plataforma tem sido utilizada por hospitais, consultórios médicos, clínicas multiprofissionais, e empresas de saúde para divulgação de seus serviços, promovendo uma conexão mais eficaz entre cidadãos e especialistas. </p>
+      </div>
+    </div>
+    <div class="row mt-6">
+      <div class="col-lg-4 col-md-8">
+        <div class="card card-plain">
+          <div class="card-body">
+            <div class="author">
+              <div class="name">
+                <h6 class="mb-0 font-weight-bolder">João Silva</h6>
+                <div class="stats">
+                  <i class="far fa-clock"></i> 1 dia atrás
+                </div>
+              </div>
+            </div>
+            <p class="mt-4">"Excelente plataforma, consegui agendar minha consulta em minutos!, super recomendo!"</p>
+            <div class="rating mt-3">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-8 ms-md-auto">
+        <div class="card bg-gradient-primary">
+          <div class="card-body">
+            <div class="author align-items-center">
+              <div class="name">
+                <h6 class="text-white mb-0 font-weight-bolder">Paula Lima</h6>
+                <div class="stats text-white">
+                  <i class="far fa-clock"></i> 1 semana atrás
+                </div>
+              </div>
+            </div>
+            <p class="mt-4 text-white">"O catálogo de especialidades é incrível. Achei o profissional ideal rapidamente."</p>
+            <div class="rating mt-3">
+              <i class="fas fa-star text-white"></i>
+              <i class="fas fa-star text-white"></i>
+              <i class="fas fa-star text-white"></i>
+              <i class="fas fa-star text-white"></i>
+              <i class="fas fa-star text-white"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-8">
+        <div class="card card-plain">
+          <div class="card-body">
+            <div class="author">
+              <div class="name">
+                <h6 class="mb-0 font-weight-bolder">Guilherme Rocha
+                </h6>
+                <div class="stats">
+                  <i class="far fa-clock"></i> 3 semanas atrás
+                </div>
+              </div>
+            </div>
+            <p class="mt-4">"Publicidade digital muito eficiente! Meu consultório ganhou novos pacientes em pouco tempo."</p>
+            <div class="rating mt-3">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <hr class="horizontal dark my-5">
+    <div class="row">
+      <div class="col-lg-2 col-md-4 col-6 ms-auto">
+        <a href="https://www.drogasil.com.br/">
+        <img class="w-100 opacity-6" src="{% static 'assets/img/logos/gray-logos/logo-drogasilv2.svg' %}" alt="Logo">
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-4 col-6">
+        <a href="https://laboc.med.br/">
+        <img class="w-100 opacity-6" src="{% static 'assets/img/logos/gray-logos/logo-laboc.svg' %}" alt="Logo">
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-4 col-6">
+        <a href="https://www.unimed.coop.br/site/web/caruaru">
+        <img class="w-100 opacity-6" src="{% static 'assets/img/logos/gray-logos/logo-unimed.svg' %}" alt="Logo">
+      </a>  
+      </div>
+      <div class="col-lg-2 col-md-4 col-6 ms-lg-0 ms-md-auto">
+        <a href="https://www.oticasdiniz.com.br/">
+        <img class="w-100 opacity-6" src="{% static 'assets/img/logos/gray-logos/logo-oticasdiniz.svg' %}" alt="Logo">
+      </a>
+      </div>
+      <div class="col-lg-2 col-md-4 col-6 me-md-auto mx-md-0 mx-auto">
+        <a href="https://www.paguemenos.com.br/">
+        <img class="w-100 opacity-6" src="{% static 'assets/img/logos/gray-logos/logo-paguemenosv2.svg' %}" alt="Logo">
+        </a>  
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-sm-7" id="connect-with-us">
+  <div class="bg-gradient-dark position-relative m-3 border-radius-xl overflow-hidden">
+    <img src="{% static 'assets/img/shapes/waves-white.svg' %}" alt="pattern-lines" class="position-absolute start-0 top-md-0 w-100 opacity-2">
+    <div class="container py-7 position-relative z-index-2">
+      <div class="row">
+        <div class="col-md-7 mx-auto text-center">
+          <h3 class="text-white mb-0">Fique conectado e atualizado!</h3>
+          <p class="text-white mb-5">Siga-nos nas redes sociais e entre em contato para ficar por dentro das novidades, dicas de saúde e eventos na região.</p>
+          <div class="d-flex justify-content-center">
+            <a href="https://www.instagram.com/caruarusaude" class="btn btn-light btn-lg mb-3 mb-sm-0 me-3" target="_blank">
+              <i class="fab fa-instagram me-2"></i>Instagram
+            </a>
+            <a href="https://wa.me/5581999999999" class="btn btn-primary btn-lg mb-3 mb-sm-0 me-3" target="_blank">
+              <i class="fab fa-whatsapp me-2"></i>WhatsApp
+            </a>
+            <a href="https://www.linkedin.com/company/caruarusaude" class="btn btn-info btn-lg mb-3 mb-sm-0" target="_blank">
+              <i class="fab fa-linkedin me-2"></i>LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-12 my-auto">
+        <h3>Fundação</h3>
+        <p class="pe-md-5 mb-4">
+          O Caruaru Saúde foi idealizado pelo adiministrador João Paulo e estudantes de tecnologia Lucas Vinicíus, Micael José e José Vinicíus , com uma missão clara: transformar a forma como os cidadãos da região do Agreste acessam e utilizam os serviços de saúde. Ao identificar a necessidade de uma plataforma que integrasse todos os profissionais e empresas do setor uniu tecnologia, saúde e empreendedorismo para criar um projeto que não só facilita a vida dos cidadãos, como também impulsiona o desenvolvimento do Polo de Saúde de Caruaru.
+        </p>
+        <div class="github-buttons">
+          
+          <div class="github-button">
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 col-12 my-auto">
+        <a>
+          <img class="w-100 border-radius-lg shadow-lg" src="{% static 'assets/img/caruaru_6.jpeg' %}" alt="caruaru Image">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- -------   START PRE-FOOTER 2 - simple social line w/ title & 3 buttons    -------- -->
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 ms-auto">
+        <h4 class="mb-1">Espero que estejam gostando </h4>
+        <p class="lead mb-0">Compartilhe o site ao lado!</p>
+      </div>
+      <div class="col-lg-5 me-lg-auto my-lg-auto text-lg-end mt-5">
+        <a href="https://twitter.com/intent/tweet?text=Check%20Material%20UI%20Kit%20made%20by%20%40CreativeTim%20%23webdesign%20%23designsystem%20%23bootstrap5&url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fmaterial-kit" class="btn btn-twitter mb-0 me-2" target="_blank">
+          <i class="fab fa-twitter me-1"></i> Tweet
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/material-kit" class="btn btn-facebook mb-0 me-2" target="_blank">
+          <i class="fab fa-facebook-square me-1"></i> Share
+        </a>
+        <a href="https://www.pinterest.com/pin/create/button/?url=https://www.creative-tim.com/product/material-kit" class="btn btn-pinterest mb-0 me-2" target="_blank">
+          <i class="fab fa-pinterest me-1"></i> Pin it
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -------- START Features w/ icons and text on left & gradient title and text on right -------- -->
+<section class="py-9">
+  <div class="container">
+    <div class="row">
+      <!-- Seção de introdução sobre o Caruaru Saúde -->
+      <div class="col-lg-6 my-auto">
+        <h3>Leia mais sobre nós</h3>
+        <p class="pe-5">O Caruaru Saúde é uma plataforma inovadora que busca conectar cidadãos aos mais diversos serviços de saúde da cidade de Caruaru e região. Nosso objetivo é proporcionar acesso rápido, fácil e eficiente a profissionais de saúde, clínicas e serviços, promovendo saúde e bem-estar para toda a comunidade do Agreste Pernambucano.</p>
+        <a href="javascript:;" class="text-primary icon-move-right">Saiba mais sobre nós
+          <i class="fas fa-arrow-right text-sm ms-1"></i>
+        </a>
+      </div>
+
+      <!-- Seção com ícones explicando o funcionamento -->
+      <div class="col-lg-6 mt-lg-0 mt-5 ps-lg-0 ps-0">
+        <!-- Bloco 1: Busca -->
+        <div class="p-3 info-horizontal">
+          <div class="icon icon-shape bg-gradient-primary shadow-primary text-center">
+            <i class="fas fa-search opacity-10"></i>
+          </div>
+          <div class="description ps-3">
+            <h6>Busque</h6>
+            <p class="mb-0">Encontre facilmente serviços e profissionais de saúde na sua cidade. A plataforma oferece um catálogo diversificado para facilitar sua busca.</p>
+          </div>
+        </div>
+
+        <!-- Bloco 2: Agende -->
+        <div class="p-3 info-horizontal">
+          <div class="icon icon-shape bg-gradient-primary shadow-primary text-center">
+            <i class="fas fa-calendar-check opacity-10"></i>
+          </div>
+          <div class="description ps-3">
+            <h6>Agende</h6>
+            <p class="mb-0">Utilize nossa plataforma para marcar consultas e exames de forma rápida e prática, sem complicações.</p>
+          </div>
+        </div>
+
+        <!-- Bloco 3: Cuide-se -->
+        <div class="p-3 info-horizontal">
+          <div class="icon icon-shape bg-gradient-primary shadow-primary text-center">
+            <i class="fas fa-heart opacity-10"></i>
+          </div>
+          <div class="description ps-3">
+            <h6>Cuide-se</h6>
+            <p class="mb-0">Receba atendimento de qualidade com praticidade e segurança. Teleconsulta e prontuário eletrônico para sua comodidade.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- -------- END Features w/ icons and text on left & gradient title and text on right -------- -->
+
+
+<!-- -------   END PRE-FOOTER 2 - simple social line w/ title & 3 buttons    -------- -->
+
+</div>
+
+
+  
+
+<footer class="footer py-5">
+  <div class="container z-index-1 position-relative">
+    <div class="row">
+      <div class="col-lg-4 me-auto mb-lg-0 mb-4 text-lg-start text-center">
+        <h6 class="text-dark font-weight-bolder text-uppercase mb-lg-4 mb-3">Caruaru Saúde</h6>
+        <ul class="nav flex-row ms-n3 justify-content-lg-start justify-content-center mb-4 mt-sm-0">
+          <li class="nav-item">
+            <a class="nav-link text-dark opacity-8" href="https://www.creative-tim.com" target="_blank">
+              WhatsApp
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark opacity-8" href="https://www.creative-tim.com/presentation" target="_blank">
+              Email
+            </a>
+          </li>
+          
+        </ul>
+        <p class="text-sm text-dark opacity-8 mb-0">
+          Copyright © <script>
+            document.write(new Date().getFullYear())
+          </script> Caruaru Saúde by Creative Tim.
+        </p>
+      </div>
+      <div class="col-lg-6 ms-auto text-lg-end text-center">
+        <p class="mb-5 text-lg text-dark font-weight-bold">
+          "Saúde é o bem mais valioso. Invista em você!"
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+{% endblock conteudo %}
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--   Core JS Files   -->
+<script src="{% static 'assets/js/core/popper.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'assets/js/core/bootstrap.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'assets/js/plugins/perfect-scrollbar.min.js' %}"></script>
+
+
+
+
+<!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
+<script src="{% static 'assets/js/plugins/countup.min.js' %}"></script>
+
+
+
+
+
+<script src="{% static 'assets/js/plugins/choices.min.js' %}"></script>
+
+
+
+<script src="{% static 'assets/js/plugins/prism.min.js' %}"></script>
+<script src="{% static 'assets/js/plugins/highlight.min.js'%}"></script>
+
+
+
+<!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
+<script src="{% static 'assets/js/plugins/rellax.min.js' %}"></script>
+<!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
+<script src="{% static 'assets/js/plugins/tilt.min.js' %}"></script>
+<!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
+<script src="{% static 'assets/js/plugins/choices.min.js' %}"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+<!--  Google Maps Plugin    -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+<script src="{% static 'assets/js/material-kit.min.js?v=3.0.4' %}" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+
+  if (document.getElementById('state1')) {
+    const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+    if (!countUp.error) {
+      countUp.start();
+    } else {
+      console.error(countUp.error);
+    }
+  }
+  if (document.getElementById('state2')) {
+    const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+    if (!countUp1.error) {
+      countUp1.start();
+    } else {
+      console.error(countUp1.error);
+    }
+  }
+  if (document.getElementById('state3')) {
+    const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+    if (!countUp2.error) {
+      countUp2.start();
+    } else {
+      console.error(countUp2.error);
+    };
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

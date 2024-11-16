@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-br" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'assets/img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'assets/img/favicon.svg' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <title>
+    Usuário
+  </title>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="{% static 'assets/css/nucleo-icons.css' %} " rel="stylesheet" />
+  <link href="{% static 'assets/css/nucleo-svg.css' %}" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="{% static 'assets/css/material-kit.css' %}" rel="stylesheet" />
+  <!-- Nepcha Analytics (nepcha.com) -->
+  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+</head>
+
+<body class="blog-author bg-gray-200">
+  <!-- Navbar -->
+<div class="container position-sticky z-index-sticky top-0"><div class="row"><div class="col-12">
+  <nav class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+    <div class="container-fluid px-0">
+      <a class="navbar-brand font-weight-bolder ms-sm-3" href="{% url 'index' %}" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+        Caruaru Saúde
+      </a>
+      <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon mt-2">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
+        <ul class="navbar-nav navbar-nav-hover ms-auto">
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
+             Páginas
+              <img src="{% static 'assets/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow ms-auto ms-md-2">
+            </a>
+            <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
+              <div class="d-none d-lg-block">
+    <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+     Páginas de destino
+    </h6>
+    <a href="{% url 'catalogo' %}" class="dropdown-item border-radius-md">
+      <span>Catálogo</span>
+    </a>
+    
+  </div>
+  
+  <div class="d-lg-none">
+    <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+      Páginas de destino
+    </h6>
+  
+    <a href="./pages/about-us.html" class="dropdown-item border-radius-md">
+      <span>Sobre nós</span>
+    </a>
+    <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">
+      <span>Contate-nos</span>
+    </a>
+    <a href="./pages/author.html" class="dropdown-item border-radius-md">
+      <span>Autora</span>
+    </a>
+  
+  
+  </div>
+  
+            </div>
+          </li>
+  
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="material-icons opacity-6 me-2 text-md">view_day</i>
+              Conta
+              <img src="{% static 'assets/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow ms-auto ms-md-2">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuBlocks">
+              <div class="d-none d-lg-block">
+    <li class="nav-item dropdown dropdown-hover dropdown-subitem">
+      <a class="dropdown-item py-2 ps-3 border-radius-md" href="./presentation.html">
+        <div class="w-100 d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Usuário</h6>
+            <span class="text-sm">Veja todas as opções</span>
+          </div>
+          <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
+        </div>
+      </a>
+      <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
+        <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'cadastro' %}">
+          Cadastre-se
+        </a>
+        <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'login' %}">
+         Faça login
+        </a>
+        <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'usuario' %}">
+          Área do usuário
+        </a>
+        <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'consulta_view' %}">
+          Marcar Consulta
+        </a>
+      </div>
+    </li>
+  
+    <li class="nav-item dropdown dropdown-hover dropdown-subitem">
+      <a class="dropdown-item py-2 ps-3 border-radius-md" href="./presentation.html">
+        <div class="w-100 d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Negócio</h6>
+            <span class="text-sm">Veja todas as opções</span>
+          </div>
+          <img src="{% static 'assets/img/down-arrow.svg' %}" alt="down-arrow" class="arrow">
+        </div>
+      </a>
+      <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
+        <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'cadastro_instituicao' %}">
+          Cadastre-se
+        </a>
+        <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'login_i' %}">
+          Faça login
+        </a>
+        <a class="dropdown-item ps-3 border-radius-md mb-1" href="{% url 'instituicao' %}">
+          Área da instituição
+        </a>
+      </div>
+    </li>
+  
+    
+  </div>
+  
+  <div class="row d-lg-none">
+    <div class="col-md-12">
+      <div class="d-flex mb-2">
+        <div class="icon h-10 me-3 d-flex mt-1">
+          <i class="ni ni-single-copy-04 text-gradient text-primary"></i>
+        </div>
+        <div class="w-100 d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Page Sections</h6>
+          </div>
+        </div>
+      </div>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/page-sections/hero-sections.html">
+        Page Headers
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/page-sections/features.html">
+        Features
+      </a>
+  
+      <div class="d-flex mb-2 mt-3">
+        <div class="icon h-10 me-3 d-flex mt-1">
+          <i class="ni ni-laptop text-gradient text-primary"></i>
+        </div>
+        <div class="w-100 d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Navigation</h6>
+          </div>
+        </div>
+      </div>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/navigation/navbars.html">
+        Navbars
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/navigation/nav-tabs.html">
+        Nav Tabs
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/navigation/pagination.html">
+        Pagination
+      </a>
+  
+  
+      <div class="d-flex mb-2 mt-3">
+        <div class="icon h-10 me-3 d-flex mt-1">
+          <i class="ni ni-badge text-gradient text-primary"></i>
+        </div>
+        <div class="w-100 d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Input Areas</h6>
+          </div>
+        </div>
+      </div>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/input-areas/inputs.html">
+        Inputs
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/input-areas/forms.html">
+        Forms
+      </a>
+  
+  
+      <div class="d-flex mb-2 mt-3">
+        <div class="icon h-10 me-3 d-flex mt-1">
+          <i class="ni ni-notification-70 text-gradient text-primary"></i>
+        </div>
+        <div class="w-100 d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Attention Catchers</h6>
+          </div>
+        </div>
+      </div>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/attention-catchers/alerts.html">
+        Alerts
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/attention-catchers/modals.html">
+        Modals
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/attention-catchers/tooltips-popovers.html">
+        Tooltips & Popovers
+      </a>
+  
+  
+      <div class="d-flex mb-2 mt-3">
+        <div class="icon h-10 me-3 d-flex mt-1">
+          <i class="ni ni-app text-gradient text-primary"></i>
+        </div>
+        <div class="w-100 d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Elements</h6>
+          </div>
+        </div>
+      </div>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/avatars.html">
+        Avatars
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/badges.html">
+        Badges
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/breadcrumbs.html">
+        Breadcrumbs
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/buttons.html">
+        Buttons
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/dropdowns.html">
+        Dropdowns
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/progress-bars.html">
+        Progress Bars
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/toggles.html">
+        Toggles
+      </a>
+      <a class="dropdown-item ps-3 border-radius-md mb-1" href="./sections/elements/typography.html">
+        Typography
+      </a>
+    </div>
+  </div>
+  
+            </ul>
+          </li>
+  
+          <li class="nav-item dropdown dropdown-hover mx-2">
+            <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="material-icons opacity-6 me-2 text-md">article</i>
+              Docs
+              <img src="{% static 'assets/img/down-arrow-dark.svg' %}" alt="down-arrow" class="arrow ms-auto ms-md-2">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg" aria-labelledby="dropdownMenuDocs">
+              <div class="d-none d-lg-block">
+    <ul class="list-group">
+     
+      
+      </li>
+      <li class="nav-item list-group-item border-0 p-0">
+        <a class="dropdown-item py-2 ps-3 border-radius-md" href="https://github.com/micaellimaj/Caruaru_Saude">
+          <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Repositório</h6>
+          <span class="text-sm">Explore o código fonte do projeto no Github</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+  
+  <div class="row d-lg-none">
+    <div class="col-md-12 g-0">
+      <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
+        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Getting Started</h6>
+        <span class="text-sm">All about overview, quick start, license and contents</span>
+      </a>
+  
+      <a class="dropdown-item py-2 ps-3 border-radius-md" href="./pages/about-us.html">
+        <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Foundation</h6>
+        <span class="text-sm">See our colors, icons and typography</span>
+      </a>
+  
+      
+  
+      
+    </div>
+  </div>
+  
+            </ul>
+          <li class="nav-item ms-lg-auto">
+            <!-- Link para Instagram -->
+            <a class="nav-link nav-link-icon me-2" href="https://www.instagram.com/caruarusaude" target="_blank">
+                <i class="fa fa-instagram me-1"></i>
+                <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Siga-nos no Instagram"></p>
+            </a>
+        </li>
+        
+        <li class="nav-item ms-lg-auto">
+            <!-- Link para LinkedIn -->
+            <a class="nav-link nav-link-icon me-2" href="https://www.linkedin.com/in/seu-perfil" target="_blank">
+                <i class="fa fa-linkedin me-1"></i>
+                <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Conecte-se conosco no LinkedIn"></p>
+            </a>
+        </li>
+        <li class="nav-item my-auto ms-3 ms-lg-0">
+          <a href="{% url 'logout' %}" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">Sair</a>
+        </li>
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  </div></div></div>
+  <!-- End Navbar -->
+  <!-- -------- START HEADER 4 w/ search book a ticket form ------- -->
+  <header>
+    <div class="page-header min-height-400" style="background-image: url({% static 'assets/img/caruaru_2.jpeg' %});" loading="lazy">
+      <span class="mask bg-gradient-dark opacity-8"></span>
+    </div>
+  </header>
+  <!-- -------- END HEADER 4 w/ search book a ticket form ------- -->
+  <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6 mb-4">
+    <!-- START Testimonials w/ user image & text & info -->
+    <section class="py-sm-7 py-5 position-relative">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 mx-auto">
+            <div class="mt-n8 mt-md-n9 text-center">
+              <img class="avatar avatar-xxl shadow-xl position-relative z-index-2" src="{% static 'assets/img/usuario.png' %}" alt="bruce" loading="lazy">
+            </div>
+            <div class="row py-5">
+              <div class="col-lg-7 col-md-7 z-index-2 position-relative px-md-2 px-sm-5 mx-auto">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h3 class="mb-0">Bem  vindo Usuário!</h3>
+                 
+                </div>
+                <p class="text-lg mb-0">
+                  Bem-vindo ao Caruaru Saúde! Aqui, você tem acesso fácil e rápido aos melhores serviços de saúde na sua região. Explore as opções disponíveis, marque consultas e cuide da sua saúde com praticidade e confiança. <br>
+                    
+                  </a>
+                </p>
+              </div>
+            </div>
+
+    </section>
+    <!-- END Testimonials w/ user image & text & info -->
+    <!-- START Blogs w/ 4 cards w/ image & text & link -->
+    <section class="py-3">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-4">
+            <div class="card card-background cursor-pointer">
+              <div class="full-background" style="background-image: url('{% static 'assets/img/caruaru_2.jpeg' %}')" loading="lazy"></div>
+              <div class="card-body text-center">
+                <h15 class="card-title">Detalhes da Conta</h3>
+                <p>Acesse sua conta e altere dados pessoais.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card card-background cursor-pointer">
+              <div class="full-background" style="background-image: url('{% static 'assets/img/caruaru_2.jpeg' %}')" loading="lazy"></div>
+              <div class="card-body text-center">
+                <h15 class="card-title">Consultas Marcadas</h3>
+                <p>Marque consultas e veja sua lista.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <!-- END Blogs w/ 4 cards w/ image & text & link -->
+  </div>
+  <section class="py-lg-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card box-shadow-xl overflow-hidden mb-5">
+            <div class="row">
+              <div class="col-lg-5 position-relative bg-cover px-0" style="background-image: url('{% static '/assets/img/caruaru_2.jpeg' %}')" loading="lazy">
+                <div class="z-index-2 text-center d-flex h-100 w-100 d-flex m-auto justify-content-center">
+                  <div class="mask bg-gradient-dark opacity-8"></div>
+                  <div class="p-5 ps-sm-8 position-relative text-start my-auto z-index-2">
+                    <h3 class="text-white">Opções para o Usuário</h3>
+                    <p class="text-white opacity-8 mb-4">Clique para mais detalhes e configurações.</p>
+                    <div class="d-flex p-2 text-white">
+                      <div>
+                        <i class="fas fa-user-md text-sm"></i>
+                      </div>
+                      <div class="ps-3">
+                        <button class="btn btn-link text-white" onclick="showSection('details')">Detalhes da conta</button>
+                      </div>
+                    </div>
+                    <div class="d-flex p-2 text-white">
+                      <div>
+                        <i class="fas fa-stethoscope text-sm"></i>
+                      </div>
+                      <div class="ps-3">
+                        <button class="btn btn-link text-white" onclick="showSection('appointments')">Consultas marcadas</button>
+                      </div>
+                    </div>
+                    
+                 
+                    <div class="mt-4">
+                      <!-- Social Media Icons -->
+                      <!-- ... -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-lg-7">
+                <div id="content-section">
+                  <!-- Account Details section -->
+                  <div id="details" class="section">
+                    <form method="post" action="{% url 'usuario' %}" class="p-4">
+                        {% csrf_token %}
+                        <div class="card-body pt-1">
+                            <h2 class="mb-4">Detalhes da conta</h2>
+                            <p class="lead">Altere os seus dados cadastrados:</p>
+                
+                            <!-- Campo de Nome de Usuário -->
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username:</label>
+                                <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}" required>
+                            </div>
+                
+                            <!-- Campo de Email -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required>
+                            </div>
+                
+                            <!-- Campo de Senha -->
+                            <div class="mb-3">
+                                <label for="senha" class="form-label">Nova senha (opcional):</label>
+                                <input type="password" class="form-control" id="senha" name="senha" placeholder="Deixe em branco se não quiser mudar">
+                            </div>
+                
+                            <!-- Botão de Atualização Alinhado à Direita -->
+                            <div class="text-end">
+                                <button type="submit" class="btn bg-gradient-info mb-0">Atualizar Dados</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                  
+  
+                  <!-- Appointments Section -->
+                  <div id="appointments" class="section" style="display: none;">
+                    <div class="card-header px-4 py-sm-5 py-3">
+                      <h2>Agendamentos</h2>
+                      <p class="nav-item my-auto ms-3 ms-lg-0">
+                        <a href="{% url 'consulta_view' %}" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">CLICA AQUI PARA MARCAR UMA CONSULTA</a>
+                      </p>
+                      <p class="lead">Aqui abaixo estão os agendamentos que você fez:</p>
+                      
+                    </div>
+                    {% if appointments %}
+                      <ul>
+                        {% for appointment in appointments %}
+                          <li>
+                            Serviço: {{ appointment.service }} <br>
+                            Profissional: {{ appointment.professional }} <br>
+                            Data e Horário: {{ appointment.datetime }} <br>
+                            <hr>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% else %}
+                      <p>Você ainda não tem agendamentos.</p>
+                    {% endif %}
+                  </div>
+  
+                  <!-- Orders Section -->
+                  <div id="orders" class="section" style="display: none;">
+                    <div class="card-header px-4 py-sm-5 py-3">
+                      <h2>Pedidos</h2>
+                      <p class="lead">Aqui estão os seus pedidos mais recentes</p>
+                    </div>
+                    <ul id="appointmentList" class="list-group">
+                      <!-- Dynamic list of orders will be added here -->
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- -------- START FOOTER 5 w/ DARK BACKGROUND ------- -->
+  <footer class="footer py-5">
+    <div class="container z-index-1 position-relative">
+      <div class="row">
+        <div class="col-lg-4 me-auto mb-lg-0 mb-4 text-lg-start text-center">
+          <h6 class="text-dark font-weight-bolder text-uppercase mb-lg-4 mb-3">Caruaru Saúde</h6>
+          <ul class="nav flex-row ms-n3 justify-content-lg-start justify-content-center mb-4 mt-sm-0">
+            <li class="nav-item">
+              <a class="nav-link text-dark opacity-8" href="https://www.creative-tim.com" target="_blank">
+                WhatsApp
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark opacity-8" href="https://www.creative-tim.com/presentation" target="_blank">
+                Email
+              </a>
+            </li>
+            
+          </ul>
+          <p class="text-sm text-dark opacity-8 mb-0">
+            Copyright © <script>
+              document.write(new Date().getFullYear())
+            </script> Caruaru Saúde by Creative Tim.
+          </p>
+        </div>
+        <div class="col-lg-6 ms-auto text-lg-end text-center">
+          <p class="mb-5 text-lg text-dark font-weight-bold">
+            "Saúde é o bem mais valioso. Invista em você!"
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- -------- END FOOTER 5 w/ DARK BACKGROUND ------- -->
+  <!--   Core JS Files   -->
+  <script src="{% static 'assets/js/core/popper.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'assets/js/core/bootstrap.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'assets/js/plugins/perfect-scrollbar.min.js' %}"></script>
+  <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+  <script src="{% static 'assets/js/material-kit.min.js'%}" type="text/javascript"></script>
+
+  <!-- JavaScript -->
+<script>
+  function showSection(sectionId) {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(section => section.style.display = 'none');
+    // Show the selected section
+    document.getElementById(sectionId).style.display = 'block';
+  }
+  </script>
+  <!-- Script para o Filtro -->
+<script>
+  document.getElementById('serviceSelect').addEventListener('change', function() {
+    var selectedService = this.value;
+    var professionalSelect = document.getElementById('professionalSelect');
+    var options = professionalSelect.options;
+
+    for (var i = 0; i < options.length; i++) {
+      var option = options[i];
+      var service = option.getAttribute('data-service');
+      
+      // Se o valor do serviço no option corresponder ao serviço selecionado, exibe
+      if (service === selectedService || option.value === "") {
+        option.style.display = '';
+      } else {
+        option.style.display = 'none';
+      }
+    }
+
+    // Redefinir a seleção para o valor padrão após o filtro
+    professionalSelect.selectedIndex = 0;
+  });
+
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+  flatpickr(".datetimepicker", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    time_24hr: true
+  });
+</script>
+
+
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Impede o envio do formulário
+  //Função para capturar e exibir os agendamentos na lista
+
+  var service = document.getElementById('serviceSelect').value;
+  var professional = document.getElementById('professionalSelect').value;
+  var datetime = document.getElementById('datetime').value;
+  var paymentMethod = document.getElementById('paymentMethod').value;
+
+  if (service && professional && datetime && paymentMethod) {
+    // Adiciona o agendamento à lista
+    var appointmentList = document.getElementById('appointmentList');
+    var newAppointment = document.createElement('li');
+    newAppointment.className = "list-group-item";
+    newAppointment.textContent = `Serviço: ${service}, Profissional: ${professional}, Data/Horário: ${datetime}, Pagamento: ${paymentMethod}`;
+    appointmentList.appendChild(newAppointment);
+
+    // Exibe a seção de agendamentos confirmados
+    document.getElementById('orders').style.display = 'block';
+
+    // Limpa o formulário após o envio
+    document.getElementById('contact-form').reset();
+  }
+});
+</script>
+
+  
+
+</body>
+
+</html>
