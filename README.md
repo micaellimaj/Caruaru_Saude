@@ -76,6 +76,41 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
   - Consultas: Construção de consultas específicas para exibição e filtragem dos dados, facilitando o acesso rápido às informações
 
 
+
+##  📶 Atributos do Banco de dados:
+
+* Tabela Cadastro de usuário:
+
+| Campo        | Descrição                                             | Tipo                  |
+|--------------|-------------------------------------------------------|-----------------------|
+| **id**       | Identificador exclusivo para cada usuário             | `INT` - CHAVE PRIMÁRIA |
+| **username** | Nome de usuário único utilizado para identificação    | `VARCHAR(50)`         |
+| **email**    | Endereço de e-mail do usuário                         | `VARCHAR(100)`        |
+| **senha**    | Senha do usuário para autenticação                    | `VARCHAR(255)`        |
+
+* Cadastro de instituição:
+
+| Campo          | Descrição                                            | Tipo                  |
+|-----------------|----------------------------------------------------|-----------------------|
+| **id**         | Identificador exclusivo para cada instituição       | `INT` - CHAVE PRIMÁRIA |
+| **username**   | Nome de usuário único utilizado para identificação  | `VARCHAR(50)`         |
+| **email**      | Endereço de e-mail da instituição                   | `VARCHAR(100)`        |
+| **nome**       | Nome da instituição                                 | `VARCHAR(100)`        |
+| **endereco**   | Endereço físico da instituição                      | `VARCHAR(255)`        |
+| **telefone**   | Telefone de contato da instituição                  | `VARCHAR(15)`         |
+| **whatsapp**   | Número de WhatsApp da instituição                   | `VARCHAR(15)`         |
+| **senha**      | Senha para autenticação                             | `VARCHAR(255)`        |
+| **instagram**  | Link para o perfil do Instagram (opcional)          | `VARCHAR(255)`        |
+
+* Tabela de Consultas:
+
+| Campo              | Descrição                                               | Tipo                  |
+|--------------------|-------------------------------------------------------|-----------------------|
+| **id**            | Identificador exclusivo para cada agendamento          | `INT` - CHAVE PRIMÁRIA |
+| **service**        | Tipo de serviço selecionado pelo usuário               | `VARCHAR(50)`         |
+| **professional**   | Nome do profissional escolhido para o serviço          | `VARCHAR(100)`        |
+| **datetime**       | Data e horário selecionados para o agendamento         | `DATETIME`            |
+
 ## 🫂 Equipe do Projeto:
 
 <div align="center">
