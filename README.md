@@ -90,7 +90,7 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
 5. [Ângelo Gabriel](https://github.com/red-rgb-Design) -> Design :
   * **Responsabilidades**:Ângelo Gabriel foi o responsável pela criação da identidade visual do projeto. Ele desenvolveu o logotipo, definiu a paleta de cores e elaborou a identidade visual, contribuindo para uma aparência profissional e atrativa da plataforma.
 
-## 🗃️ Estrutura do repositório
+## 🗃️ Estrutura do repositório:
 
 ------------
 
