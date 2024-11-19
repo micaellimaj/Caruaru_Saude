@@ -90,6 +90,68 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
 5. [Ângelo Gabriel](https://github.com/red-rgb-Design) -> Design :
   * **Responsabilidades**:Ângelo Gabriel foi o responsável pela criação da identidade visual do projeto. Ele desenvolveu o logotipo, definiu a paleta de cores e elaborou a identidade visual, contribuindo para uma aparência profissional e atrativa da plataforma.
 
+## 🗃️ Estrutura do repositório
+
+------------
+
+    │
+    ├── LICENSE                    <- Arquivo contendo a licença do projeto
+    │
+    ├── README.md                  <- Arquivo de introdução e documentação para desenvolvedores
+    │ 
+    ├── Documentação               <- Diretório contendo a documentação detalhada do projeto
+    │
+    ├── caruaru_saude              <- Diretório principal do projeto Django
+    │   ├── caruaru_saude          <- Diretório contendo as configurações principais do projeto Django
+    │          ├── __init__.py     <- Arquivo que define este diretório como um pacote Python
+    │          ├── asgi.py         <- Configuração do servidor ASGI para suporte a aplicações assíncronas
+    │          ├── settings.py     <- Configurações gerais do projeto, como apps instalados e banco de dados
+    │          ├── urls.py         <- Rotas principais do projeto
+    │          ├── wsgi.py         <- Configuração do servidor WSGI para a aplicação
+    │   ├── instituicao            <- Diretório contendo a lógica relacionada às funcionalidades de instituições
+    │          ├── __init__.py     <- Arquivo que define este diretório como um pacote Python
+    │          ├── admin.py        <- Registro e personalização do admin Django para instituições
+    │          ├── apps.py         <- Configurações do app de instituições
+    │          ├── models.py       <- Modelos de dados relacionados a instituições
+    │          ├── tests.py        <- Testes automatizados para validação das funcionalidades de instituições
+    │          ├── urls.py         <- Rotas específicas para instituições
+    │          ├── views.py        <- Lógica das views relacionadas às instituições
+    │          ├── migrations      <- Arquivos de migração do banco de dados para instituições
+    │   ├── static                 <- Arquivos estáticos do projeto como CSS, JS, imagens, etc.
+    │          ├── assets          <- Subdiretório contendo os recursos visuais e scripts do projeto
+    │                ├── css       <- Arquivos de estilo CSS
+    │                ├── fonts     <- Arquivos de fontes utilizados no projeto
+    │                ├── img       <- Imagens usadas na interface
+    │                ├── js        <- Scripts JavaScript para funcionalidades dinâmicas
+    │                ├── readme    <- Documentação de referência dos arquivos estáticos
+    │                ├── scss      <- Arquivos SCSS para estilização avançada
+    │   ├── templates              <- Arquivos HTML organizados por categorias para renderização de páginas
+    │          ├── consult         <- Diretório para templates de consulta
+    │                 ├── consulta.html     <- Página de consulta de serviços e agendamentos
+    │          ├── instituicao     <- Diretório para templates de instituições
+    │                 ├── Instituicao.html        <- Página principal de instituições
+    │                 ├── Cadastro_instituicao.html <- Página para cadastro de instituições
+    │                 ├── login_i.html            <- Página de login de instituições
+    │          ├── usuarios        <- Diretório para templates de usuários
+    │                 ├── usuario.html            <- Página principal de usuários cadastrados
+    │           ├── cadastro.html  <- Página para cadastro de novos usuários
+    │           ├── index.html     <- Página inicial do projeto
+    │           ├── login.html     <- Página de login para usuários
+    │             
+    │   ├── usuarios               <- Diretório contendo a lógica relacionada às funcionalidades de usuários
+    │          ├── __init__.py     <- Arquivo que define este diretório como um pacote Python
+    │          ├── admin.py        <- Registro e personalização do admin Django para usuários
+    │          ├── apps.py         <- Configurações do app de usuários
+    │          ├── models.py       <- Modelos de dados relacionados a usuários
+    │          ├── tests.py        <- Testes automatizados para validação das funcionalidades de usuários
+    │          ├── urls.py         <- Rotas específicas para usuários
+    │          ├── views.py        <- Lógica das views relacionadas aos usuários
+    │          ├── migrations      <- Arquivos de migração do banco de dados para usuários
+    │   ├── manage.py              <- Arquivo de gerenciamento do Django para comandos administrativos
+    │        
+    └──
+
+
 ## 🏁 Conclusão
 
 O projeto **Caruaru Saúde** foi desenvolvido com o objetivo de oferecer uma plataforma de saúde acessível e prática para a população do Agreste Pernambucano. Através da integração de tecnologias como Django, HTML, CSS e JavaScript, a plataforma conecta os cidadãos a uma rede de serviços médicos e profissionais de saúde, oferecendo funcionalidades de busca por especialidades, localização por mapa, e agendamento de consultas. 
