@@ -88,7 +88,7 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
 | **email**    | Endereço de e-mail do usuário                         | `VARCHAR(100)`        |
 | **senha**    | Senha do usuário para autenticação                    | `VARCHAR(255)`        |
 
-* Cadastro de instituição:
+* Tabela Cadastro de instituição:
 
 | Campo          | Descrição                                            | Tipo                  |
 |-----------------|----------------------------------------------------|-----------------------|
@@ -102,7 +102,7 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
 | **senha**      | Senha para autenticação                             | `VARCHAR(255)`        |
 | **instagram**  | Link para o perfil do Instagram (opcional)          | `VARCHAR(255)`        |
 
-* Tabela de Consultas:
+* Tabela de Cadastro de consultas:
 
 | Campo              | Descrição                                               | Tipo                  |
 |--------------------|-------------------------------------------------------|-----------------------|
