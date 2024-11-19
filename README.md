@@ -123,11 +123,9 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
   * **Responsabilidades**: João Paulo assumiu a liderança como CEO, sendo o responsável pela gestão do grupo e pela coordenação das atividades. Ele elaborou os requisitos do projeto, realizou pesquisas de mercado e desenvolveu a estratégia de negócios. Além disso, João foi responsável por buscar monitoria e investimentos para o crescimento do projeto.
 2. [Lucas Vinícius](https://github.com/Lucas-pypy) -> Desenvolvedor Full-stack :  
   * **Responsabilidades**:  Lucas Vinícius trabalhou principalmente no front-end do projeto, dedicando-se à implementação de funcionalidades de mapa para exibir as instituições de saúde com o uso de JavaScript. Seu trabalho permitiu uma interação visual e prática com a localização de serviços médicos.
-4. [Micael José](https://github.com/micaellimaj) -> Desenvolvedor Full-stack :
+3. [Micael José](https://github.com/micaellimaj) -> Desenvolvedor Full-stack :
   * **Responsabilidades**:  Micael José focou no desenvolvimento do front-end, mas também trabalhou significativamente no back-end utilizando Django e Python. Ele foi responsável pela autenticação de usuários e pela implementação do sistema de marcação de consultas, proporcionando uma interface interativa e segura para os usuários.
-4. [José Vinícius](https://github.com/vtenorio309) -> Desenvolvedor Full-stack :
-  * **Responsabilidades**: José Vinícius concentrou-se exclusivamente no desenvolvimento do front-end, garantindo a funcionalidade e o visual das interfaces do usuário, além de colaborar para a usabilidade do projeto.
-5. [Ângelo Gabriel](https://github.com/red-rgb-Design) -> Design :
+4. [Ângelo Gabriel](https://github.com/red-rgb-Design) -> Design :
   * **Responsabilidades**:Ângelo Gabriel foi o responsável pela criação da identidade visual do projeto. Ele desenvolveu o logotipo, definiu a paleta de cores e elaborou a identidade visual, contribuindo para uma aparência profissional e atrativa da plataforma.
 
 ## 🗃️ Estrutura do repositório:
