@@ -123,6 +123,8 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
   * **Responsabilidades**:  Lucas Vinícius trabalhou principalmente no front-end do projeto, dedicando-se à implementação de funcionalidades de mapa para exibir as instituições de saúde com o uso de JavaScript. Seu trabalho permitiu uma interação visual e prática com a localização de serviços médicos.
 2. [Micael José](https://github.com/micaellimaj) -> Desenvolvedor Full-stack :
   * **Responsabilidades**:  Micael José focou no desenvolvimento do front-end, mas também trabalhou significativamente no back-end utilizando Django e Python. Ele foi responsável pela autenticação de usuários e pela implementação do sistema de marcação de consultas, proporcionando uma interface interativa e segura para os usuários.
+3. [Ângelo Gabriel](https://github.com/red-rgb-Design) -> Design :
+  * *Responsabilidades*:Ângelo Gabriel foi o responsável pela criação da identidade visual do projeto. Ele desenvolveu o logotipo, definiu a paleta de cores e elaborou a identidade visual, contribuindo para uma aparência profissional e atrativa da plataforma.
 
 
 ## 🗃️ Estrutura do repositório:
