@@ -188,6 +188,53 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
     │        
     └──
 
+## 🚀 Como Instalar e Executar o Projeto:
+
+Siga os passos abaixo para clonar, instalar e rodar este projeto Django em sua máquina local.
+
+1. Clonar o Repositório:
+
+* No terminal, execute:
+```
+git clone https://github.com/micaellimaj/Caruaru_Saude
+cd caruaru_saude
+```
+
+2. Criar e Ativar um Ambiente Virtual:
+
+ * Windows:
+```
+python -m venv venv
+source venv/bin/activate  # Para Linux/macOS
+venv\Scripts\activate  # Para Windows
+```
+
+ * Linux/macOS:
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+
+3.  Instalar as Dependências:
+```
+pip install -r requirements.txt
+```
+
+4.  Configurar o Banco de Dados:
+```
+pip install -r requirements.txt
+```
+
+5. Criar um Superusuário (Opcional):
+ ```
+python manage.py createsuperuser
+```
+
+6. Executar o Servidor:
+ ```
+python manage.py runserver
+```
+Agora, acesse http://127.0.0.1:8000/ no navegador.
 
 ## 🏁 Conclusão:
 
