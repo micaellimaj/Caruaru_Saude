@@ -50,12 +50,9 @@ def login(request):
         if user:
             login_django(request, user)
 
-             # Verificar o tipo de usuário
             if hasattr(user, 'usuario'):
-                # É um usuário comum
                 return redirect('usuario')  
             elif hasattr(user, 'instituicao'):
-                # É uma instituição
                 return redirect('instituicao') 
             messages.error(request, 'Usuário não identificado')
             return render(request, 'login.html')
@@ -65,13 +62,12 @@ def login(request):
 
 @login_required(login_url="/auth/login/")
 def usuario(request):
-    user = request.user  # Pega o usuário logado
+    user = request.user
     try:
-        usuario = user.usuario  # Verifica se o usuário é um `Usuario`
+        usuario = user.usuario
     except Usuario.DoesNotExist:
         return render(request, 'login.html')
 
-    # Busca os agendamentos do usuário logado
     user_appointments = Appointment.objects.filter(user=user, is_booked=True)
 
     if request.method == "POST":
@@ -79,18 +75,15 @@ def usuario(request):
         email = request.POST.get('email')
         senha = request.POST.get('senha')
 
-        # Atualiza os dados do usuário
         user.username = username
         user.email = email
         if senha:
             user.set_password(senha)  
         user.save()
 
-        # Atualiza a sessão com o novo hash de senha, para não deslogar
         if senha:
             update_session_auth_hash(request, user)
 
-        # Redireciona após atualização
         return redirect('usuario')
 
     return render(request, 'usuarios/usuario.html', {'user': user, 'appointments': user_appointments})
@@ -100,49 +93,41 @@ def usuario(request):
 def lista_agendamentos_usuario(request):
     user = request.user
     try:
-        usuario = user.usuario  # Verifica se o usuário é um `Usuario`
+        usuario = user.usuario
     except Usuario.DoesNotExist:
         return render(request, 'login.html')
 
-
-    # Busca apenas os agendamentos marcados pelo usuário logado
     user_appointments = Appointment.objects.filter(user=request.user, is_booked=True)
 
-    # Renderiza a página com a lista de agendamentos
     return render(request, 'usuarios/usuario.html', {'appointments': user_appointments})
 
 @login_required(login_url="/auth/login/")
 def agendar_consulta(request, appointment_id):
     user = request.user
     try:
-        usuario = user.usuario  # Verifica se o usuário é um `Usuario`
+        usuario = user.usuario
     except Usuario.DoesNotExist:
         return render(request, 'login.html')
     
-    # Obtém o agendamento específico pelo ID
     appointment = get_object_or_404(Appointment, id=appointment_id)
 
     if request.method == "POST":
-        # Captura os dados do formulário
         service = request.POST.get('service')
         professional = request.POST.get('professional')
         datetime = request.POST.get('datetime')
 
-        # Cria um novo agendamento
         new_appointment = Appointment.objects.create(
             service=service,
             professional=professional,
             datetime=datetime,
-            is_booked=True,  # Marcar como reservado
-            user=user # Associar ao usuário logado
+            is_booked=True,
+            user=user
         )
 
-        # Redireciona para a página de consulta ou para a página de agendamentos do usuário
-        return redirect('usuarios/usuario')  # Altere para 'usuario' se quiser ir para a página do usuário
+        return redirect('usuarios/usuario')
 
-    # Renderiza a página de consulta, caso não seja um POST
     return render(request, 'consult/consulta.html', {'appointment': appointment})
 
 def logout_view(request):
     logout(request)
-    return redirect('index')  # Redireciona para a página desejada após o logout
+    return redirect('index')
