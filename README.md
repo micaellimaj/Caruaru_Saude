@@ -1,4 +1,4 @@
-# 💊 Caruaru Saúde - Plataforma de Serviços de Saúde 
+# 💟 Caruaru Saúde - Plataforma de Serviços de Saúde 
 <div align="center">
  
  <td><img src="/caruaru_saude/static/assets/img/caruarusaude2.jpeg" width="500" style="display: block; margin: 0 auto;" alt="Dinha"> </td>
