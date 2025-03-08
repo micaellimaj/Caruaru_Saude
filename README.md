@@ -137,6 +137,8 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
     ├── README.md                  <- Arquivo de introdução e documentação para desenvolvedores
     │ 
     ├── Documentação               <- Diretório contendo a documentação detalhada do projeto
+    │ 
+    ├── node_modules               <- Arquivos da biblioteca Leaflet, utilizada para renderizar mapas interativos.
     │
     ├── caruaru_saude              <- Diretório principal do projeto Django
     │   ├── caruaru_saude          <- Diretório contendo as configurações principais do projeto Django
@@ -185,7 +187,8 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
     │          ├── views.py        <- Lógica das views relacionadas aos usuários
     │          ├── migrations      <- Arquivos de migração do banco de dados para usuários
     │   ├── manage.py              <- Arquivo de gerenciamento do Django para comandos administrativos
-    │        
+    │   ├── requirements.txt       <- Arquivo com as importações utilizadas para rodar o projeto
+    │ 
     └──
 
 ## 🚀 Como Instalar e Executar o Projeto:
