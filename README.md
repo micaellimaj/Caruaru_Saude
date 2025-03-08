@@ -141,12 +141,14 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
     ├── node_modules               <- Arquivos da biblioteca Leaflet, utilizada para renderizar mapas interativos.
     │
     ├── caruaru_saude              <- Diretório principal do projeto Django
+    │ 
     │   ├── caruaru_saude          <- Diretório contendo as configurações principais do projeto Django
     │          ├── __init__.py     <- Arquivo que define este diretório como um pacote Python
     │          ├── asgi.py         <- Configuração do servidor ASGI para suporte a aplicações assíncronas
     │          ├── settings.py     <- Configurações gerais do projeto, como apps instalados e banco de dados
     │          ├── urls.py         <- Rotas principais do projeto
     │          ├── wsgi.py         <- Configuração do servidor WSGI para a aplicação
+    │ 
     │   ├── instituicao            <- Diretório contendo a lógica relacionada às funcionalidades de instituições
     │          ├── __init__.py     <- Arquivo que define este diretório como um pacote Python
     │          ├── admin.py        <- Registro e personalização do admin Django para instituições
@@ -156,6 +158,7 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
     │          ├── urls.py         <- Rotas específicas para instituições
     │          ├── views.py        <- Lógica das views relacionadas às instituições
     │          ├── migrations      <- Arquivos de migração do banco de dados para instituições
+    │ 
     │   ├── static                 <- Arquivos estáticos do projeto como CSS, JS, imagens, etc.
     │          ├── assets          <- Subdiretório contendo os recursos visuais e scripts do projeto
     │                ├── css       <- Arquivos de estilo CSS
@@ -164,6 +167,7 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
     │                ├── js        <- Scripts JavaScript para funcionalidades dinâmicas
     │                ├── readme    <- Documentação de referência dos arquivos estáticos
     │                ├── scss      <- Arquivos SCSS para estilização avançada
+    │
     │   ├── templates              <- Arquivos HTML organizados por categorias para renderização de páginas
     │          ├── consult         <- Diretório para templates de consulta
     │                 ├── consulta.html     <- Página de consulta de serviços e agendamentos
@@ -186,7 +190,9 @@ O projeto Caruaru Saúde é uma plataforma digital de saúde pública desenvolvi
     │          ├── urls.py         <- Rotas específicas para usuários
     │          ├── views.py        <- Lógica das views relacionadas aos usuários
     │          ├── migrations      <- Arquivos de migração do banco de dados para usuários
+    │
     │   ├── manage.py              <- Arquivo de gerenciamento do Django para comandos administrativos
+    │
     │   ├── requirements.txt       <- Arquivo com as importações utilizadas para rodar o projeto
     │ 
     └──
