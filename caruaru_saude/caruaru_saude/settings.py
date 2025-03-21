@@ -69,11 +69,23 @@ WSGI_APPLICATION = 'caruaru_saude.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'default': {  # Conexão com o AWS RDS (Banco Relacional)
+        'ENGINE': 'django.db.backends.postgresql',  # Pode ser MySQL ou outro
+        'NAME': 'caruaru_saude_rds',
+        'USER': 'instituicao',
+        'PASSWORD': '12345',
+        'HOST': 'seu_host_rds.amazonaws.com',
+        'PORT': '5432',  # Padrão do PostgreSQL (3306 para MySQL)
+    },
+    'mongo': {  # Conexão com o MongoDB Atlas
+        'ENGINE': 'djongo',
+        'NAME': 'nome_do_banco_mongo',
+        'CLIENT': {
+            'host': 'mongodb+srv://usuario:sua_senha@seu-cluster.mongodb.net/nome_do_banco_mongo?retryWrites=true&w=majority'
+        }
     }
 }
+
 
 
 # Password validation

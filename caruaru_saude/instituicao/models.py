@@ -21,12 +21,14 @@ class Appointment(models.Model):
         return f"Agendamento de {self.service} com {self.professional} em {self.datetime}"
     
 class Instituicao(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)  
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Relacionado ao Django (RDS)
     nome = models.CharField(max_length=100)
     endereco = models.CharField(max_length=255)
     telefone = models.CharField(max_length=20)
     whatsapp = models.CharField(max_length=20, blank=True, null=True)
     instagram = models.URLField(blank=True, null=True)
+
+     objects = models.DjongoManager()  # Gerenciador de objetos do MongoDB
 
     def __str__(self):
         return self.nome

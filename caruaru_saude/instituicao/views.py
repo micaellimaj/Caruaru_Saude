@@ -14,6 +14,7 @@ from .forms import InstitutionProfileForm, InstitutionDetailsForm
 from .models import Instituicao
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth import logout
+from django.db import connections
 
 
 # Cadastro da instituição
@@ -30,23 +31,23 @@ def cadastro_instituicao(request):
         whatsapp = request.POST.get('whatsapp')
         instagram = request.POST.get('instagram')
 
-        
-        user = User.objects.filter(username=username).first()
-        if user:
+        if User.objects.filter(username=username).exist():
             messages.error(request, 'Já existe um usuário com esse username.')
             return render(request, 'instituicao/cadastro_instituicao.html')
-
-        user = User.objects.create_user(username=username, email=email, password=senha)
         
-        instituicao = Instituicao.objects.create(
-            user=user,
-            nome=nome,
-            endereco=endereco,
-            telefone=telefone,
-            whatsapp=whatsapp,
-            instagram=instagram
-        )
+        user = User.objects.create_user(username=username, email=email, password=senha)
 
+        with connections['mongo'].cursor() as cursor:
+            instituicao = Instituicao.objects.create(
+                user=user,
+                nome=nome,
+                endereco=endereco,
+                telefone=telefone,
+                whatsapp=whatsapp,
+                instagram=instagram
+            )
+
+        messages.success(request, "Cadastro realizado com sucesso!")
         return render(request, "instituicao/login_i.html")
 
 # Login da instituição
@@ -61,6 +62,8 @@ def login_i(request):
 
         if user:
             login_django(request, user)
+            # Verifica se o usuário tem uma instituição associada no MongoDB
+            instituicao = Instituicao.objects.using('mongo').filter(user=user).first()
 
             if hasattr(user, 'instituicao'):
                 return redirect('instituicao') 
